@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Exemple de route :
+<routes>
+    <route url="/news.html" module="News" action="index" ></route>
+</routes>
+-->
+
+<!-- Avec des regex, les routes pourraient prendre le format suivant :
+    <route url="/news-(.+)-([0-9]+)\.html" module="News" action="show" vars="slug,id" />
+-->
