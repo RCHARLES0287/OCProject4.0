@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <routes>
     <route url="/test.zz" module="Accueil" action="test" ></route>
+    <route url="/toto.jpg" module="Accueil" action="test" ></route>
 </routes>
 
 
