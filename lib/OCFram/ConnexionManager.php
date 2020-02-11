@@ -6,8 +6,9 @@ class ConnexionManager extends Managers
     private $_VisitorPseudo = '';
     private $_VisitorPassword = '';
     private $_dbAdmins = [];
-    private $_AdminPseudo = '';
+    private $_AdminPseudos = '';
     private $_AdminPassword = '';
+    private $_DB = [];
 
     public function __construct()
     {
@@ -15,7 +16,21 @@ class ConnexionManager extends Managers
         setVisitorPassword();
         getDbAdmins();
         testAdmin();
+        $this->_DB = DatabaseConnection::DbConnect();
     }
+
+    public function getAdminsData()
+    {
+        $answerLogin = $this->_DB->query('SELECT login FROM blog_auteur_admins');
+
+        while ($this->_AdminPseudos = $answerLogin->fetch());
+
+        $answerPwd = $this->_DB->query('SELECT password FROM blog_auteur_admins');
+
+        while ($this->_AdminPassword = $answerPwd->fetch());
+    }
+
+
     public function setVisitorPseudo()
     {
         if(isset($_POST['login']) AND is_string($_POST['login']))
