@@ -8,7 +8,7 @@
   <body>
     <h2>Connection</h2>
 
-    <form action="" method="post">
+    <form method="post" action="ConnexionController.php">
         <label>Pseudo</label>
         <input type="text" name="login" /><br />
         
