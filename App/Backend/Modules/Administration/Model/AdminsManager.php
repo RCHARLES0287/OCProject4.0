@@ -1,4 +1,6 @@
 <?php
+namespace App\Backend\Modules\Administration\Model;
+
 class AdminsManager
 {
     public function getIdentity()
