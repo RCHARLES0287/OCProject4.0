@@ -45,7 +45,7 @@ class ChapterSetManager
 
 
     // A déplacer dans une classe ChapterGetManager, ou laisser ici en changeant le nom de la classe
-    public function getChapters()
+    public function getChapterss()
     {
         $db = new DatabaseConnection;
         $req = $db->query('SELECT title, chapter_number, `text`, release_date, released FROM chapters');
