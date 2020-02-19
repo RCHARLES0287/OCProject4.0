@@ -1,4 +1,6 @@
 <?php
+namespace App\Backend\Modules\Chapters\Model;
+
 class ChapterSetManager
 {
     public function setChapter($title, $chapter_number, $text, $release_date, $released)
@@ -28,7 +30,7 @@ class ChapterSetManager
     public function updateChapter($title, $chapter_number, $text, $released, $id)
     {
         $db = dbConnect();
-        $req = prepare('UPDATE chapters SET title = :title, chapter_number = :chapter_number, text = :text, released = :released WHERE id = :id');
+        $req = $db->prepare('UPDATE chapters SET title = :title, chapter_number = :chapter_number, text = :text, released = :released WHERE id = :id');
 
         $req->execute(array(
             'title' => $title,
@@ -42,16 +44,15 @@ class ChapterSetManager
     }
 
 
-    // A déplacer dans une classe ChapterGetManager, ou laisser ici en changeant le nom de la classe
-    public function getChapter()
+    public function getChapters()
     {
         $db = dbConnect();
         $req = $db->query('SELECT title, chapter_number, text, release_date, released FROM chapters');
+        $chaptersData = [];
 
-        while ($chaptersData = $req->fetch())
+        while ($chaptersData[] = $req->fetch())
+        {}
         return $chaptersData;
-
-        $req->closureCursor();
     }
 
 
