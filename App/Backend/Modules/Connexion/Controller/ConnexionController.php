@@ -1,6 +1,7 @@
 <?php
 namespace App\Backend\Modules\Connexion\Controller;
 
+use App\Backend\Modules\Connexion\Model\ConnexionManager;
 use \OCFram\BackController;
 use \OCFram\HTTPRequest;
 
@@ -10,6 +11,26 @@ class ConnexionController extends BackController
     private $_visitorPseudo = null;
     private $_visitorPassword = null;
 
+
+    public function executeIdentification(HTTPRequest $request)
+    {
+        if($request->postExists('submit_button'))
+        {
+            var_dump($request->postData('login'), $request->postData('password'));
+            $this->page->addVar('prevLogin', $request->postData('login'));
+
+            if(is_string($_POST['login']) && is_string($_POST['password']))
+            {
+                $this->_visitorPseudo = $_POST['login'];
+                $this->_visitorPassword = password_hash('$_POST[password]', PASSWORD_DEFAULT);
+
+                $connexionManager = new ConnexionManager();
+                $dbAdminsData = $connexionManager->getterAdminsData();
+                var_dump($dbAdminsData);
+            }
+
+        }
+    }
 
     public function executeIndex(HTTPRequest $request)
     {
@@ -64,7 +85,7 @@ class ConnexionController extends BackController
     public function testAdmin()
     {
         $dbInfo [] = getAdminsData();
-        
+
         if(in_array($this->_visitorPseudo , $this->_dbAdmins))
         {
             session_start();

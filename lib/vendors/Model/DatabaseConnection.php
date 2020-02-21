@@ -1,9 +1,12 @@
 <?php
 namespace lib\vendors\Model;
 
+use Exception;
+use PDO;
+
 class DatabaseConnection
 {
-    public function DbConnect()
+    static public function dbConnect()
     {
         try
         {

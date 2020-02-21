@@ -6,6 +6,12 @@ class Page extends ApplicationComponent
   protected $contentFile;
   protected $vars = [];
 
+    /**
+     * Permet d'ajouter une variable à la vue
+     *
+     * @param string $var c'est le nom de la variable
+     * @param mixed $value c'est la valeur de la variable
+     */
   public function addVar($var, $value)
   {
     if (!is_string($var) || is_numeric($var) || empty($var))
@@ -23,7 +29,7 @@ class Page extends ApplicationComponent
       throw new \RuntimeException('La vue spécifiée n\'existe pas');
     }
 
-    $user = $this->app->user();
+    /*$user = $this->app->user();*/
 
     extract($this->vars);
 
@@ -46,3 +52,4 @@ class Page extends ApplicationComponent
     $this->contentFile = $contentFile;
   }
 }
+

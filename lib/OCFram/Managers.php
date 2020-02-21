@@ -1,32 +1,32 @@
 <?php
+
 namespace lib\OCFram;
+
+use InvalidArgumentException;
+use lib\vendors\Model\DatabaseConnection;
 
 class Managers
 {
-  protected $api = null;
-  protected $db = null;
-  protected $managers = [];
+    protected $db = null;
+    protected $managers = [];
 
-  public function __construct($api)
-  {
-    $this->api = $api;
-    $this->db = DatabaseConnection::DbConnect();
-  }
-
-  public function getManagerOf($module)
-  {
-    if (!is_string($module) || empty($module))
+    public function __construct()
     {
-      throw new \InvalidArgumentException('Le module spécifié est invalide');
+        $this->db = DatabaseConnection::dbConnect();
     }
 
-    if (!isset($this->managers[$module]))
+    public function getManagerOf($module)
     {
-      $manager = '\\Model\\'.$module.'Manager'.$this->api;
+        if (!is_string($module) || empty($module)) {
+            throw new InvalidArgumentException('Le module spécifié est invalide');
+        }
 
-      $this->managers[$module] = new $manager($this->db);
+        if (!isset($this->managers[$module])) {
+            $manager = '\\Model\\' . $module . 'Manager';
+
+            $this->managers[$module] = new $manager($this->db);
+        }
+
+        return $this->managers[$module];
     }
-
-    return $this->managers[$module];
-  }
 }

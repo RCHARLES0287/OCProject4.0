@@ -1,6 +1,8 @@
 <?php
 namespace App\Backend\Modules\Connexion\Model;
 
+use lib\OCFram\Managers;
+
 class ConnexionManager extends Managers
 {
     //private $_visitorPseudo = null;
@@ -8,25 +10,38 @@ class ConnexionManager extends Managers
     private $_dbAdmins = null;
     private $_adminPseudos = null;
     private $_adminPassword = null;
-    private $_dB = null;
 
     public function __construct()
     {
-        setVisitorPseudo();
-        setVisitorPassword();
-        getDbAdmins();
-        testAdmin();
+        parent::__construct();
+        $this->getAdminsData();
+//        setVisitorPseudo();
+//        setVisitorPassword();
+//        getDbAdmins();
+//        testAdmin();
     }
 
     public function getAdminsData()
     {
-        $answerLogin = $this->_dB->query('SELECT login FROM blog_auteur_admins');
+        $answerAdminsData = $this->db->query('SELECT login, password FROM blog_auteur_admins');
+
+        while ($this->_dbAdmins[] = $answerAdminsData->fetch());
+
+
+        /*
+        $answerLogin = $this->db->query('SELECT login FROM blog_auteur_admins');
 
         while ($this->_adminPseudos[] = $answerLogin->fetch());
 
-        $answerPwd = $this->_dB->query('SELECT password FROM blog_auteur_admins');
+        $answerPwd = $this->db->query('SELECT password FROM blog_auteur_admins');
 
         while ($this->_adminPassword[] = $answerPwd->fetch());
+        */
+    }
+
+    public function getterAdminsData()
+    {
+        return $this->_dbAdmins;
     }
 
 
