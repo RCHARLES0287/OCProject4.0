@@ -1,6 +1,6 @@
 RewriteEngine On
 
-#RewriteRule ^admin/ bootstrap.php?app=Backend [QSA,L]
+RewriteRule ^admin/ bootstrap.php?app=Backend [QSA,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 
