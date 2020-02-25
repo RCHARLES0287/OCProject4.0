@@ -7,6 +7,6 @@ class ChaptersController extends BackController
 {
     public function saveChapter ()
     {
-        
+
     }
 }

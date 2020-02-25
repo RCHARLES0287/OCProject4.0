@@ -1,9 +1,9 @@
 <?php
 
-namespace lib\OCFram;
+namespace OCFram;
 
 use InvalidArgumentException;
-use lib\vendors\Model\DatabaseConnection;
+use Model\DatabaseConnection;
 
 class Managers
 {

@@ -1,7 +1,7 @@
 <?php
 namespace App\Backend\Modules\Connexion\Model;
 
-use lib\OCFram\Managers;
+use OCFram\Managers;
 
 class ConnexionManager extends Managers
 {

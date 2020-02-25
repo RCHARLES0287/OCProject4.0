@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 namespace App\Backend\Modules\Connexion\Controller;
 
 use App\Backend\Modules\Connexion\Model\ConnexionManager;

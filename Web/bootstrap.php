@@ -2,6 +2,8 @@
 ini_set("display_errors", "1");
 error_reporting(E_ALL & ~E_NOTICE);
 
+session_start();
+
 const DEFAULT_APP = 'Frontend';
 
 // Si l'application n'est pas valide, on va charger l'application par défaut qui se chargera de générer une erreur 404

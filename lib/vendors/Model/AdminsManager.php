@@ -1,5 +1,5 @@
 <?php
-namespace lib\vendors\Model;
+namespace Model;
 
 class AdminsManager
 {
