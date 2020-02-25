@@ -1,4 +1,5 @@
 <?php
+session_start();
 namespace App\Backend\Modules\Connexion\Controller;
 
 use App\Backend\Modules\Connexion\Model\ConnexionManager;
@@ -22,11 +23,30 @@ class ConnexionController extends BackController
             if(is_string($_POST['login']) && is_string($_POST['password']))
             {
                 $this->_visitorPseudo = $_POST['login'];
-                $this->_visitorPassword = password_hash('$_POST[password]', PASSWORD_DEFAULT);
+                $this->_visitorPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
                 $connexionManager = new ConnexionManager();
                 $dbAdminsData = $connexionManager->getterAdminsData();
                 var_dump($dbAdminsData);
+
+                foreach ($dbAdminsData as $value)
+                {
+                    if ($this->_visitorPseudo === $value)
+                    {
+                        if ($this->_visitorPassword === $value[key])        // Syntaxe à vérifier
+                        {
+                            $_SESSION['connectionStatus'] = 'connected';
+                        }
+                        else
+                        {
+                            $_SESSION['connectionStatus'] = 'notConnected';
+                        }
+                    }
+                    else
+                    {
+                        $_SESSION['connectionStatus'] = 'notConnected';
+                    }
+                }
             }
 
         }
@@ -104,3 +124,4 @@ class ConnexionController extends BackController
     }
 
 }
+
