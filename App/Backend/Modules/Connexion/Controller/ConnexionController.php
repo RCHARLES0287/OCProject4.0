@@ -22,8 +22,8 @@ class ConnexionController extends BackController
 
             if(is_string($_POST['login']) && is_string($_POST['password']))
             {
-                $this->_visitorPseudo = $_POST['login'];
-                $this->_visitorPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                $visitorPseudo = $_POST['login'];
+                $visitorPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
                 $connexionManager = new ConnexionManager();
                 $dbAdminsData = $connexionManager->getterAdminsData();
@@ -31,9 +31,9 @@ class ConnexionController extends BackController
 
                 foreach ($dbAdminsData as $value)
                 {
-                    if ($this->_visitorPseudo === $value)
+                    if ($visitorPseudo === $value['login'])
                     {
-                        if ($this->_visitorPassword === $value[key])        // Syntaxe à vérifier
+                        if ($visitorPassword === $value['password'])
                         {
                             $_SESSION['connectionStatus'] = 'connected';
                         }
