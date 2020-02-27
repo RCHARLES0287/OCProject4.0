@@ -20,16 +20,16 @@
       <nav>
         <ul>
           <li><a href="/">Accueil</a></li>
-          <?php if ($user->isAuthenticated()) { ?>
+          <?php //if ($user->isAuthenticated()) { ?>
           <li><a href="/admin/">Admin</a></li>
           <li><a href="/admin/news-insert.html">Ajouter une news</a></li>
-          <?php } ?>
+          <?php //} ?>
         </ul>
       </nav>
       
       <div id="content-wrap">
         <section id="main">
-          <?php if ($user->hasFlash()) echo '<p style="text-align: center;">', $user->getFlash(), '</p>'; ?>
+          <?php //if ($user->hasFlash()) echo '<p style="text-align: center;">', $user->getFlash(), '</p>'; ?>
           
           <?= $content ?>
         </section>
