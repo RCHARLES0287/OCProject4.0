@@ -1,5 +1,5 @@
 <?php
-namespace App\Backend\Modules\Connexion\Model;
+namespace Model;
 
 use OCFram\Managers;
 

@@ -2,9 +2,10 @@
 
 namespace App\Backend\Modules\Connexion\Controller;
 
-use App\Backend\Modules\Connexion\Model\ConnexionManager;
-use \OCFram\BackController;
-use \OCFram\HTTPRequest;
+use Model\ConnexionManager;
+use OCFram\BackController;
+use OCFram\HTTPRequest;
+
 
 class ConnexionController extends BackController
 {
