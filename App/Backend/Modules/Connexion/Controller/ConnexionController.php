@@ -18,10 +18,32 @@ class ConnexionController extends BackController
     {
         if($request->postExists('submit_button'))
         {
+            $connexionManager = new ConnexionManager();
+            $connexionManager->compareVisitorWithDb($request->postData('login'), password_hash($request->postData('password'), PASSWORD_DEFAULT));
+
+            if($connexionManager->_visitorStatus = 'authentified')
+            {
+                var_dump('Le visiteur est bien authentifié');
+            }
+            else
+            {
+                var_dump('Le visiteur n\'a pas pu être authentifié');
+            }
+        }
+    }
+
+
+
+
+
+/*    public function executeIdentification(HTTPRequest $request)
+    {
+        if($request->postExists('submit_button'))
+        {
             var_dump($request->postData('login'), $request->postData('password'));
             $this->page->addVar('prevLogin', $request->postData('login'));
 
-            if(is_string($_POST['login']) && is_string($_POST['password']))
+            if(!empty($_POST['login']) && !empty($_POST['password']))
             {
                 $visitorPseudo = $_POST['login'];
                 $visitorPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -51,7 +73,7 @@ class ConnexionController extends BackController
             }
 
         }
-    }
+    }*/
 
     public function executeIndex(HTTPRequest $request)
     {

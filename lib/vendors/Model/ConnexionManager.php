@@ -10,11 +10,12 @@ class ConnexionManager extends Managers
     private $_dbAdmins = null;
     private $_adminPseudos = null;
     private $_adminPassword = null;
+    public $_visitorStatus = null;
 
     public function __construct()
     {
         parent::__construct();
-        $this->getAdminsData();
+//        $this->getAdminsData();
 //        setVisitorPseudo();
 //        setVisitorPassword();
 //        getDbAdmins();
@@ -38,6 +39,28 @@ class ConnexionManager extends Managers
         while ($this->_adminPassword[] = $answerPwd->fetch());
         */
     }
+
+    public function compareVisitorWithDb ($visitorLogin, $visitorPwd)
+    {
+        if(!empty($visitorLogin) && !empty($visitorPwd))
+        {
+            $answerAdminsData = $this->db->query('SELECT login, password FROM blog_auteur_admins WHERE login="JohnDoe"');
+            $dbAdmin[] = $answerAdminsData->fetch();
+
+            if($dbAdmin[$visitorLogin] = $visitorPwd)
+            {
+                $this->_visitorStatus = 'authentified';
+            }
+            else
+            {
+                $this->_visitorStatus = 'rejected';
+            }
+        }
+    }
+
+
+
+
 
     public function getterAdminsData()
     {
