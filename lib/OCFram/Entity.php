@@ -51,7 +51,7 @@ abstract class Entity implements \ArrayAccess
   {
     if (isset($this->$var) && is_callable([$this, $var]))
     {
-      return $this->$var();
+      return $this->$var(); // c'est en fait le getter que l'on va appeler ici. On peut d'ailleurs appeler les getters "getVar()" par exemple.
     }
   }
 
