@@ -2,6 +2,7 @@
 namespace Model;
 
 use OCFram\Managers;
+use Entity\AdminEntity;
 
 class ConnexionManager extends Managers
 {
@@ -49,18 +50,23 @@ class ConnexionManager extends Managers
             $answerAdminsData->execute(array('loginVisiteur' => $visitorLogin));
             $dbAdmin = $answerAdminsData->fetch();
 
-            var_dump($dbAdmin);
+//            var_dump($dbAdmin);
 
-            $administratorFeatures = new AdminEntity($dbAdmins);
-            var_dump($administratorFeatures->login());
+            if ($dbAdmin === false)
+            {
+                return false;
+            }
+
+            $administratorFeatures = new AdminEntity($dbAdmin);
+//            var_dump($administratorFeatures);
 
             if(password_verify($visitorPwd, $administratorFeatures->password()))
             {
-                $this->_visitorStatus = true;
+                return $administratorFeatures;
             }
             else
             {
-                $this->_visitorStatus = false;
+                return false;
             }
 
             /*if(password_verify($visitorPwd, $dbAdmin['password']))
@@ -72,6 +78,7 @@ class ConnexionManager extends Managers
                 $this->_visitorStatus = false;
             }*/
         }
+        return false;
     }
 
     public function getDbAdmin()
@@ -114,7 +121,7 @@ class ConnexionManager extends Managers
     }
 
     // A effacer une fois correctement implémenté dans ConnexionController
-    public function testAdmin()
+    /*public function testAdmin()
     {
         if(in_array($this->_visitorPseudo , $this->_dbAdmins))
         {
@@ -131,6 +138,6 @@ class ConnexionManager extends Managers
                 // renvoyer vers la page d'accueil du site
             }
         }
-    }
+    }*/
 
 }

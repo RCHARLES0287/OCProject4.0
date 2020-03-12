@@ -2,7 +2,7 @@
 
 namespace App\Backend\Modules\Connexion\Controller;
 
-use Model\AdminEntity;
+//use Model\AdminEntity;
 use Model\ConnexionManager;
 use OCFram\BackController;
 use OCFram\HTTPRequest;
@@ -20,7 +20,7 @@ class ConnexionController extends BackController
         if($request->postExists('submit_button'))
         {
             $connexionManager = new ConnexionManager();
-            $connexionManager->compareVisitorWithDb($request->postData('login'), $request->postData('password'));
+            $adminEntity = $connexionManager->compareVisitorWithDb($request->postData('login'), $request->postData('password'));
 
             /*$dbAdmins = $connexionManager->getDbAdmin();
             var_dump($dbAdmins);
@@ -28,7 +28,7 @@ class ConnexionController extends BackController
 
 
 
-            if($connexionManager->_visitorStatus == true)
+            if($adminEntity !== false)
             {
                 var_dump('Le visiteur est bien authentifié');
             }

@@ -1,13 +1,19 @@
 <?php
 
 
-namespace Model;
+namespace Entity;
 
 
 use OCFram\Entity;
 
 class AdminEntity extends Entity
 {
+    private $login;
+    private $password;
+    private $status;
+    private $creationDate;
+
+
     public function __construct(array $donnees = [])
     {
         parent::__construct($donnees);
@@ -53,7 +59,10 @@ class AdminEntity extends Entity
 
     public function setCreationDate($creationDate)
     {
-        $this->creationDate = $creationDate;
+        if ($creationDate instanceof \DateTime)
+        {
+            $this->creationDate = $creationDate;
+        }
     }
 
     public function creationDate()
