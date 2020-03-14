@@ -1,8 +1,18 @@
 <?php
 namespace Model;
 
-class ChapterSetManager
+use OCFram\Managers;
+use Entity\AdminEntity;
+
+class ChapterSetManager extends Managers
 {
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+
     public function setChapter($title, $chapter_number, $text, $release_date, $released)
     {
         $db = new DatabaseConnection;
