@@ -5,27 +5,27 @@ use \OCFram\Application;
 
 class BackendApplication extends Application
 {
-  public function __construct()
-  {
-    parent::__construct();
-
-    $this->name = 'Backend';
-  }
-
-  public function run()
-  {
-    //if ($this->user->isAuthenticated())
-    //{
-      $controller = $this->getController();
-    /*}
-    else
+    public function __construct()
     {
-      $controller = new Modules\Connexion\ConnexionController($this, 'Connexion', 'index');
-    }*/
+        parent::__construct();
 
-    $controller->execute();
+        $this->name = 'Backend';
+    }
 
-    $this->httpResponse->setPage($controller->page());
-    $this->httpResponse->send();
-  }
+    public function run()
+    {
+        //if ($this->user->isAuthenticated())
+        //{
+        $controller = $this->getController();
+        /*}
+        else
+        {
+          $controller = new Modules\Connexion\ConnexionController($this, 'Connexion', 'index');
+        }*/
+
+        $controller->execute();
+
+        $this->httpResponse->setPage($controller->page());
+        $this->httpResponse->send();
+    }
 }
