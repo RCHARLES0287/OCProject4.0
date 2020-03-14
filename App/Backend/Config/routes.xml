@@ -3,6 +3,7 @@
 <routes>
     <route url="/admin/identification" module="Connexion" action="identification"/>
     <route url="/admin/addchapters" module="Chapters" action="addchapters"/>
+    <route url="/admin/showallchapters" module="Chapters" action="showallchapters"/>
 </routes>
 <!-- Exemple de route :
 <routes>

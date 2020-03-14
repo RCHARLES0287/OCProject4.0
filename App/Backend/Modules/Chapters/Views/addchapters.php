@@ -8,11 +8,10 @@
 <body>
 <h2>Ajout d'un chapitre</h2>
 
-<h3>Le titre du chapitre se trouvera ici</h3>
+<h3>On trouvera les titres de chapitres</h3>
 
-<p>Le texte du chapitre se trouvera là</p>
+<h3>On trouvera le texte des chapitres</h3>
 
-<button type="submit">Enregistrer le chapitre</button>
 </body>
 </html>
 
