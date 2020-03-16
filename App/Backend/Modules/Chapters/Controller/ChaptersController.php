@@ -1,9 +1,10 @@
 <?php
 namespace App\Backend\Modules\Chapters\Controller;
 
-
 use Model\ChaptersManager;
+use OCFram\BackController;
 use OCFram\HTTPRequest;
+
 
 class ChaptersController extends BackController
 {
@@ -11,6 +12,8 @@ class ChaptersController extends BackController
     {
         $chaptersManager = new ChaptersManager();
 
-        var_dump($chaptersManager);
+        $allChaptersData = $chaptersManager->getAllChapters();
+
+        var_dump($allChaptersData);
     }
 }
