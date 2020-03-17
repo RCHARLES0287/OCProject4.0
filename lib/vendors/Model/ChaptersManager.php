@@ -4,7 +4,7 @@
 namespace Model;
 
 
-use Entity\ChaptersEntity;
+use Entity\ChapterEntity;
 use OCFram\Managers;
 
 class ChaptersManager extends Managers
@@ -21,7 +21,10 @@ class ChaptersManager extends Managers
 
         $dbChapters = $answerChaptersData->fetchAll();
 
-        $chaptersFeatures = new ChaptersEntity($dbChapters);
+        foreach ($dbChapters as $chapter)
+        {
+            $chaptersFeatures[] = new ChapterEntity($chapter);
+        }
 
         return $chaptersFeatures;
 
