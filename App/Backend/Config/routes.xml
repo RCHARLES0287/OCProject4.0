@@ -4,6 +4,7 @@
     <route url="/admin/identification" module="Connexion" action="identification"/>
     <route url="/admin/addchapters" module="Chapters" action="addchapters"/>
     <route url="/admin/showallchapters" module="Chapters" action="showallchapters"/>
+    <route url="/admin/editonechapter" module="Chapters" action="editonechapter"/>
 </routes>
 <!-- Exemple de route :
 <routes>

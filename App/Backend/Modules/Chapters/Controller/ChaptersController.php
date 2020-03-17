@@ -8,12 +8,17 @@ use OCFram\HTTPRequest;
 
 class ChaptersController extends BackController
 {
-    public function executeShowallchapters (HTTPRequest $request)
+    public function executeShowallchapters ()
     {
         $chaptersManager = new ChaptersManager();
 
         $allChaptersData = $chaptersManager->getAllChapters();
 
         var_dump($allChaptersData);
+    }
+
+    public function executeEditonechapter ()
+    {
+
     }
 }
