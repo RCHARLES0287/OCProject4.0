@@ -13,6 +13,21 @@ body
 }
 
 
+.menu_entete
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+
+
+h1
+{
+    color: red;
+}
+
 .bouton_menu_backend
 {
     width: 200px;
