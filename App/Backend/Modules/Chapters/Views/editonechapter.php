@@ -17,7 +17,7 @@
     <label for="chapter_title">Titre du chapitre</label>
     <input required id="chapter_title" type="text" name="chapter_title" /><br /><br />
 
-    <label for="chapter_content">Titre du chapitre</label>
+    <label for="chapter_content">Texte du chapitre</label>
     <input required id="chapter_content" type="text" name="chapter_content" /><br /><br />
 
     <input name="submit_button" type="submit" value="Enregistrer" />
@@ -29,5 +29,5 @@
 </body>
 </html>
 
-<!-- route : http://blogauteur.romaincharlesdemonstrator.ovh/admin/showallchapters
- <route url="/admin/showallchapters" module="Chapters" action="showallchapters"/>-->
+<!-- route : http://blogauteur.romaincharlesdemonstrator.ovh/admin/editonechapter
+ <route url="/admin/editonechapter" module="Chapters" action="editonechapter"/>-->

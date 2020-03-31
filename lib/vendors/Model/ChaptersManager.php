@@ -32,4 +32,18 @@ class ChaptersManager extends Managers
         return $chaptersFeatures;
 
     }
+
+    public function getOneChapter($chapNumber)
+    {
+        $answerChapterData = $this->db->prepare('SELECT id, title, chapter_number, text, release_date, released FROM blog_auteur_chapters WHERE chapter_number=$chapNumber');
+        $answerChapterData->execute();
+
+        $chapterFeatures = [];
+
+        $dbChapter = $answerChapterData->fetch();
+
+        $chapterFeatures[] = new ChapterEntity($dbChapter);
+
+        return $chapterFeatures;
+    }
 }
