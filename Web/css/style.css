@@ -10,6 +10,7 @@ body
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 header
@@ -93,8 +94,8 @@ footer
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    position: absolute;
-    bottom: 0px;
+    position: fixed;
+    bottom: 0;
 }
 
 .copyright
