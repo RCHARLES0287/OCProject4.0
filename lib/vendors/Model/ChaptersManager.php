@@ -46,4 +46,18 @@ class ChaptersManager extends Managers
 
         return $chapterFeatures;
     }
+
+    Public function saveOneChapter($chapterNumber, $chapterTitle, $chapterContent, $releaseDate)
+    {
+        if(!empty($chapterNumber) && !empty($chapterTitle) && !empty($chapterContent))
+        {
+            $req = $this->db->prepare('INSERT INTO blog_auteur_chapters(title, chapter_number, text, release_date) VALUES(:title, :chapter_number, :text, :release_date)');
+            $req->execute(array(
+                'title' => $title,
+                'chapter_number' => $chapter_number,
+                'text' => $chapterContent,
+                'release_date' => $releaseDate
+            ));
+        }
+    }
 }

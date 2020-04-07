@@ -21,6 +21,11 @@ class ChaptersController extends BackController
 
     public function executeEditonechapter (HTTPRequest $request)
     {
+        if($request->postExists('submit_button'))
+        {
+            $chaptersManager = new ChaptersManager();
+            $chaptersManager->saveOneChapter($request->postData('chap_number'), $request->postData('chapter_title'), $request->postData('chapter_content'), 'date à compléter');
 
+        }
     }
 }
