@@ -5,11 +5,12 @@
         <!--      Fontawesome   -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
       <link rel="stylesheet" href="/css/style.css"/>
+        <!--      Script du CDN TinyMCE-->
+      <script src="https://cdn.tiny.cloud/1/hgsrcotr84d8b32tbwy0opsqe12o7cimt1j2ne74vioz1qhi/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
       <title>Mon blog d'auteur</title>
   </head>
   
   <body>
-
       <script src="/burgermenu.js"></script>
 
       <header>
