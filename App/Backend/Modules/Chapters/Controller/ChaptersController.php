@@ -23,19 +23,19 @@ class ChaptersController extends BackController
 
     public function executeEditonechapter (HTTPRequest $request)
     {
-        if($request->postExists('submit_button'))
+        if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
         {
             $newChapterContent [] = [
-                $request->postData('chap_number'),
-                $request->postData('chapter_title'),
-                $request->postData('chapter_content'),
-                date('d M Y')
+                'chapter_number' => $request->postData('chap_number'),
+                'title' => $request->postData('chapter_title'),
+                'text' => $request->postData('chapter_content'),
+                'release_date' => date('d M Y')
             ];
 
             var_dump('premier test', $newChapterContent);
 
 
-            $newChapter[] = new ChapterEntity($newChapterContent);
+            $newChapter = new ChapterEntity($newChapterContent);
 
             var_dump('deuxième test', $newChapter);
 
@@ -43,7 +43,14 @@ class ChaptersController extends BackController
             $chaptersManager = new ChaptersManager();
             $chaptersManager->saveOneChapter($newChapter);
 
+            header('Location: http://blogauteur.romaincharlesdemonstrator.ovh/admin/showallchapters');
+
         }
+    }
+
+    public function executeDeleteonechapter (HTTPRequest $request)
+    {
+
     }
 }
 
