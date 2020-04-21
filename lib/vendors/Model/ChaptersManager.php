@@ -47,8 +47,18 @@ class ChaptersManager extends Managers
         return $chapterFeatures;
     }
 
-    Public function saveOneChapter($newChapterEntity)
+    /**
+     * @param ChapterEntity $newChapterEntity L'entité chapitre
+     * @throws \Exception
+     */
+    Public function saveOneChapter(ChapterEntity $newChapterEntity)
     {
+//        var_dump($newChapterEntity->title());
+
+        $testChapExist = $this->checkChapterNumber($newChapterEntity->chapter_number());
+
+        var_dump('test du numéro de chapitre', $testChapExist);
+        if ($testChapExist === true)
         {
             $req = $this->db->prepare('INSERT INTO blog_auteur_chapters(title, chapter_number, text, release_date) VALUES(:title, :chapter_number, :text, :release_date)');
             $req->execute(array(
@@ -58,5 +68,52 @@ class ChaptersManager extends Managers
                 'release_date' => $newChapterEntity->release_date()
             ));
         }
+        else
+        {
+            throw new \Exception('Le numéro de chapitre choisi existe déjà');
+        }
+    }
+
+    private function checkChapterNumber($chapterNumber)
+    {
+        $dbNumber = $this->db->prepare('SELECT chapter_number FROM blog_auteur_chapters WHERE chapter_number=$chapterNumber');
+        $dbNumber->execute();
+
+        $numberTest = $dbNumber->fetch();
+        if($numberTest === $chapterNumber)
+        {
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }
+
+
+
+/*
+try
+{
+    $this->checkChapterNumber($newChapterEntity->chapter_number());
+}
+catch
+{
+
+}
+
+
+private function checkChapterNumber($chapterNumber)
+{
+    $dbNumber = $this->db->prepare('SELECT chapter_number FROM blog_auteur_chapters WHERE chapter_number=$chapterNumber');
+    $dbNumber->execute();
+
+    $numberTest= $dbNumber->fetch();
+    if($numberTest === $chapterNumber){
+        throw new \Exception('Le numéro de chapitre choisi existe déjà');
+    }
+    else{
+        return true;
+    }
+}*/
+

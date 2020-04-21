@@ -25,7 +25,7 @@ class ChaptersController extends BackController
     {
         if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
         {
-            $newChapterContent [] = [
+            $newChapterContent = [
                 'chapter_number' => $request->postData('chap_number'),
                 'title' => $request->postData('chapter_title'),
                 'text' => $request->postData('chapter_content'),
@@ -37,7 +37,7 @@ class ChaptersController extends BackController
 
             $newChapter = new ChapterEntity($newChapterContent);
 
-            var_dump('deuxième test', $newChapter);
+//            var_dump('deuxième test', $newChapter);
 
 
             $chaptersManager = new ChaptersManager();
