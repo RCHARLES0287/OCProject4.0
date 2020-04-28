@@ -31,6 +31,19 @@
           <h2>Ici se trouve le haut de page</h2>
 
 
+          <!--
+          echo 'Le echo fonctionne';
+
+          function (HTTPRequest $request)
+          {
+              if($request->postExists('errorMessage'))
+              {
+                  echo $request->postData('errorMessage');
+              }
+
+          }
+          -->
+
           <?= $content ?>
 
 
