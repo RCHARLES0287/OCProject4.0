@@ -6,6 +6,7 @@ namespace Model;
 
 use Entity\ChapterEntity;
 use OCFram\Managers;
+use PDO;
 
 class ChaptersManager extends Managers
 {
@@ -74,13 +75,31 @@ class ChaptersManager extends Managers
         }
     }
 
+
+    public function deleteOneChapter(ChapterEntity $newChapterEntity)
+    {
+        $testChapExist = $this->checkChapterNumber($newChapterEntity->chapter_number());
+
+        if ($testChapExist === false)
+        {
+            $req = $this->db->prepare('DELETE * FROM blog_auteur_chapters WHERE chapter_number=:chapterNumber');
+            $req->bindValue('chapterNumber', $testChapExist, PDO::PARAM_INT);
+            $req->execute();
+        }
+    }
+
+
+
+
     private function checkChapterNumber($chapterNumber)
     {
-        $dbNumber = $this->db->prepare('SELECT chapter_number FROM blog_auteur_chapters WHERE chapter_number=$chapterNumber');
+        $dbNumber = $this->db->prepare("SELECT chapter_number FROM blog_auteur_chapters WHERE chapter_number=:chapterNumber");
+
+        $dbNumber->bindValue('chapterNumber', $chapterNumber, PDO::PARAM_INT);
         $dbNumber->execute();
 
-        $numberTest = $dbNumber->fetch();
-        if($numberTest === $chapterNumber)
+        $numberTest = $dbNumber->fetch(PDO::FETCH_COLUMN);
+        if($numberTest == $chapterNumber)
         {
             return false;
         }
@@ -91,13 +110,12 @@ class ChaptersManager extends Managers
 }
 
 
-
 /*
 try
 {
     $this->checkChapterNumber($newChapterEntity->chapter_number());
 }
-catch
+catch()
 {
 
 }
@@ -112,8 +130,6 @@ private function checkChapterNumber($chapterNumber)
     if($numberTest === $chapterNumber){
         throw new \Exception('Le numéro de chapitre choisi existe déjà');
     }
-    else{
-        return true;
-    }
+
 }*/
 

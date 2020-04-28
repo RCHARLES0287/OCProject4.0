@@ -29,7 +29,7 @@ class ChaptersController extends BackController
                 'chapter_number' => $request->postData('chap_number'),
                 'title' => $request->postData('chapter_title'),
                 'text' => $request->postData('chapter_content'),
-                'release_date' => date('d M Y')
+                'release_date' => date('Y-m-d')
             ];
 
             var_dump('premier test', $newChapterContent);
@@ -50,7 +50,13 @@ class ChaptersController extends BackController
 
     public function executeDeleteonechapter (HTTPRequest $request)
     {
-
+        if($request->postExists('delete_chapter_button'))
+        {
+//            echo $chapter->chapter_number();
+            $chapterDelete = new ChaptersManager();
+//            Préciser le paramètre
+            $chapterDelete->deleteOneChapter();
+        }
     }
 }
 

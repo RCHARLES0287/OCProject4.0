@@ -26,6 +26,13 @@
             <?= $chapter->text() ?>
             <!--        Titre du chapitre : --><?//= $chapter->title() ?><!--<br/>-->
 
+            <form method="post" action="/admin/deleteonechapter">
+                <input name="delete_chapter_button" type="button" value="Supprimer">
+            </form>
+
+            <form method="post" action="/admin/editonechapter">
+                <input name="modify_chapter_button" type="button" value="Modifier">
+            </form>
         </li>
 
         <?php
@@ -40,3 +47,4 @@
 
 <!-- route : http://blogauteur.romaincharlesdemonstrator.ovh/admin/showallchapters
  <route url="/admin/showallchapters" module="Chapters" action="showallchapters"/>-->
+ 
