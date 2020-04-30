@@ -12,7 +12,7 @@
         <input required id="chapter_title" type="text" name="chapter_title" /><br /><br />
 
         <label for="chapter_content">Texte du chapitre</label>
-        <textarea required class="tiny_mce" id="chapter_content" type="text" name="chapter_content" ></textarea><br /><br />
+        <textarea class="tiny_mce" id="chapter_content" type="text" name="chapter_content" ></textarea><br /><br />
 
         <input name="submit_button" type="submit" value="Enregistrer" />
 
@@ -20,16 +20,16 @@
     </form>
 
 
-    <!--<script>
+    <script>
         tinymce.init({
-            selector: '.tiny_mce',
+            selector: 'textarea',
             plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
             toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
             toolbar_mode: 'floating',
             tinycomments_mode: 'embedded',
             tinycomments_author: 'Author name',
         });
-    </script>-->
+    </script>
 
 
 <!-- route : http://blogauteur.romaincharlesdemonstrator.ovh/admin/editonechapter
