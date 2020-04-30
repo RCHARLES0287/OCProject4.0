@@ -82,7 +82,7 @@ class ChaptersManager extends Managers
 
         if ($testChapExist === false)
         {
-            $req = $this->db->prepare('DELETE * FROM blog_auteur_chapters WHERE chapter_number=:chapterNumber');
+            $req = $this->db->prepare('DELETE FROM blog_auteur_chapters WHERE chapter_number=:chapterNumber');
             $req->bindValue('chapterNumber', $testChapExist, PDO::PARAM_INT);
             $req->execute();
         }
