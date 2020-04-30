@@ -3,6 +3,7 @@ namespace App\Backend\Modules\Chapters\Controller;
 
 use Entity\ChapterEntity;
 use Model\ChaptersManager;
+use Exception;
 use OCFram\BackController;
 use OCFram\Entity;
 use OCFram\HTTPRequest;
@@ -23,6 +24,7 @@ class ChaptersController extends BackController
 
     public function executeEditonechapter (HTTPRequest $request)
     {
+
         if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
         {
             $newChapterContent = [
@@ -43,7 +45,7 @@ class ChaptersController extends BackController
             $chaptersManager = new ChaptersManager();
             $chaptersManager->saveOneChapter($newChapter);
 
-            header('Location: http://blogauteur.romaincharlesdemonstrator.ovh/admin/showallchapters');
+            header('Location: /admin/showallchapters');     //Ne jamais mettre l'URL absolue
 
         }
     }
