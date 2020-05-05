@@ -52,8 +52,10 @@ class ChaptersController extends BackController
 
     public function executeConfirmdeleteonechapter (HTTPRequest $request)
     {
+        echo 'On est entré dans ConfirmDeleteOneChapter';
         if($request->postExists('delete_chapter_button') && !empty($request->postData('chap_id')))
         {
+            echo 'On est bien entré dans le test de ConfirmDeleteOneChapter';
             $chapterToDelete = new ChapterEntity();
             $chapterToDelete->setChapter_id($request->postData('chap_id'));
             header('Location: /admin/deleteonechapterconfirmation');
@@ -66,12 +68,12 @@ class ChaptersController extends BackController
 
     public function executeDeleteonechapter (HTTPRequest $request)
     {
-        if($request->postExists('delete_chapter_button'))
+        if($request->postExists('delete_chapter_button') && !empty($request->postData('chap_id')))
         {
 //            echo $chapter->chapter_number();
             $chapterDelete = new ChaptersManager();
 //            Préciser le paramètre
-            $chapterDelete->deleteOneChapter();
+            $chapterDelete->deleteOneChapter($request->postData('chap_id'));
         }
     }
 }

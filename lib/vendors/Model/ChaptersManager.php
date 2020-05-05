@@ -76,18 +76,35 @@ class ChaptersManager extends Managers
     }
 
 
-    public function deleteOneChapter(ChapterEntity $newChapterEntity)
+    public function deleteOneChapter($chapterId)
     {
-        $testChapExist = $this->checkChapterNumber($newChapterEntity->chapter_number());
+        $testChapExist = $this->checkChapterId($chapterId);
 
-        if ($testChapExist === false)
+        if ($testChapExist === true)
         {
-            $req = $this->db->prepare('DELETE FROM blog_auteur_chapters WHERE chapter_number=:chapterNumber');
-            $req->bindValue('chapterNumber', $testChapExist, PDO::PARAM_INT);
+            $req = $this->db->prepare('DELETE FROM blog_auteur_chapters WHERE id=:chapterId');
+            $req->bindValue('chapterId', $testChapExist, PDO::PARAM_INT);
             $req->execute();
         }
     }
 
+
+    private function checkChapterId($chapterId)
+    {
+        $dbId = $this->db->prepare("SELECT id FROM blog_auteur_chapters WHERE id=:chapterId");
+
+        $dbId->bindValue('chapterId', $chapterId, PDO::PARAM_INT);
+        $dbId->execute();
+
+        $idTest = $dbId->fetch(PDO::FETCH_COLUMN);
+        if($idTest == $chapterId)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 
 

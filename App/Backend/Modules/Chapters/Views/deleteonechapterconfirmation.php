@@ -8,14 +8,18 @@
 
 
 <div class="bloc_flash">
-    <p classe="message-au-visiteur">Etes-vous sûr de vouloir supprimer le chapitre <?= ?>?</p>
+    <?php
+    /** @var \Entity\ChapterEntity $chapter */
+    ?>
+    <p class="message-au-visiteur">Etes-vous sûr de vouloir supprimer le chapitre <?= $chapter->chapter_id()?>?</p>
 
     <form method="post" action="/admin/deleteonechapter">
-        <input name="delete_chapter_button" type="button" value="Supprimer">
+        <input id="chapter_id" type="hidden" name="chap_id" value=<?= $chapter->chapter_id() ?>/><br />
+        <input name="delete_chapter_button" type="submit" value="Supprimer">
     </form>
 
     <form method="post" action="/admin/showallchapters">
-        <input name="abort_chapter_cancellation_button" type="button" value="Annuler">
+        <input name="abort_chapter_cancellation_button" type="submit" value="Annuler">
     </form>
 </div>
 
