@@ -50,6 +50,20 @@ class ChaptersController extends BackController
         }
     }
 
+    public function executeConfirmdeleteonechapter (HTTPRequest $request)
+    {
+        if($request->postExists('delete_chapter_button') && !empty($request->postData('chap_id')))
+        {
+            $chapterToDelete = new ChapterEntity();
+            $chapterToDelete->setChapter_id($request->postData('chap_id'));
+            header('Location: /admin/deleteonechapterconfirmation');
+        }
+        else
+        {
+            throw new \Exception('Impossible de supprimer ce chapitre');
+        }
+    }
+
     public function executeDeleteonechapter (HTTPRequest $request)
     {
         if($request->postExists('delete_chapter_button'))

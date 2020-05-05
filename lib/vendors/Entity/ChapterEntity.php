@@ -8,6 +8,7 @@ use OCFram\Entity;
 
 class ChapterEntity extends Entity
 {
+    private $chapter_id;
     private $title;
     private $chapter_number;
     private $text;
@@ -36,6 +37,17 @@ class ChapterEntity extends Entity
     public function title()
     {
         return $this->title;
+    }
+
+    public function setChapter_id($chapter_id)
+    {
+
+        $this->chapter_id = (int)$chapter_id;
+    }
+
+    public function chapter_id()
+    {
+        return $this->chapter_id;
     }
 
 
