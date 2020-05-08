@@ -39,13 +39,13 @@ class ChapterEntity extends Entity
         return $this->title;
     }
 
-    public function setChapter_id($chapter_id)
+    public function setId($chapter_id)
     {
 
         $this->id = (int)$chapter_id;
     }
 
-    public function chapter_id()
+    public function id()
     {
         return $this->id;
     }

@@ -26,9 +26,9 @@
             <?= $chapter->text() ?>
             <!--        Titre du chapitre : --><?//= $chapter->title() ?><!--<br/>-->
 
-            <?php echo $chapter->chapter_id() ?>
+            <?php echo $chapter->id() ?>
             <form method="post" action="/admin/confirmdeleteonechapter">
-                <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->chapter_id() ?>'/><br />
+                <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
                 <input name="delete_chapter_button" type="submit" value="Supprimer">
             </form>
 

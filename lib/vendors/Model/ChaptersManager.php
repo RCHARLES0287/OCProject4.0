@@ -34,18 +34,24 @@ class ChaptersManager extends Managers
 
     }
 
-    public function getOneChapter($chapNumber)
+    public function getOneChapter($chapId)
     {
-        $answerChapterData = $this->db->prepare('SELECT id, title, chapter_number, text, release_date, released FROM blog_auteur_chapters WHERE chapter_number=$chapNumber');
-        $answerChapterData->execute();
-
-        $chapterFeatures = [];
+        $answerChapterData = $this->db->prepare('SELECT id, title, chapter_number, text, release_date, released FROM blog_auteur_chapters WHERE id=:chapId');
+        $answerChapterData->execute(array(
+            'chapId' => $chapId
+        ));
 
         $dbChapter = $answerChapterData->fetch();
 
-        $chapterFeatures[] = new ChapterEntity($dbChapter);
+        if ($dbChapter === false)
+        {
+            throw new \Exception('Le chapitre dont l\'id est ' .$chapId. ' n\'existe pas');
+        }
+        else
+        {
+            return new ChapterEntity($dbChapter);
+        }
 
-        return $chapterFeatures;
     }
 
     /**
@@ -78,14 +84,18 @@ class ChaptersManager extends Managers
 
     public function deleteOneChapter($chapterId)
     {
+
+//        throw new \Exception('ON EST BIEN DANS DELETEONECHAPTER DU MANAGER');
+
         $testChapExist = $this->checkChapterId($chapterId);
 
         if ($testChapExist === true)
         {
             $req = $this->db->prepare('DELETE FROM blog_auteur_chapters WHERE id=:chapterId');
-            $req->bindValue('chapterId', $testChapExist, PDO::PARAM_INT);
+            $req->bindValue('chapterId', $chapterId, PDO::PARAM_INT);
             $req->execute();
         }
+
     }
 
 
