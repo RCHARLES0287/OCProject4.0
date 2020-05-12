@@ -48,6 +48,13 @@ class ChaptersController extends BackController
             header('Location: /admin/showallchapters');     //Ne jamais mettre l'URL absolue
 
         }
+        else if ($request->postExists('modify_chapter_button') && !empty($request->postData('chap_id_modify')))
+        {
+            $chaptersManager = new ChaptersManager();
+            $chaptersManager->getOneChapter($request->postData('chap_id_modify'));
+
+        }
+
     }
 
     public function executeConfirmdeleteonechapter (HTTPRequest $request)
