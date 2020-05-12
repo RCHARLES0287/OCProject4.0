@@ -38,6 +38,7 @@
           if(!empty($errorMessage))         //!empty vérifie que la variable existe, qu'elle n'est pas nulle, et que ce n'est pas une chaine de longueur zéro
           {
               echo $errorMessage;
+//              ?><!-- <pre> --><?php //var_dump($errorStack); ?><!-- </pre> --><?php
           }
 
           ?>

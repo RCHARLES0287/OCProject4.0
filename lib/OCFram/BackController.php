@@ -34,6 +34,8 @@ abstract class BackController extends ApplicationComponent
         catch(\Throwable $e)
         {
             $this->page->addVar('errorMessage', $e->getMessage());
+            $this->page->addVar('errorStack', $e->getTrace());
+//            $this->page->addVar('errorStack', $e);
         }
 
 
