@@ -91,6 +91,7 @@ class ChaptersManager extends Managers
 
         if ($testChapExist === true)
         {
+//            throw new \Exception('ON EST BIEN DANS DELETEONECHAPTER DU MANAGER');
             $req = $this->db->prepare('DELETE FROM blog_auteur_chapters WHERE id=:chapterId');
             $req->bindValue('chapterId', $chapterId, PDO::PARAM_INT);
             $req->execute();
