@@ -51,7 +51,8 @@ class ChaptersController extends BackController
         else if ($request->postExists('modify_chapter_button') && !empty($request->postData('chap_id_modify')))
         {
             $chaptersManager = new ChaptersManager();
-            $chaptersManager->getOneChapter($request->postData('chap_id_modify'));
+            $chapterEntity = $chaptersManager->getOneChapter($request->postData('chap_id_modify'));
+            return $chapterEntity;
 
         }
 
