@@ -50,11 +50,15 @@ class ChaptersController extends BackController
         }
         else if ($request->postExists('modify_chapter_button') && !empty($request->postData('chap_id_modify')))
         {
+            throw new Exception('On entre dans la méthode EditOneChapter du controller');
+
             $chaptersManager = new ChaptersManager();
             $chapterEntity = $chaptersManager->getOneChapter($request->postData('chap_id_modify'));
+            throw new Exception('L\'ID du chapitre renseigné dans l\'entité est' . $chapterEntity->id(). '.');
             return $chapterEntity;
 
         }
+
 
     }
 

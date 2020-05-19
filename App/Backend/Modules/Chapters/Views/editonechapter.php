@@ -12,7 +12,7 @@
 
     <form method="post" action="/admin/editonechapter">
         <label for="chap_number">Numéro de chapitre</label>
-        <input required id="chapter_number" type="number" name="chap_number" value='11' /><br />
+        <input required id="chapter_number" type="number" name="chap_number" value='<?= $chapter->chapter_number() ?>' /><br />
 
         <label for="chapter_title">Titre du chapitre</label>
         <input required id="chapter_title" type="text" name="chapter_title" value='test du retour chapitre' /><br /><br />
@@ -29,13 +29,14 @@
     <script>
         tinymce.init({
             selector: 'textarea',
-            plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-            toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+            // plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
             toolbar_mode: 'floating',
             tinycomments_mode: 'embedded',
             tinycomments_author: 'Author name',
         });
     </script>
+
 
 
 <!-- route : http://blogauteur.romaincharlesdemonstrator.ovh/admin/editonechapter
