@@ -50,14 +50,26 @@ class ChaptersController extends BackController
         }
     }
 
+    public function executeConfirmdeleteonechapter (HTTPRequest $request)
+    {
+        if (empty($request->postData('chap_id')))
+        {
+            throw new \Exception('Impossible de supprimer ce chapitre : id du chapitre manquant');
+        }
+        else
+        {
+            $chapterManager = new ChaptersManager();
+            $chapterEntity = $chapterManager->getOneChapter($request->postData('chap_id'));
+            $this->page->addVar('chapter', $chapterEntity);
+        }
+    }
+
     public function executeDeleteonechapter (HTTPRequest $request)
     {
-        if($request->postExists('delete_chapter_button'))
+        if($request->postExists('delete_chapter_button') && !empty($request->postData('chap_id')))
         {
-//            echo $chapter->chapter_number();
-            $chapterDelete = new ChaptersManager();
-//            Préciser le paramètre
-            $chapterDelete->deleteOneChapter();
+            $chapterManager = new ChaptersManager();
+            $chapterManager->deleteOneChapter($request->postData('chap_id'));
         }
     }
 }

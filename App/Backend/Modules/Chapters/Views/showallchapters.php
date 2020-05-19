@@ -26,12 +26,14 @@
             <?= $chapter->text() ?>
             <!--        Titre du chapitre : --><?//= $chapter->title() ?><!--<br/>-->
 
-            <form method="post" action="/admin/deleteonechapter">
-                <input name="delete_chapter_button" type="button" value="Supprimer">
+            <?php echo $chapter->id() ?>
+            <form method="post" action="/admin/confirmdeleteonechapter">
+                <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
+                <input name="delete_chapter_button" type="submit" value="Supprimer">
             </form>
 
             <form method="post" action="/admin/editonechapter">
-                <input name="modify_chapter_button" type="button" value="Modifier">
+                <input name="modify_chapter_button" type="submit" value="Modifier">
             </form>
         </li>
 
