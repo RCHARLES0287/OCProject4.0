@@ -24,6 +24,54 @@ class ChaptersController extends BackController
 
     public function executeEditonechapter (HTTPRequest $request)
     {
+/*
+        if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
+        {
+            $newChapterContent = [
+                'chapter_number' => $request->postData('chap_number'),
+                'title' => $request->postData('chapter_title'),
+                'text' => $request->postData('chapter_content'),
+                'release_date' => date('Y-m-d')
+            ];
+
+            var_dump('premier test', $newChapterContent);
+
+            $newChapter = new ChapterEntity($newChapterContent);
+
+            var_dump('deuxième test', $newChapter);
+
+            $chaptersManager = new ChaptersManager();
+            $chaptersManager->saveOneChapter($newChapter);
+
+            header('Location: /admin/showallchapters');     //Ne jamais mettre l'URL absolue
+            exit;
+        }*/
+
+        if ($request->postExists('modify_chapter_button') && !empty($request->postData('chap_id_modify')))
+        {
+
+            $chaptersManager = new ChaptersManager();
+            $chapterEntity = $chaptersManager->getOneChapter($request->postData('chap_id_modify'));
+            $this->page->addVar('chapter', $chapterEntity);
+            throw new \Exception('TEST DU CONTROLLER CHAPITRES PARTIE EDITION');
+        }
+
+        if($request->postExists('submit_button') === false);
+        {
+            $this->page->addVar('chapter', new ChapterEntity());
+        }
+        /*  Version factorisée
+        if ($request->postExists('modify_chapter_button') && !empty($request->postData('chap_id_modify')))
+        {
+            $chaptersManager = new ChaptersManager();
+            $chapterEntity = $chaptersManager->getOneChapter($request->postData('chap_id_modify'));
+        }
+        else
+        {
+            $chapterEntity = new ChapterEntity();
+        }
+        $this->page->addVar('chapter', $chapterEntity);
+        */
 
         if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
         {
@@ -39,25 +87,20 @@ class ChaptersController extends BackController
 
             $newChapter = new ChapterEntity($newChapterContent);
 
-//            var_dump('deuxième test', $newChapter);
+            var_dump('deuxième test', $newChapter);
 
 
             $chaptersManager = new ChaptersManager();
             $chaptersManager->saveOneChapter($newChapter);
 
             header('Location: /admin/showallchapters');     //Ne jamais mettre l'URL absolue
+            exit;
 
         }
-        else if ($request->postExists('modify_chapter_button') && !empty($request->postData('chap_id_modify')))
-        {
-            throw new Exception('On entre dans la méthode EditOneChapter du controller');
 
-            $chaptersManager = new ChaptersManager();
-            $chapterEntity = $chaptersManager->getOneChapter($request->postData('chap_id_modify'));
-            throw new Exception('L\'ID du chapitre renseigné dans l\'entité est' . $chapterEntity->id(). '.');
-            return $chapterEntity;
 
-        }
+
+
 
 
     }

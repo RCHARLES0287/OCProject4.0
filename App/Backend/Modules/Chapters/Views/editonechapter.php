@@ -8,17 +8,19 @@
     <?php
     /** @var \Entity\ChapterEntity $chapter */
     ?>
-
+<!-- Test pour savoir ce que reçoit le formulaire-->
+    <?php var_dump($chapter->chapter_number()); ?>
 
     <form method="post" action="/admin/editonechapter">
+
         <label for="chap_number">Numéro de chapitre</label>
-        <input required id="chapter_number" type="number" name="chap_number" value='<?= $chapter->chapter_number() ?>' /><br />
+        <input required id="chapter_number" type="number" name="chap_number" value='<?= $chapter->chapter_number() ?>' /><br /><br />
 
         <label for="chapter_title">Titre du chapitre</label>
-        <input required id="chapter_title" type="text" name="chapter_title" value='test du retour chapitre' /><br /><br />
+        <input required id="chapter_title" type="text" name="chapter_title" value='<?= $chapter->title() ?>' /> <br /><br />
 
         <label for="chapter_content">Texte du chapitre</label>
-        <textarea class="tiny_mce" id="chapter_content" name="chapter_content" > Ici aussi je teste le retour du chapitre </textarea><br /><br />
+        <textarea class="tiny_mce" id="chapter_content" name="chapter_content" > <?= $chapter->text() ?> </textarea><br /><br />
 
         <input name="submit_button" type="submit" value="Enregistrer" />
 
