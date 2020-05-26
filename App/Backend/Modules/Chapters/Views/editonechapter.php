@@ -9,7 +9,7 @@
     /** @var \Entity\ChapterEntity $chapter */
     ?>
 <!-- Test pour savoir ce que reçoit le formulaire-->
-    <?php var_dump($chapter->chapter_number()); ?>
+    <?php var_dump($chapter); ?>
 
     <form method="post" action="/admin/editonechapter">
 

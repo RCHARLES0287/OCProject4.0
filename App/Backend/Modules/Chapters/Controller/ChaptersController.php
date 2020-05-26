@@ -47,33 +47,25 @@ class ChaptersController extends BackController
             exit;
         }*/
 
+        $this->page->addVar('chapter', new ChapterEntity());
+
+
         if ($request->postExists('modify_chapter_button') && !empty($request->postData('chap_id_modify')))
         {
 
+
+            $this->page->addVar('chapter', new ChapterEntity());
+//            throw new \Exception('TEST DU CONTROLLER CHAPITRES PARTIE EDITION');
             $chaptersManager = new ChaptersManager();
             $chapterEntity = $chaptersManager->getOneChapter($request->postData('chap_id_modify'));
             $this->page->addVar('chapter', $chapterEntity);
-            throw new \Exception('TEST DU CONTROLLER CHAPITRES PARTIE EDITION');
+            var_dump($chapterEntity);
+//            throw new \Exception('TEST DU CONTROLLER CHAPITRES PARTIE EDITION');
         }
 
-        if($request->postExists('submit_button') === false);
-        {
-            $this->page->addVar('chapter', new ChapterEntity());
-        }
-        /*  Version factorisée
-        if ($request->postExists('modify_chapter_button') && !empty($request->postData('chap_id_modify')))
-        {
-            $chaptersManager = new ChaptersManager();
-            $chapterEntity = $chaptersManager->getOneChapter($request->postData('chap_id_modify'));
-        }
-        else
-        {
-            $chapterEntity = new ChapterEntity();
-        }
-        $this->page->addVar('chapter', $chapterEntity);
-        */
+        
 
-        if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
+        else if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
         {
             $newChapterContent = [
                 'chapter_number' => $request->postData('chap_number'),
