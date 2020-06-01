@@ -69,7 +69,7 @@ class ChaptersManager extends Managers
         {
             $req = $this->db->prepare('INSERT INTO blog_auteur_chapters(title, chapter_number, text, release_date) VALUES(:title, :chapter_number, :text, :release_date)');
             $req->execute(array(
-                'title' => addslashes($newChapterEntity->title()),
+                'title' => $newChapterEntity->title(),
                 'chapter_number' => $newChapterEntity->chapter_number(),
                 'text' => $newChapterEntity->text(),
                 'release_date' => $newChapterEntity->release_date()
