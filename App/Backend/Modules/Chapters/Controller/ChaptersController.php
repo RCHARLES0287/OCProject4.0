@@ -15,11 +15,13 @@ class ChaptersController extends BackController
     {
         $chaptersManager = new ChaptersManager();
 
+
+
         $allChaptersData = $chaptersManager->getAllChapters();
 
-        $this->page->addVar('chapters', $allChaptersData);
-
 //        var_dump($allChaptersData);
+        $this->page->addVar('chapters', $allChaptersData);
+        
     }
 
     public function executeEditonechapter (HTTPRequest $request)
