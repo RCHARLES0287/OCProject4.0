@@ -24,46 +24,20 @@ class ChaptersController extends BackController
 
     public function executeEditonechapter (HTTPRequest $request)
     {
-/*
-        if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
-        {
-            $newChapterContent = [
-                'chapter_number' => $request->postData('chap_number'),
-                'title' => $request->postData('chapter_title'),
-                'text' => $request->postData('chapter_content'),
-                'release_date' => date('Y-m-d')
-            ];
-
-            var_dump('premier test', $newChapterContent);
-
-            $newChapter = new ChapterEntity($newChapterContent);
-
-            var_dump('deuxième test', $newChapter);
-
-            $chaptersManager = new ChaptersManager();
-            $chaptersManager->saveOneChapter($newChapter);
-
-            header('Location: /admin/showallchapters');     //Ne jamais mettre l'URL absolue
-            exit;
-        }*/
 
         $this->page->addVar('chapter', new ChapterEntity());
 
-
         if ($request->postExists('modify_chapter_button') && !empty($request->postData('chap_id_modify')))
         {
-
 
             $this->page->addVar('chapter', new ChapterEntity());
 //            throw new \Exception('TEST DU CONTROLLER CHAPITRES PARTIE EDITION');
             $chaptersManager = new ChaptersManager();
             $chapterEntity = $chaptersManager->getOneChapter($request->postData('chap_id_modify'));
             $this->page->addVar('chapter', $chapterEntity);
-            var_dump($chapterEntity);
+//            var_dump($chapterEntity);
 //            throw new \Exception('TEST DU CONTROLLER CHAPITRES PARTIE EDITION');
         }
-
-        
 
         else if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
         {
@@ -74,12 +48,12 @@ class ChaptersController extends BackController
                 'release_date' => date('Y-m-d')
             ];
 
-            var_dump('premier test', $newChapterContent);
+//            var_dump('premier test', $newChapterContent);
 
 
             $newChapter = new ChapterEntity($newChapterContent);
 
-            var_dump('deuxième test', $newChapter);
+//            var_dump('deuxième test', $newChapter);
 
 
             $chaptersManager = new ChaptersManager();
@@ -90,10 +64,10 @@ class ChaptersController extends BackController
 
         }
 
-
-
-
-
+        else if ($request->postExists('submit_button'))
+        {
+            throw new Exception('Vous devez remplir chacun des champs avant de valider');
+        }
 
     }
 
