@@ -27,7 +27,21 @@ class ChaptersController extends BackController
     public function executeEditonechapter (HTTPRequest $request)
     {
 
-        if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
+        $this->page->addVar('chapter', new ChapterEntity());
+
+        if ($request->postExists('modify_chapter_button') && !empty($request->postData('chap_id_modify')))
+        {
+
+            $this->page->addVar('chapter', new ChapterEntity());
+//            throw new \Exception('TEST DU CONTROLLER CHAPITRES PARTIE EDITION');
+            $chaptersManager = new ChaptersManager();
+            $chapterEntity = $chaptersManager->getOneChapter($request->postData('chap_id_modify'));
+            $this->page->addVar('chapter', $chapterEntity);
+//            var_dump($chapterEntity);
+//            throw new \Exception('TEST DU CONTROLLER CHAPITRES PARTIE EDITION');
+        }
+
+        else if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
         {
             $newChapterContent = [
                 'chapter_number' => $request->postData('chap_number'),
@@ -36,7 +50,7 @@ class ChaptersController extends BackController
                 'release_date' => date('Y-m-d')
             ];
 
-            var_dump('premier test', $newChapterContent);
+//            var_dump('premier test', $newChapterContent);
 
 
             $newChapter = new ChapterEntity($newChapterContent);
@@ -48,8 +62,15 @@ class ChaptersController extends BackController
             $chaptersManager->saveOneChapter($newChapter);
 
             header('Location: /admin/showallchapters');     //Ne jamais mettre l'URL absolue
+            exit;
 
         }
+
+        else if ($request->postExists('submit_button'))
+        {
+            throw new Exception('Vous devez remplir chacun des champs avant de valider');
+        }
+
     }
 
     public function executeConfirmdeleteonechapter (HTTPRequest $request)
