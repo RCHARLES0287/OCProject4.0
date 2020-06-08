@@ -19,8 +19,8 @@
     {
         ?>
         <li>
-            Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>.<br/>
-            <?= $chapter->text() ?>
+            Chapitre <?= $chapter->chapter_number() ?>: <?= htmlspecialchars($chapter->title()) ?>.<br/>
+            <?= htmlspecialchars($chapter->text()) ?>
             <!--        Titre du chapitre : --><?//= $chapter->title() ?><!--<br/>-->
 
         </li>

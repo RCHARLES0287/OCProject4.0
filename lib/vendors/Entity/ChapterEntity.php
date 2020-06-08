@@ -30,13 +30,13 @@ class ChapterEntity extends Entity
         }
         else
         {
-            $this->title = htmlspecialchars($title);
+            $this->title = $title;
         }
     }
 
     public function title()
     {
-        return htmlspecialchars_decode($this->title);
+        return $this->title;
     }
 
     public function setId($chapter_id)
@@ -71,13 +71,13 @@ class ChapterEntity extends Entity
         }
         else
         {
-            $this->text = htmlspecialchars((string)$text);
+            $this->text = (string)$text;
         }
     }
 
     public function text()
     {
-        return htmlspecialchars_decode($this->text);
+        return $this->text;
     }
 
 
