@@ -9,7 +9,7 @@
     /** @var \Entity\ChapterEntity $chapter */
     ?>
 <!-- Test pour savoir ce que reçoit le formulaire-->
-    <?php var_dump($chapter); ?>
+<!--    --><?php //var_dump($chapter); ?>
 
     <form method="post" action="/admin/editonechapter">
 
@@ -17,10 +17,10 @@
         <input required id="chapter_number" type="number" name="chap_number" value='<?= $chapter->chapter_number() ?>' /><br /><br />
 
         <label for="chapter_title">Titre du chapitre</label>
-        <input required id="chapter_title" type="text" name="chapter_title" value='<?= $chapter->title() ?>' /> <br /><br />
+        <input required id="chapter_title" type="text" name="chapter_title" value='<?= htmlspecialchars($chapter->title()) ?>' /> <br /><br />
 
         <label for="chapter_content">Texte du chapitre</label>
-        <textarea class="tiny_mce" id="chapter_content" name="chapter_content" > <?= $chapter->text() ?> </textarea><br /><br />
+        <textarea class="tiny_mce" id="chapter_content" name="chapter_content" > <?= htmlspecialchars($chapter->text()) ?> </textarea><br /><br />
 
         <input name="submit_button" type="submit" value="Enregistrer" />
 
