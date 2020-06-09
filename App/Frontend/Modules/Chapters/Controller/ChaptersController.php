@@ -23,6 +23,12 @@ class ChaptersController extends BackController
     }
 
 
+    public function executeShowonechapter (HTTPRequest $request)
+    {
+
+    }
+
+
     public function executeCommentonechapter (HTTPRequest $request)
     {
 

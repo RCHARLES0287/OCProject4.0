@@ -6,6 +6,9 @@
 </head>
 
 <body>
+
+<h2>Ici c'est le frontend</h2>
+
 <h2>Liste de tous les chapitres</h2>
 
 <h3>Il y aura les titres de chapitres :</h3>
@@ -22,8 +25,8 @@
     {
         ?>
         <li>
-            Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>.<br/>
-            <?= $chapter->text() ?>
+            Chapitre <?= $chapter->chapter_number() ?>: <?= htmlspecialchars($chapter->title()) ?>.<br/>
+            <?= htmlspecialchars($chapter->text()) ?>
             <!--        Titre du chapitre : --><?//= $chapter->title() ?><!--<br/>-->
 
             <?php echo $chapter->id() ?>
