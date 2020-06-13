@@ -1,5 +1,5 @@
 <?php
-namespace App\Backend\Modules\Chapters\Controller;
+namespace App\Frontend\Modules\Chapters\Controller;
 
 use Entity\ChapterEntity;
 use Model\ChaptersManager;
@@ -26,11 +26,28 @@ class ChaptersController extends BackController
     public function executeShowonechapter (HTTPRequest $request)
     {
 
+        if ($request->postExists('show_chapter_button') && !empty($request->postData('chap_id')))
+        {
+            $chapterManager = new ChaptersManager();
+            $chapterEntity = $chapterManager->getOneChapter($request->postData('chap_id'));
+            $this->page->addVar('chapter', $chapterEntity);
+        }
+        else
+        {
+            throw new Exception('Vous devez sélectionner un chapitre');
+        }
+
+
     }
 
 
     public function executeCommentonechapter (HTTPRequest $request)
     {
+
+        if ($request->postExists('comment_chapter_button') && !empty($request->postData('chap_id')))
+        {
+            var_dump('On pourra ajouter des commentaires ici');
+        }
 
     }
 

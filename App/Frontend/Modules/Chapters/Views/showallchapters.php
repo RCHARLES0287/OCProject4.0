@@ -30,6 +30,12 @@
             <!--        Titre du chapitre : --><?//= $chapter->title() ?><!--<br/>-->
 
             <?php echo $chapter->id() ?>
+
+            <form method="post" action="/visitor/showonechapter">
+                <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
+                <input name="show_chapter_button" type="submit" value="Afficher">
+            </form>
+
             <form method="post" action="/visitor/commentonechapter">
                 <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
                 <input name="comment_chapter_button" type="submit" value="Commenter">

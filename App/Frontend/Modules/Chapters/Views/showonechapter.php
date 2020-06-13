@@ -22,6 +22,12 @@
             <?= $chapter->text() ?>
             <!--        Titre du chapitre : --><?//= $chapter->title() ?><!--<br/>-->
 
+
+            <form method="post" action="/visitor/commentonechapter">
+                <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
+                <input name="comment_chapter_button" type="submit" value="Commenter">
+            </form>
+
         </li>
 
         <?php
