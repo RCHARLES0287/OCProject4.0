@@ -6,7 +6,7 @@ namespace Entity;
 
 use OCFram\Entity;
 
-class ChapterEntity extends Entity
+class CommentEntity extends Entity
 {
     private $id;
     private $chapter_id;
