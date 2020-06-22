@@ -19,14 +19,13 @@ class CommentsManager extends Managers
 
     public function getAllComments($chapterId)
     {
-        $answerCommentsData = $this->db->prepare('SELECT com.content AS comment, com.visitor_pseudo AS pseudo, com.release_date AS calendar
-                                                            FROM blog_auteur_comments AS com
-                                                            INNER JOIN blog_auteur_chapters AS chap
-                                                            ON com.chapter_id = chap.id
-                                                            WHERE chap.id =:chapterId');
+        $answerCommentsData = $this->db->prepare('SELECT id, chapter_id, content, number_of_warnings, visitor_pseudo, release_date
+                                                            FROM blog_auteur_comments
+                                                            WHERE id =:chapterId');
 
-        $answerCommentsData->bindValue('chapterId', $chapterId, PDO::PARAM_INT);
-        $answerCommentsData->execute();
+        $answerCommentsData->execute(array(
+            'chapterId' => $chapterId
+        ));
 
         $commentsFeatures = [];
 
@@ -35,7 +34,7 @@ class CommentsManager extends Managers
 
         foreach ($dbComments as $comment)
         {
-            $commentsFeatures[] = new ChapterEntity($comment);
+            $commentsFeatures[] = new CommentEntity($comment);
         }
 
         return $commentsFeatures;
@@ -45,3 +44,7 @@ class CommentsManager extends Managers
 
 }
 
+/*
+$answerCommentsData->bindValue('chapterId', $chapterId, PDO::PARAM_INT);
+$answerCommentsData->execute();
+*/
