@@ -42,6 +42,20 @@ class CommentsManager extends Managers
 
     }
 
+    public function saveOneComment(CommentEntity $newCommentEntity)
+    {
+
+        $req = $this->db->prepare('INSERT INTO blog_auteur_comments(chapter_id, content, number_of_warnings, visitor_pseudo, release_date) VALUES(:chapter_id, :content, :number_of_warnings, :visitor_pseudo, :release_date)');
+        $req->execute(array(
+            'chapter_id' => $newCommentEntity->chapter_id(),
+            'content' => $newCommentEntity->content(),
+            'number_of_warnings' => $newCommentEntity->number_of_warnings(),
+            'visitor_pseudo' => $newCommentEntity->visitor_pseudo(),
+            'release_date' => $newCommentEntity->release_date()
+        ));
+
+    }
+
 
 }
 

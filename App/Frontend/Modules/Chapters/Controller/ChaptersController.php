@@ -2,6 +2,7 @@
 namespace App\Frontend\Modules\Chapters\Controller;
 
 use Entity\ChapterEntity;
+use Entity\CommentEntity;
 use Model\ChaptersManager;
 use Model\CommentsManager;
 use Exception;
@@ -57,9 +58,24 @@ class ChaptersController extends BackController
     public function executeCommentonechapter (HTTPRequest $request)
     {
 
-        if ($request->postExists('comment_chapter_button') && !empty($request->postData('chap_id')))
+        if ($request->postExists('comment_chapter_button') && !empty($request->postData('visitor_pseudo')) && !empty($request->postData('comment_content')) && !empty($request->postData('chap_id')))
         {
-            var_dump('On pourra ajouter des commentaires ici');
+            $newCommentContent = [
+                'chapter_id' => $request->postData('chap_id'),
+                'content' => $request->postData('comment_content'),
+                'number_of_warnings' => 0,
+                'visitor_pseudo' => $request->postData('visitor_pseudo'),
+                'release_date' => date('Y-m-d')
+            ];
+
+            $newComment = new CommentEntity($newCommentContent);
+
+            $commentsManager = new CommentsManager();
+            $commentsManager->saveOneComment($newComment);
+
+            header('Location: /visitor/showallchapters');     //Ne jamais mettre l'URL absolue
+            exit;
+
         }
 
     }
