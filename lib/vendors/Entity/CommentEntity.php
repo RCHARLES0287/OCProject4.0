@@ -8,7 +8,6 @@ use OCFram\Entity;
 
 class CommentEntity extends Entity
 {
-    protected $id;
     private $chapter_id;
     private $content;
     private $number_of_warnings;
@@ -19,17 +18,6 @@ class CommentEntity extends Entity
     public function __construct(array $donnees = [])
     {
         parent::__construct($donnees);
-    }
-
-    public function setId($id)
-    {
-
-        $this->id = (int)$id;
-    }
-
-    public function id()
-    {
-        return $this->id;
     }
 
 

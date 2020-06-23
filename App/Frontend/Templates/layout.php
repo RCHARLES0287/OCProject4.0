@@ -21,6 +21,7 @@
         <h2>Ici se trouve le haut de page</h2>
 
 
+
         <?= $content ?>
 
 
