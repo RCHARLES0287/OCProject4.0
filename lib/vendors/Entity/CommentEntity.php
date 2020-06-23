@@ -8,7 +8,7 @@ use OCFram\Entity;
 
 class CommentEntity extends Entity
 {
-    private $id;
+    protected $id;
     private $chapter_id;
     private $content;
     private $number_of_warnings;

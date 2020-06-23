@@ -40,7 +40,10 @@ class ChaptersController extends BackController
 
             $allCommentsData = $commentsManager->getAllComments($request->postData('chap_id'));
 
+//            var_dump($allCommentsData);
+
             $this->page->addVar('comments', $allCommentsData);
+
         }
         else
         {

@@ -21,7 +21,7 @@ class CommentsManager extends Managers
     {
         $answerCommentsData = $this->db->prepare('SELECT id, chapter_id, content, number_of_warnings, visitor_pseudo, release_date
                                                             FROM blog_auteur_comments
-                                                            WHERE id =:chapterId');
+                                                            WHERE chapter_id =:chapterId');
 
         $answerCommentsData->execute(array(
             'chapterId' => $chapterId
@@ -31,6 +31,7 @@ class CommentsManager extends Managers
 
         $dbComments = $answerCommentsData->fetchAll();
 
+//        var_dump($dbComments);
 
         foreach ($dbComments as $comment)
         {
