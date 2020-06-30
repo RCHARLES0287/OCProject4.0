@@ -5,6 +5,7 @@
     <route url="/visitor/showallchapters" module="Chapters" action="showallchapters"/>
     <route url="/visitor/commentonechapter" module="Chapters" action="commentonechapter"/>
     <route url="/visitor/showonechapter" module="Chapters" action="showonechapter"/>
+    <route url="/visitor/warningoncomment" module="Chapters" action="warningoncomment"/>
 </routes>
 
 

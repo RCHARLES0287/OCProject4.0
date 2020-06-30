@@ -42,6 +42,34 @@ class CommentsManager extends Managers
 
     }
 
+
+    public function getOneComment($chapterId, $commentId)
+    {
+        $answerCommentData = $this->db->prepare('SELECT id, chapter_id, content, number_of_warnings, visitor_pseudo, release_date
+                                                            FROM blog_auteur_comments
+                                                            WHERE chapter_id =:chapterId AND id =:commentId');
+
+        $answerCommentData->execute(array(
+            'chapterId' => $chapterId,
+            'commentId' => $commentId
+        ));
+
+        $dbComment = $answerCommentData->fetchAll();
+
+        return new CommentEntity($dbComment);
+    }
+
+
+    public function updateWarnings($newWarnings, $commentId)
+    {
+        $req = $this->db->prepare('UPDATE blog_auteur_comments SET number_of_warnings=:newWarnings WHERE id=:commentId');
+        $req->execute(array(
+            'newWarnings' => $newWarnings,
+            'commentId' => $commentId
+        ));
+    }
+
+
     public function saveOneComment(CommentEntity $newCommentEntity)
     {
 
