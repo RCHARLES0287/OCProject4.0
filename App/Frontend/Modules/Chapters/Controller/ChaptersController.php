@@ -85,14 +85,21 @@ class ChaptersController extends BackController
     {
         if ($request->postExists('send_warning') && isset($_POST['warn_comment_checkbox']) && !empty($request->postData('chapter_id_comment')) && !empty($request->postData('comment_id')))
         {
+//            var_dump($request->postData('chapter_id_comment'));
             $commentsManager = new CommentsManager();
-            $selectedComment = $commentsManager->getOneComment($request->postData('chapter_id_comment'), $request->postData('comment_id'));
 
+            $selectedComment = $commentsManager->getOneComment($request->postData('comment_id'));
+
+            var_dump($selectedComment);
+
+/*
             $newNumberOfWarnings = $selectedComment->number_of_warnings() += 1;
             $selectedComment->setNumber_of_warnings($newNumberOfWarnings);
 
             $newCommentsManager = new CommentsManager();
             $newCommentsManager->updateWarnings($request->postData('chapter_id_comment'), $request->postData('comment_id'));
+*/
+
         }
     }
 
