@@ -26,7 +26,7 @@ class Page extends ApplicationComponent
   {
     if (!file_exists($this->contentFile))
     {
-      throw new \RuntimeException('La vue spécifiée n\'existe pas');
+      throw new \RuntimeException('La vue ' . $this->contentFile . ' n\'existe pas');
     }
 
     /*$user = $this->app->user();*/

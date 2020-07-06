@@ -53,20 +53,32 @@ class CommentsManager extends Managers
             'commentId' => $commentId
         ));
 
-        $dbComment = $answerCommentData->fetchAll();
+        $dbComment = $answerCommentData->fetch();
 
 //        var_dump($dbComment);
 
-        return new CommentEntity($dbComment);
+        $commentEntity = new CommentEntity($dbComment);
+        $commentEntity->setId($commentId);
+
+//        var_dump($commentEntity);
+
+
+        return $commentEntity;
     }
 
 
-    public function updateWarnings($newWarnings, $commentId)
+    public function updateOneComment(CommentEntity $commentEntity, $commentId)
     {
-        $req = $this->db->prepare('UPDATE blog_auteur_comments SET number_of_warnings=:newWarnings WHERE id=:commentId');
+        $req = $this->db->prepare('UPDATE blog_auteur_comments
+                                            SET chapter_id=:chapter_id, content=:content, number_of_warnings=:number_of_warnings, visitor_pseudo=:visitor_pseudo, release_date=:release_date
+                                            WHERE id=:commentId');
         $req->execute(array(
-            'newWarnings' => $newWarnings,
-            'commentId' => $commentId
+            'commentId' => $commentId,
+            'chapter_id' => $commentEntity->chapter_id(),
+            'content' => $commentEntity->content(),
+            'number_of_warnings' => $commentEntity->number_of_warnings(),
+            'visitor_pseudo' => $commentEntity->visitor_pseudo(),
+            'release_date' => $commentEntity->release_date()
         ));
     }
 

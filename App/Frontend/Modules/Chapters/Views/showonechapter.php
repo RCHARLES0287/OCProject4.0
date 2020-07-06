@@ -70,10 +70,10 @@
                         Date de publication : <?= $comment->release_date() ?>
 
                         <form method="post" action="/visitor/warningoncomment">
-                            <input id="chapter_id_comment" type="hidden" name="chapter_id_comment" value='<?= $comment->chapter_id() ?>'/><br />
+<!--                            <input id="chapter_id_comment" type="hidden" name="chapter_id_comment" value='--><?//= $comment->chapter_id() ?><!--'/><br />-->
                             <input id="comment_id" type="hidden" name="comment_id" value='<?= $comment->id() ?>'/><br />
-                            <input id="warn_comment_checkbox" type="checkbox" name="warn_comment_checkbox">
-                            <label for="warn_comment_checkbox">Signaler le commentaire</label>
+<!--                            <input id="warn_comment_checkbox" type="checkbox" name="warn_comment_checkbox">-->
+<!--                            <label for="warn_comment_checkbox">Signaler le commentaire</label>-->
                             <input name="send_warning" type="submit" value="Signaler">
                         </form>
 

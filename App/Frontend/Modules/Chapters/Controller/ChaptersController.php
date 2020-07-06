@@ -28,7 +28,8 @@ class ChaptersController extends BackController
     public function executeShowonechapter (HTTPRequest $request)
     {
 
-        if ($request->postExists('show_chapter_button') && !empty($request->postData('chap_id')))
+//        if ($request->postExists('show_chapter_button') && !empty($request->postData('chap_id')))
+        if (!empty($request->postData('chap_id')))
         {
 //            Afficher le chapitre
             $chapterManager = new ChaptersManager();
@@ -46,6 +47,7 @@ class ChaptersController extends BackController
             $this->page->addVar('comments', $allCommentsData);
 
         }
+
         else
         {
             throw new Exception('Vous devez sélectionner un chapitre');
@@ -65,7 +67,7 @@ class ChaptersController extends BackController
                 'content' => $request->postData('comment_content'),
                 'number_of_warnings' => 0,
                 'visitor_pseudo' => $request->postData('visitor_pseudo'),
-                'release_date' => date('Y-m-d')
+                'release_date' => date('Y-m-d H:i:s')
             ];
 
             $newComment = new CommentEntity($newCommentContent);
@@ -73,34 +75,61 @@ class ChaptersController extends BackController
             $commentsManager = new CommentsManager();
             $commentsManager->saveOneComment($newComment);
 
-            header('Location: /visitor/showallchapters');     //Ne jamais mettre l'URL absolue
-            exit;
 
         }
+
+        header('Location: /visitor/showallchapters');     //Ne jamais mettre l'URL absolue
+        exit;
+
 
     }
 
 
     public function executeWarningoncomment (HTTPRequest $request)
     {
-        if ($request->postExists('send_warning') && isset($_POST['warn_comment_checkbox']) && !empty($request->postData('chapter_id_comment')) && !empty($request->postData('comment_id')))
+        if ($request->postExists('send_warning') && !empty($request->postData('comment_id')))
         {
 //            var_dump($request->postData('chapter_id_comment'));
             $commentsManager = new CommentsManager();
 
             $selectedComment = $commentsManager->getOneComment($request->postData('comment_id'));
 
-            var_dump($selectedComment);
+//            var_dump('Voici le contenu du commentaire', $selectedComment);
 
-/*
-            $newNumberOfWarnings = $selectedComment->number_of_warnings() += 1;
+
+
+            $newNumberOfWarnings = $selectedComment->number_of_warnings() + 1;
+//            var_dump($newNumberOfWarnings);
+
+
             $selectedComment->setNumber_of_warnings($newNumberOfWarnings);
 
-            $newCommentsManager = new CommentsManager();
-            $newCommentsManager->updateWarnings($request->postData('chapter_id_comment'), $request->postData('comment_id'));
-*/
+//            var_dump($selectedComment);
+
+
+            $commentsManager->updateOneComment($selectedComment, $request->postData('comment_id'));
+
+//            var_dump('pif paf pouf');
+
+
+            $this->page->addVar('chap_id', $request->postData($selectedComment->chapter_id()));
+
+            
+//            ChaptersController::executeShowonechapter();
+            $this->executeShowonechapter();
 
         }
+
+        header('Location: /visitor/showallchapters');     //Ne jamais mettre l'URL absolue
+        exit;
+
+/*
+        else
+        {
+            header('Location: /visitor/showallchapters');     //Ne jamais mettre l'URL absolue
+            exit;
+        }
+        */
     }
 
 }
