@@ -41,6 +41,9 @@ class ConnexionController extends BackController
 
             if ($administratorFeatures->login() == )*/
         }
+
+        header('Location: /admin/showallchapters');     //Ne jamais mettre l'URL absolue
+        exit;
     }
 
 
