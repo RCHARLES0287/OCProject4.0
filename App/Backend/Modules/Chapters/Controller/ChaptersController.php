@@ -2,8 +2,10 @@
 namespace App\Backend\Modules\Chapters\Controller;
 
 use Entity\ChapterEntity;
+use Entity\CommentEntity;
 use Model\ChaptersManager;
 use Exception;
+use Model\CommentsManager;
 use OCFram\BackController;
 use OCFram\Entity;
 use OCFram\HTTPRequest;
@@ -22,6 +24,38 @@ class ChaptersController extends BackController
 //        var_dump($allChaptersData);
         $this->page->addVar('chapters', $allChaptersData);
         
+    }
+
+    public function executeShowonechapter (HTTPRequest $request)
+    {
+
+//        if ($request->postExists('show_chapter_button') && !empty($request->postData('chap_id')))
+        /** @noinspection DuplicatedCode */
+        if (!empty($request->postData('chap_id')))
+        {
+//            Afficher le chapitre
+            $chapterManager = new ChaptersManager();
+            $chapterEntity = $chapterManager->getOneChapter($request->postData('chap_id'));
+            $this->page->addVar('chapter', $chapterEntity);
+
+
+//            Afficher les commentaires
+            $commentsManager = new CommentsManager();
+
+            $allCommentsData = $commentsManager->getAllComments($request->postData('chap_id'));
+
+//            var_dump($allCommentsData);
+
+            $this->page->addVar('comments', $allCommentsData);
+
+        }
+
+        else
+        {
+            throw new Exception('Vous devez sélectionner un chapitre');
+        }
+
+
     }
 
     public function executeEditonechapter (HTTPRequest $request)
@@ -93,6 +127,26 @@ class ChaptersController extends BackController
         {
             $chapterManager = new ChaptersManager();
             $chapterManager->deleteOneChapter($request->postData('chap_id'));
+        }
+    }
+
+
+    public function executeDeleteonecomment (HTTPRequest $request)
+    {
+        if ($request->postExists('delete_comment') && !empty($request->postData('comment_id')))
+        {
+            $commentEntity = new CommentEntity();
+            $chapterId = $commentEntity->chapter_id();
+
+            var_dump($commentEntity);
+            exit;
+
+            $this->page->addVar('chapter', $chapterId);
+
+            $commentsManager = new CommentsManager();
+            $commentsManager->deleteOneComment($request->postData('comment_id'));
+
+
         }
     }
 }
