@@ -3,6 +3,9 @@ namespace OCFram;
 
 class Router
 {
+    /**
+     * @var Route[] La liste des routes.
+     */
   protected $routes = [];
 
   const NO_ROUTE = 1;
@@ -17,6 +20,7 @@ class Router
 
   public function getRoute($url)
   {
+
     foreach ($this->routes as $route)
     {
       // Si la route correspond à l'URL

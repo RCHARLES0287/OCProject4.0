@@ -58,7 +58,7 @@ class CommentsManager extends Managers
 //        var_dump($dbComment);
 
         $commentEntity = new CommentEntity($dbComment);
-        $commentEntity->setId($commentId);
+
 
 //        var_dump($commentEntity);
 

@@ -28,19 +28,22 @@ class ChaptersController extends BackController
     public function executeShowonechapter (HTTPRequest $request)
     {
 
+        $this->page->addVar('comments', []);
+        $this->page->addVar('chapter', new ChapterEntity());
+
 //        if ($request->postExists('show_chapter_button') && !empty($request->postData('chap_id')))
-        if (!empty($request->postData('chap_id')))
+        if (!empty($request->getData('chap_id')))
         {
 //            Afficher le chapitre
             $chapterManager = new ChaptersManager();
-            $chapterEntity = $chapterManager->getOneChapter($request->postData('chap_id'));
+            $chapterEntity = $chapterManager->getOneChapter($request->getData('chap_id'));
             $this->page->addVar('chapter', $chapterEntity);
 
 
 //            Afficher les commentaires
             $commentsManager = new CommentsManager();
 
-            $allCommentsData = $commentsManager->getAllComments($request->postData('chap_id'));
+            $allCommentsData = $commentsManager->getAllComments($request->getData('chap_id'));
 
 //            var_dump($allCommentsData);
 
@@ -111,12 +114,9 @@ class ChaptersController extends BackController
 
 //            var_dump('pif paf pouf');
 
+            header('Location: /visitor/showonechapter?chap_id='.$selectedComment->chapter_id());
+            exit;
 
-            $this->page->addVar('chap_id', $request->postData($selectedComment->chapter_id()));
-
-            
-//            ChaptersController::executeShowonechapter();
-            $this->executeShowonechapter();
 
         }
 

@@ -135,14 +135,16 @@ class ChaptersController extends BackController
     {
         if ($request->postExists('delete_comment') && !empty($request->postData('comment_id')))
         {
+/*
             $commentEntity = new CommentEntity();
             $chapterId = $commentEntity->chapter_id();
 
-            var_dump($commentEntity);
+            var_dump('bla bla', $chapterId);
             exit;
 
             $this->page->addVar('chapter', $chapterId);
 
+            */
             $commentsManager = new CommentsManager();
             $commentsManager->deleteOneComment($request->postData('comment_id'));
 

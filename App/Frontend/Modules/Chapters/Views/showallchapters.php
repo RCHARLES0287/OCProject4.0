@@ -31,7 +31,7 @@
 
             <?php echo $chapter->id() ?>
 
-            <form method="post" action="/visitor/showonechapter">
+            <form method="get" action="/visitor/showonechapter">
                 <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
                 <input name="show_chapter_button" type="submit" value="Afficher">
             </form>
