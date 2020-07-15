@@ -100,7 +100,7 @@ class CommentsManager extends Managers
 
     public function deleteOneComment($commentId)
     {
-        $req = $this->db->prepare('DELETE FROM blog_auteur_comments WHERE id:=commentId');
+        $req = $this->db->prepare('DELETE FROM blog_auteur_comments WHERE id=:commentId');
         $req->execute(array(
             'commentId' => $commentId
         ));
