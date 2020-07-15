@@ -81,7 +81,7 @@ class ChaptersController extends BackController
 
         }
 
-        header('Location: /visitor/showallchapters');     //Ne jamais mettre l'URL absolue
+        header('Location: /visitor/showonechapter?chap_id='.$request->postData('chap_id'));     //Ne jamais mettre l'URL absolue
         exit;
 
 
