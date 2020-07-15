@@ -8,7 +8,7 @@
     <route url="/admin/editonechapter" module="Chapters" action="editonechapter"/>
     <route url="/admin/confirmdeleteonechapter" module="Chapters" action="confirmdeleteonechapter"/>
     <route url="/admin/deleteonechapter" module="Chapters" action="deleteonechapter"/>
-    <route url="/admin/deleteonecomment" module="Chapters" action="deleteonecomment"/>
+    <route url="/admin/deleteonecomment" module="Comments" action="deleteonecomment"/>
 </routes>
 <!-- Exemple de route :
 <routes>
