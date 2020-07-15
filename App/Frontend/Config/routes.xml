@@ -3,9 +3,9 @@
     <route url="/test.zz" module="Accueil" action="test" />
     <route url="/toto.jpg" module="Accueil" action="test" />
     <route url="/visitor/showallchapters" module="Chapters" action="showallchapters"/>
-    <route url="/visitor/commentonechapter" module="Chapters" action="commentonechapter"/>
+    <route url="/visitor/commentonechapter" module="Comments" action="commentonechapter"/>
     <route url="/visitor/showonechapter" module="Chapters" action="showonechapter"/>
-    <route url="/visitor/warningoncomment" module="Chapters" action="warningoncomment"/>
+    <route url="/visitor/warningoncomment" module="Comments" action="warningoncomment"/>
 </routes>
 
 

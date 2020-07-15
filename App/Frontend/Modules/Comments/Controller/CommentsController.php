@@ -1,5 +1,5 @@
 <?php
-namespace App\Frontend\Modules\Chapters\Controller;
+namespace App\Frontend\Modules\Comments\Controller;
 
 use Entity\ChapterEntity;
 use Entity\CommentEntity;
@@ -11,55 +11,8 @@ use OCFram\Entity;
 use OCFram\HTTPRequest;
 
 
-class ChaptersController extends BackController
+class CommentsController extends BackController
 {
-    public function executeShowallchapters (HTTPRequest $request)
-    {
-        $chaptersManager = new ChaptersManager();
-
-        $allChaptersData = $chaptersManager->getAllChapters();
-
-        $this->page->addVar('chapters', $allChaptersData);
-
-//        var_dump($allChaptersData);
-    }
-
-
-    public function executeShowonechapter (HTTPRequest $request)
-    {
-
-        $this->page->addVar('comments', []);
-        $this->page->addVar('chapter', new ChapterEntity());
-
-//        if ($request->postExists('show_chapter_button') && !empty($request->postData('chap_id')))
-        if (!empty($request->getData('chap_id')))
-        {
-//            Afficher le chapitre
-            $chapterManager = new ChaptersManager();
-            $chapterEntity = $chapterManager->getOneChapter($request->getData('chap_id'));
-            $this->page->addVar('chapter', $chapterEntity);
-
-
-//            Afficher les commentaires
-            $commentsManager = new CommentsManager();
-
-            $allCommentsData = $commentsManager->getAllComments($request->getData('chap_id'));
-
-//            var_dump($allCommentsData);
-
-            $this->page->addVar('comments', $allCommentsData);
-
-        }
-
-        else
-        {
-            throw new Exception('Vous devez sélectionner un chapitre');
-        }
-
-
-    }
-
-/*
     public function executeCommentonechapter (HTTPRequest $request)
     {
 
@@ -123,8 +76,13 @@ class ChaptersController extends BackController
         header('Location: /visitor/showallchapters');     //Ne jamais mettre l'URL absolue
         exit;
 
-
+        /*
+                else
+                {
+                    header('Location: /visitor/showallchapters');     //Ne jamais mettre l'URL absolue
+                    exit;
+                }
+                */
     }
 
-    */
 }
