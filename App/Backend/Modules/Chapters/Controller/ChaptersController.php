@@ -39,14 +39,20 @@ class ChaptersController extends BackController
             $this->page->addVar('chapter', $chapterEntity);
 
 
-//            Afficher les commentaires
+//            Afficher les commentaires avec warnings
             $commentsManager = new CommentsManager();
 
-            $allCommentsData = $commentsManager->getAllComments($request->postData('chap_id'));
+            $commentsWithWarnings = $commentsManager->getCommentsWithWarnings($request->postData('chap_id'));
 
-//            var_dump($allCommentsData);
+            $this->page->addVar('comments_with_warnings', $commentsWithWarnings);
 
-            $this->page->addVar('comments', $allCommentsData);
+
+//            Afficher les commentaires sans warnings
+            $commentsManager = new CommentsManager();
+
+            $commentsWithNoWarnings = $commentsManager->getCommentsWithNoWarnings($request->postData('chap_id'));
+
+            $this->page->addVar('comments_with_no_warnings', $commentsWithNoWarnings);
 
         }
 

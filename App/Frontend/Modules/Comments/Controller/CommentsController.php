@@ -52,25 +52,29 @@ class CommentsController extends BackController
 
 //            var_dump('Voici le contenu du commentaire', $selectedComment);
 
-
-
-            $newNumberOfWarnings = $selectedComment->number_of_warnings() + 1;
+            if ($selectedComment->number_of_warnings() !== -1)
+            {
+                $newNumberOfWarnings = $selectedComment->number_of_warnings() + 1;
 //            var_dump($newNumberOfWarnings);
 
 
-            $selectedComment->setNumber_of_warnings($newNumberOfWarnings);
+                $selectedComment->setNumber_of_warnings($newNumberOfWarnings);
 
 //            var_dump($selectedComment);
 
 
-            $commentsManager->updateOneComment($selectedComment, $request->postData('comment_id'));
+                $commentsManager->updateOneComment($selectedComment, $request->postData('comment_id'));
 
 //            var_dump('pif paf pouf');
 
-            header('Location: /visitor/showonechapter?chap_id='.$selectedComment->chapter_id());
-            exit;
-
-
+                header('Location: /visitor/showonechapter?chap_id='.$selectedComment->chapter_id());
+                exit;
+            }
+            else
+            {
+                header('Location: /visitor/showonechapter?chap_id='.$selectedComment->chapter_id());
+                exit;
+            }
         }
 
         header('Location: /visitor/showallchapters');     //Ne jamais mettre l'URL absolue

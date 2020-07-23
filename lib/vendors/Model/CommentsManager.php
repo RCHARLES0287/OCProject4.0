@@ -48,7 +48,7 @@ class CommentsManager extends Managers
     {
         $answerCommentsData = $this->db->prepare('SELECT id, chapter_id, content, number_of_warnings, visitor_pseudo, release_date
                                                             FROM blog_auteur_comments
-                                                            WHERE chapter_id =:chapterId
+                                                            WHERE chapter_id =:chapterId AND number_of_warnings > 0
                                                             ORDER BY release_date DESC ');
 
         $answerCommentsData->execute(array(
@@ -75,7 +75,7 @@ class CommentsManager extends Managers
     {
         $answerCommentsData = $this->db->prepare('SELECT id, chapter_id, content, number_of_warnings, visitor_pseudo, release_date
                                                             FROM blog_auteur_comments
-                                                            WHERE chapter_id =:chapterId
+                                                            WHERE chapter_id =:chapterId AND number_of_warnings <= 0
                                                             ORDER BY release_date DESC ');
 
         $answerCommentsData->execute(array(

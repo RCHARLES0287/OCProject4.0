@@ -40,7 +40,25 @@ class CommentsController extends BackController
 
         }
     }
+
+    public function executeValidateonecomment (HTTPRequest $request)
+    {
+        if ($request->postExists('validate_comment') && !empty($request->postData('comment_id')))
+        {
+            $commentsManager = new CommentsManager();
+
+            $selectedComment = $commentsManager->getOneComment($request->postData('comment_id'));
+
+//            La valeur -1 pour le nombre de warnings correspondra aux commentaires qui ont été validés par l'administrateur
+            $newNumberOfWarnings = -1;
+
+            $selectedComment->setNumber_of_warnings($newNumberOfWarnings);
+
+            $commentsManager->updateOneComment($selectedComment, $request->postData('comment_id'));
+        }
+    }
 }
+
 
 
 
