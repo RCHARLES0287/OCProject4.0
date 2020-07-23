@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr_FR">
-<head>
-    <title>Blog Auteur</title>
-    <meta charset="utf-8" />
-</head>
 
-<body>
+
+
 
 
 
@@ -18,21 +13,16 @@
 
     <div class="bloc_flash">
         <?php
-        /** @var \Entity\ChapterEntity $chapter */
+        /** @var int $chapterId */
         ?>
 
         <p class="message-au-visiteur">Le commentaire a bien été supprimé.</p>
 
         <form method="post" action="/admin/showonechapter">
-            <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
+            <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapterId ?>'/><br />
             <input name="show_chapter_button" type="submit" value="Retour au chapitre">
         </form>
 
 
     </div>
 
-
-</body>
-
-
-<?php

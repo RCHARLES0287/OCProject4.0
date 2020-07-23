@@ -17,6 +17,12 @@ class CommentsController extends BackController
     {
         if ($request->postExists('delete_comment') && !empty($request->postData('comment_id')))
         {
+            $commentsManager = new CommentsManager();
+            $comment = $commentsManager->getOneComment($request->postData('comment_id'));
+            $chapterId = $comment->chapter_id();
+            $this->page->addVar('chapterId', $chapterId);
+
+
             /*
                         $commentEntity = new CommentEntity();
                         $chapterId = $commentEntity->chapter_id();
@@ -27,8 +33,9 @@ class CommentsController extends BackController
                         $this->page->addVar('chapter', $chapterId);
 
                         */
-            $commentsManager = new CommentsManager();
+
             $commentsManager->deleteOneComment($request->postData('comment_id'));
+
 
 
         }
