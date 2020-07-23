@@ -56,7 +56,7 @@ h1
     margin-right: 10px;
 }
 
-.bouton_menu_backend
+.bouton_menu_backend, .bouton_menu_frontend
 {
     width: auto;
     /*height: auto;*/
@@ -65,6 +65,11 @@ h1
     background-color: mistyrose;
     border: 2px black solid;
     border-radius: 5px;
+}
+
+.bouton_menu_backend a, .bouton_menu_frontend a
+{
+    text-decoration: none;
 }
 
 .bouton_menu_backend:hover
