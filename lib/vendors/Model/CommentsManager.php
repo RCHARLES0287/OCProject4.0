@@ -21,7 +21,8 @@ class CommentsManager extends Managers
     {
         $answerCommentsData = $this->db->prepare('SELECT id, chapter_id, content, number_of_warnings, visitor_pseudo, release_date
                                                             FROM blog_auteur_comments
-                                                            WHERE chapter_id =:chapterId');
+                                                            WHERE chapter_id =:chapterId
+                                                            ORDER BY release_date DESC ');
 
         $answerCommentsData->execute(array(
             'chapterId' => $chapterId
@@ -41,6 +42,64 @@ class CommentsManager extends Managers
         return $commentsFeatures;
 
     }
+
+
+    public function getCommentsWithWarnings($chapterId)
+    {
+        $answerCommentsData = $this->db->prepare('SELECT id, chapter_id, content, number_of_warnings, visitor_pseudo, release_date
+                                                            FROM blog_auteur_comments
+                                                            WHERE chapter_id =:chapterId
+                                                            ORDER BY release_date DESC ');
+
+        $answerCommentsData->execute(array(
+            'chapterId' => $chapterId
+        ));
+
+        $commentsFeatures = [];
+
+        $dbComments = $answerCommentsData->fetchAll();
+
+//        var_dump($dbComments);
+
+        foreach ($dbComments as $comment)
+        {
+            $commentsFeatures[] = new CommentEntity($comment);
+        }
+
+        return $commentsFeatures;
+
+    }
+
+
+    public function getCommentsWithNoWarnings($chapterId)
+    {
+        $answerCommentsData = $this->db->prepare('SELECT id, chapter_id, content, number_of_warnings, visitor_pseudo, release_date
+                                                            FROM blog_auteur_comments
+                                                            WHERE chapter_id =:chapterId
+                                                            ORDER BY release_date DESC ');
+
+        $answerCommentsData->execute(array(
+            'chapterId' => $chapterId
+        ));
+
+        $commentsFeatures = [];
+
+        $dbComments = $answerCommentsData->fetchAll();
+
+//        var_dump($dbComments);
+
+        foreach ($dbComments as $comment)
+        {
+            $commentsFeatures[] = new CommentEntity($comment);
+        }
+
+        return $commentsFeatures;
+
+    }
+
+
+
+
 
 
     public function getOneComment($commentId)
