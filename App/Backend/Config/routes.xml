@@ -9,6 +9,7 @@
     <route url="/admin/confirmdeleteonechapter" module="Chapters" action="confirmdeleteonechapter"/>
     <route url="/admin/deleteonechapter" module="Chapters" action="deleteonechapter"/>
     <route url="/admin/deleteonecomment" module="Comments" action="deleteonecomment"/>
+    <route url="/admin/validateonecomment" module="Comments" action="validateonecomment"/>
 </routes>
 <!-- Exemple de route :
 <routes>
