@@ -16,6 +16,13 @@
     /** @var int $chapterId */
     ?>
 
+
+    <?php
+    var_dump('zlkrgc,jklf', $chapterId);
+    exit;
+    ?>
+
+
     <p class="message-au-visiteur">Le commentaire a bien été validé.</p>
 
     <form method="get" action="/admin/showonechapter">

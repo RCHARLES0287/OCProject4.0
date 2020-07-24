@@ -55,6 +55,8 @@ class CommentsController extends BackController
             $selectedComment->setNumber_of_warnings($newNumberOfWarnings);
 
             $commentsManager->updateOneComment($selectedComment, $request->getData('comment_id'));
+
+            $this->page->addVar('chapterId', $selectedComment->chapter_id());
         }
     }
 }
