@@ -43,7 +43,7 @@ class CommentsController extends BackController
 
     public function executeValidateonecomment (HTTPRequest $request)
     {
-        if ($request->postExists('validate_comment') && !empty($request->getData('comment_id')))
+        if (!empty($request->getData('comment_id')))
         {
             $commentsManager = new CommentsManager();
 
@@ -57,6 +57,11 @@ class CommentsController extends BackController
             $commentsManager->updateOneComment($selectedComment, $request->getData('comment_id'));
 
             $this->page->addVar('chapterId', $selectedComment->chapter_id());
+/*
+            var_dump($selectedComment);
+            exit;
+*/
+
         }
     }
 }
