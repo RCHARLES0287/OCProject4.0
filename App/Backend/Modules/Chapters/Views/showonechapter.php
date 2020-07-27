@@ -79,9 +79,31 @@
 
                             <?= $comment->visitor_pseudo() ?> : <?= $comment->content() ?>.<br/>
                             Date de publication : <?= $comment->release_date() ?> <br/>
-                            Nombre de signalements : <?= $comment->number_of_warnings() ?>
+                            <?php
+                            if ($comment->number_of_warnings() !== -1)
+                            {
+                                echo ('Nombre de signalements : '.$comment->number_of_warnings());
+                            }
+                            else
+                            {
+                                echo ('Commentaire validé');
+                            }
+                            ?>
 
-                            <form method="post" action="/admin/validateonecomment">
+                            <!--
+                            Nombre de signalements : <?/*=
+                            if ($comment->number_of_warnings() !== -1)
+                            {
+                                return $comment->number_of_warnings();
+                            }
+                            else
+                            {
+                                return ('Commentaire validé')
+                            }
+                            */?>
+                            -->
+
+                            <form method="get" action="/admin/validateonecomment">
                                 <input id="comment_id" type="hidden" name="comment_id" value='<?= $comment->id() ?>'/><br />
                                 <input name="validate_comment" type="submit" value="Valider">
                             </form>
