@@ -18,7 +18,7 @@
           <div class="menu_entete">
               <ul class="list_menu_entete" id="liste_menu_entete_backend">
                   <li class="bouton_menu_backend"><i class="fas fa-book-open"></i></li>
-                  <li class="bouton_menu_backend"><a href="http://blogauteur.romaincharlesdemonstrator.ovh/admin/showallchapters">Sommaire</a></li>
+                  <li class="bouton_menu_backend"><a href="/admin/showallchapters">Sommaire</a></li>
                   <li class="bouton_menu_backend">Déconnexion</li>
               </ul>
           </div>
