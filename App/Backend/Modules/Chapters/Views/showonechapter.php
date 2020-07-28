@@ -22,7 +22,7 @@
 
                     <?php
     //                                var_dump($comments_with_warnings);
-                    /** @var \Entity\CommentEntity $comment */
+                    /** @var \Entity\CommentEntity[] $comments_with_warnings */
                     foreach ($comments_with_warnings as $comment)
                     {
                         ?>
@@ -60,7 +60,7 @@
 
                     <?php
                     //                                var_dump($comments_with_no_warnings);
-                    /** @var \Entity\CommentEntity $comment */
+                    /** @var \Entity\CommentEntity[] $comments_with_no_warnings */
                     foreach ($comments_with_no_warnings as $comment)
                     {
                         ?>
