@@ -90,11 +90,17 @@ h1
     align-items: center;
 }
 
+.corps_de_page ul
+{
+    width: 80%;
+    margin: 0;
+    padding: 0;
+}
+
 
 .corps_de_page li
 {
     list-style-type: none;
-    width: 80%;
     border: 2px #006699 solid;
     background-color: lightskyblue;
 }
