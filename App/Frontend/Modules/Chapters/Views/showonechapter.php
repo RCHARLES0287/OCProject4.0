@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr_FR">
-<head>
-    <title>Blog Auteur</title>
-    <meta charset="utf-8" />
-</head>
 
-<body>
-<h2>Contenu d'un seul chapitre</h2>
+
 
 
 
@@ -92,9 +85,6 @@
 
 </ul>
 
-
-</body>
-</html>
 
 <!--
 

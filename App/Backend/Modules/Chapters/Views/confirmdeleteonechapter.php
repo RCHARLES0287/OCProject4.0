@@ -1,8 +1,6 @@
 
 
-<h2>Ici on propose de valider ou d'annuler la suppression d'un chapitre</h2>
-
-<h3>Suppression de chapitres</h3>
+<h2 class="titres_vues">Suppression de chapitre</h2>
 
 
 

@@ -27,21 +27,10 @@
       </header>
 
       <section class="corps_de_page">
-          <h1>Ceci est le layout commun à toutes les pages du backend</h1>
-          <h2>Ici se trouve le haut de page</h2>
 
 
-          <?php
 
-          echo 'Le echo fonctionne';
 
-          if(!empty($errorMessage))         //!empty vérifie que la variable existe, qu'elle n'est pas nulle, et que ce n'est pas une chaine de longueur zéro
-          {
-              echo $errorMessage;
-//              ?><!-- <pre> --><?php //var_dump($errorStack); ?><!-- </pre> --><?php
-          }
-
-          ?>
 
           <?= $content ?>
 

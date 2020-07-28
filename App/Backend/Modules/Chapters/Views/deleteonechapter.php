@@ -1,8 +1,6 @@
 
 
-<h2>Ici on confirme l'annulation de la suppression d'un chapitre</h2>
-
-<h3>Suppression de chapitres</h3>
+<h2 class="titres_vues">Chapitre supprimé</h2>
 
 
 
@@ -18,5 +16,7 @@
         <input name="back_to_chapters" type="submit" value="Retour aux chapitres">
     </form>
 </div>
+
+
 
 

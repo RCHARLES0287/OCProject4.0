@@ -4,9 +4,9 @@
 
 
 
-<h2>Ici on confirme la validation d'un commentaire</h2>
+<h2 class="titres_vues">Confirmation de validation du commentaire</h2>
 
-<h3>Validation de commentaires</h3>
+
 
 
 

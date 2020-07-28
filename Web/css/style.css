@@ -83,10 +83,20 @@ h1
 .corps_de_page
 {
     width: 100%;
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+
+.corps_de_page li
+{
+    list-style-type: none;
+    width: 80%;
+    border: 2px #006699 solid;
+    background-color: lightskyblue;
 }
 
 

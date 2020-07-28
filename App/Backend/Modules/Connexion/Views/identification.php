@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr_FR">
-<head>
-    <title>Blog Auteur</title>
-    <meta charset="utf-8" />
-</head>
 
-<body>
-<h2>Connection</h2>
+
+
+
+
+<h2 class="titres_vues">Connexion</h2>
+
 
 <form method="post" action="/admin/identification">
     <label for="login">Pseudo</label>
@@ -17,8 +15,9 @@
 
     <input name="submit_button" type="submit" value="Connexion" />
 </form>
-</body>
-</html>
+
+
+
 
 <!-- route : http://blogauteur.romaincharlesdemonstrator.ovh/admin/identification
  <route url="/admin/identification" module="Connexion" action="identification" ></route>-->

@@ -4,10 +4,7 @@
 
 
 
-    <h2>Ici on confirme la suppression d'un commentaire</h2>
-
-    <h3>Suppression de commentaires</h3>
-
+    <h2 class="titres_vues">Confirmation de suppression de commentaire</h2>
 
 
 
