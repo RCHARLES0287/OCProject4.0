@@ -20,9 +20,13 @@
     {
         ?>
         <li>
-            Chapitre <?= $chapter->chapter_number() ?>: <?= htmlspecialchars($chapter->title()) ?>.<br/>
-            <?= htmlspecialchars($chapter->text()) ?>
-            <!--        Titre du chapitre : --><?//= $chapter->title() ?><!--<br/>-->
+            <div class="chap_title_accueil_visitor">
+                Chapitre <?= $chapter->chapter_number() ?>: <?= htmlspecialchars($chapter->title()) ?>.<br/>
+            </div>
+            <div class="chap_text_accueil_visitor">
+                <?= htmlspecialchars($chapter->text()) ?>
+            </div>
+
 
             <?php echo $chapter->id() ?>
 

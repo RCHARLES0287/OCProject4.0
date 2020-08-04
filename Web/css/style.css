@@ -92,9 +92,12 @@ h1
 
 .corps_de_page ul
 {
-    width: 80%;
+    width: 50%;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 
@@ -102,9 +105,33 @@ h1
 {
     list-style-type: none;
     border: 2px #006699 solid;
+    background-color: lavender;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.chap_title_accueil_admin, .chap_title_accueil_visitor, .chap_title_showonechapter_visitor,
+.comment_showonechapter_visitor
+{
     background-color: lightskyblue;
 }
 
+.boutons_accueil_admin
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.boutons_accueil_admin, form
+{
+    margin: 3px;
+}
+
+.list_commentaires_showonechapter_visitor
+{
+    width: 100%;
+}
 
 
 footer

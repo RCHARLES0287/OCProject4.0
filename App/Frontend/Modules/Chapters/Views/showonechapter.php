@@ -11,15 +11,16 @@
     {
         ?>
         <li>
-            Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>.<br/>
-            <?= $chapter->text() ?>
-            <!--        Titre du chapitre : --><?//= $chapter->title() ?><!--<br/>-->
+            <div class="chap_title_showonechapter_visitor">
+                Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>.<br/>
+            </div>
+            <div class="chap_text_showonechapter_visitor">
+                <?= $chapter->text() ?>
+            </div>
 
 
 
-
-
-            <h2>Ajouter un commentaire</h2>
+            <h3>Ajouter un commentaire</h3>
 
             <form method="post" action="/visitor/commentonechapter">
                 <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
@@ -47,7 +48,7 @@
 
             <h3>Commentaires</h3>
 
-            <ul>
+            <ul class="list_commentaires_showonechapter_visitor">
 
                 <?php
 //                var_dump($comments);
@@ -58,9 +59,13 @@
 
                     <li>
 
+                        <div class="comment_showonechapter_visitor">
+                            <?= $comment->visitor_pseudo() ?> : <?= $comment->content() ?>.<br/>
+                        </div>
+                        <div class="date_publication_showonechapter_visitor">
+                            Date de publication : <?= $comment->release_date() ?>
+                        </div>
 
-                        <?= $comment->visitor_pseudo() ?> : <?= $comment->content() ?>.<br/>
-                        Date de publication : <?= $comment->release_date() ?>
 
                         <form method="post" action="/visitor/warningoncomment">
 <!--                            <input id="chapter_id_comment" type="hidden" name="chapter_id_comment" value='--><?//= $comment->chapter_id() ?><!--'/><br />-->

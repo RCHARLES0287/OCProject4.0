@@ -9,7 +9,7 @@
 
 
 
-<ul>
+<ul class="liste_accueil_admin">
 
     <?php
 
@@ -18,25 +18,31 @@
     {
         ?>
         <li>
-            Chapitre <?= $chapter->chapter_number() ?>: <?= htmlspecialchars($chapter->title()) ?>.<br/>
-            <?= htmlspecialchars($chapter->text()) ?>
-            <!--        Titre du chapitre : --><?//= $chapter->title() ?><!--<br/>-->
+            <div class="chap_title_accueil_admin">
+                Chapitre <?= $chapter->chapter_number() ?>: <?= htmlspecialchars($chapter->title()) ?>.<br/>
+            </div>
+            <div class="chap_text_accueil_admin">
+                <?= htmlspecialchars($chapter->text()) ?>
+            </div>
+
 
             <?php echo $chapter->id() ?>
-            <form method="post" action="/admin/confirmdeleteonechapter">
-                <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
-                <input name="delete_chapter_button" type="submit" value="Supprimer">
-            </form>
+            <div class="boutons_accueil_admin">
+                <form method="post" action="/admin/confirmdeleteonechapter">
+                    <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
+                    <input name="delete_chapter_button" type="submit" value="Supprimer">
+                </form>
 
-            <form method="post" action="/admin/showonechapter">
-                <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
-                <input name="show_chapter_button" type="submit" value="Afficher">
-            </form>
+                <form method="post" action="/admin/showonechapter">
+                    <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
+                    <input name="show_chapter_button" type="submit" value="Afficher">
+                </form>
 
-            <form method="post" action="/admin/editonechapter">
-                <input id="chapter_id_modify" type="hidden" name="chap_id_modify" value='<?= $chapter->id() ?>'/><br />
-                <input name="modify_chapter_button" type="submit" value="Modifier">
-            </form>
+                <form method="post" action="/admin/editonechapter">
+                    <input id="chapter_id_modify" type="hidden" name="chap_id_modify" value='<?= $chapter->id() ?>'/><br />
+                    <input name="modify_chapter_button" type="submit" value="Modifier">
+                </form>
+            </div>
         </li>
 
         <?php
@@ -45,6 +51,3 @@
 
 </ul>
 
-<!-- route : http://blogauteur.romaincharlesdemonstrator.ovh/admin/showallchapters
- <route url="/admin/showallchapters" module="Chapters" action="showallchapters"/>-->
- 
