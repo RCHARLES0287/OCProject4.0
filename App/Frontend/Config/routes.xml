@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <routes>
-    <route url="/test.zz" module="Accueil" action="test" />
-    <route url="/toto.jpg" module="Accueil" action="test" />
+    <!--    Route d'accès à l'accueil depuis l'url de base du site-->
+    <route url="/" module="Chapters" action="showallchapters"/>
+
     <route url="/visitor/showallchapters" module="Chapters" action="showallchapters"/>
     <route url="/visitor/commentonechapter" module="Comments" action="commentonechapter"/>
     <route url="/visitor/showonechapter" module="Chapters" action="showonechapter"/>
