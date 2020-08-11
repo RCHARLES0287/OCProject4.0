@@ -2,7 +2,6 @@
 
 namespace App\Backend\Modules\Connexion\Controller;
 
-//use Model\AdminEntity;
 use Model\ConnexionManager;
 use OCFram\BackController;
 use OCFram\HTTPRequest;
@@ -22,11 +21,6 @@ class ConnexionController extends BackController
             $connexionManager = new ConnexionManager();
             $adminEntity = $connexionManager->compareVisitorWithDb($request->postData('login'), $request->postData('password'));
 
-            /*$dbAdmins = $connexionManager->getDbAdmin();
-            var_dump($dbAdmins);
-            $administratorFeatures = new AdminEntity($dbAdmins);*/
-
-
 
             if($adminEntity !== false)
             {
@@ -37,56 +31,12 @@ class ConnexionController extends BackController
                 var_dump('Le visiteur n\'a pas pu être authentifié');
             }
 
-            /*var_dump($administratorFeatures->login());
-
-            if ($administratorFeatures->login() == )*/
         }
 
         header('Location: /admin/showallchapters');     //Ne jamais mettre l'URL absolue
         exit;
     }
 
-
-
-
-/*    public function executeIdentification(HTTPRequest $request)
-    {
-        if($request->postExists('submit_button'))
-        {
-            var_dump($request->postData('login'), $request->postData('password'));
-            $this->page->addVar('prevLogin', $request->postData('login'));
-
-            if(!empty($_POST['login']) && !empty($_POST['password']))
-            {
-                $visitorPseudo = $_POST['login'];
-                $visitorPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-                $connexionManager = new ConnexionManager();
-                $dbAdminsData = $connexionManager->getterAdminsData();
-                var_dump($dbAdminsData);
-
-                foreach ($dbAdminsData as $value)
-                {
-                    if ($visitorPseudo === $value['login'])
-                    {
-                        if ($visitorPassword === $value['password'])
-                        {
-                            $_SESSION['connectionStatus'] = 'connected';
-                        }
-                        else
-                        {
-                            $_SESSION['connectionStatus'] = 'notConnected';
-                        }
-                    }
-                    else
-                    {
-                        $_SESSION['connectionStatus'] = 'notConnected';
-                    }
-                }
-            }
-
-        }
-    }*/
 
     public function executeIndex(HTTPRequest $request)
     {

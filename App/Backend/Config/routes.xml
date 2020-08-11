@@ -2,7 +2,6 @@
 
 <routes>
     <route url="/admin/identification" module="Connexion" action="identification"/>
-    <route url="/admin/addchapters" module="Chapters" action="addchapters"/>
     <route url="/admin/showallchapters" module="Chapters" action="showallchapters"/>
     <route url="/admin/showonechapter" module="Chapters" action="showonechapter"/>
     <route url="/admin/editonechapter" module="Chapters" action="editonechapter"/>
@@ -11,12 +10,5 @@
     <route url="/admin/deleteonecomment" module="Comments" action="deleteonecomment"/>
     <route url="/admin/validateonecomment" module="Comments" action="validateonecomment"/>
 </routes>
-<!-- Exemple de route :
-<routes>
-    <route url="/news.html" module="News" action="index" ></route>
-</routes>
--->
 
-<!-- Avec des regex, les routes pourraient prendre le format suivant :
-    <route url="/news-(.+)-([0-9]+)\.html" module="News" action="show" vars="slug,id" />
--->
+

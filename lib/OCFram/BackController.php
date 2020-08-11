@@ -39,7 +39,6 @@ abstract class BackController extends ApplicationComponent
 //            $this->page->addVar('errorStack', $e);
         }
 
-
     }
 
     public function page()

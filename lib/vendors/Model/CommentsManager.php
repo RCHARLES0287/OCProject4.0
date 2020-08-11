@@ -4,10 +4,8 @@
 namespace Model;
 
 
-use Entity\ChapterEntity;
 use Entity\CommentEntity;
 use OCFram\Managers;
-use PDO;
 
 class CommentsManager extends Managers
 {
@@ -32,15 +30,12 @@ class CommentsManager extends Managers
 
         $dbComments = $answerCommentsData->fetchAll();
 
-//        var_dump($dbComments);
-
         foreach ($dbComments as $comment)
         {
             $commentsFeatures[] = new CommentEntity($comment);
         }
 
         return $commentsFeatures;
-
     }
 
 
@@ -59,15 +54,12 @@ class CommentsManager extends Managers
 
         $dbComments = $answerCommentsData->fetchAll();
 
-//        var_dump($dbComments);
-
         foreach ($dbComments as $comment)
         {
             $commentsFeatures[] = new CommentEntity($comment);
         }
 
         return $commentsFeatures;
-
     }
 
 
@@ -86,20 +78,13 @@ class CommentsManager extends Managers
 
         $dbComments = $answerCommentsData->fetchAll();
 
-//        var_dump($dbComments);
-
         foreach ($dbComments as $comment)
         {
             $commentsFeatures[] = new CommentEntity($comment);
         }
 
         return $commentsFeatures;
-
     }
-
-
-
-
 
 
     public function getOneComment($commentId)
@@ -114,13 +99,7 @@ class CommentsManager extends Managers
 
         $dbComment = $answerCommentData->fetch();
 
-//        var_dump($dbComment);
-
         $commentEntity = new CommentEntity($dbComment);
-
-
-//        var_dump($commentEntity);
-
 
         return $commentEntity;
     }
@@ -153,7 +132,6 @@ class CommentsManager extends Managers
             'visitor_pseudo' => $newCommentEntity->visitor_pseudo(),
             'release_date' => $newCommentEntity->release_date()
         ));
-
     }
 
 
@@ -164,10 +142,5 @@ class CommentsManager extends Managers
             'commentId' => $commentId
         ));
     }
-
 }
 
-/*
-$answerCommentsData->bindValue('chapterId', $chapterId, PDO::PARAM_INT);
-$answerCommentsData->execute();
-*/

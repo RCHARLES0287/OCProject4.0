@@ -80,6 +80,5 @@ class CommentEntity extends Entity
         return $this->release_date;
     }
 
-
 }
 

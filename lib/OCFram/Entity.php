@@ -35,7 +35,7 @@ abstract class Entity implements \ArrayAccess
   }
 
   public function hydrate(array $donnees)
-  {
+    {
     foreach ($donnees as $attribut => $valeur)
     {
       $methode = 'set'.ucfirst($attribut);
@@ -45,7 +45,7 @@ abstract class Entity implements \ArrayAccess
         $this->$methode($valeur);
       }
     }
-  }
+    }
 
   public function offsetGet($var)
   {

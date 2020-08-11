@@ -69,7 +69,4 @@ class AdminEntity extends Entity
     {
         return $this->creationDate;
     }
-
-
-
 }

@@ -31,7 +31,6 @@ class CommentsController extends BackController
             $commentsManager = new CommentsManager();
             $commentsManager->saveOneComment($newComment);
 
-
         }
 
         header('Location: /visitor/showonechapter?chap_id='.$request->postData('chap_id'));     //Ne jamais mettre l'URL absolue
@@ -45,27 +44,17 @@ class CommentsController extends BackController
     {
         if ($request->postExists('send_warning') && !empty($request->postData('comment_id')))
         {
-//            var_dump($request->postData('chapter_id_comment'));
             $commentsManager = new CommentsManager();
 
             $selectedComment = $commentsManager->getOneComment($request->postData('comment_id'));
 
-//            var_dump('Voici le contenu du commentaire', $selectedComment);
-
             if ($selectedComment->number_of_warnings() !== -1)
             {
                 $newNumberOfWarnings = $selectedComment->number_of_warnings() + 1;
-//            var_dump($newNumberOfWarnings);
-
 
                 $selectedComment->setNumber_of_warnings($newNumberOfWarnings);
 
-//            var_dump($selectedComment);
-
-
                 $commentsManager->updateOneComment($selectedComment, $request->postData('comment_id'));
-
-//            var_dump('pif paf pouf');
 
                 header('Location: /visitor/showonechapter?chap_id='.$selectedComment->chapter_id());
                 exit;
@@ -80,13 +69,6 @@ class CommentsController extends BackController
         header('Location: /visitor/showallchapters');     //Ne jamais mettre l'URL absolue
         exit;
 
-        /*
-                else
-                {
-                    header('Location: /visitor/showallchapters');     //Ne jamais mettre l'URL absolue
-                    exit;
-                }
-                */
     }
 
 }
