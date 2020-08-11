@@ -2,12 +2,10 @@
 namespace App\Frontend\Modules\Chapters\Controller;
 
 use Entity\ChapterEntity;
-use Entity\CommentEntity;
 use Model\ChaptersManager;
 use Model\CommentsManager;
 use Exception;
 use OCFram\BackController;
-use OCFram\Entity;
 use OCFram\HTTPRequest;
 
 
@@ -30,7 +28,6 @@ class ChaptersController extends BackController
         $this->page->addVar('comments', []);
         $this->page->addVar('chapter', new ChapterEntity());
 
-//        if ($request->postExists('show_chapter_button') && !empty($request->postData('chap_id')))
         if (!empty($request->getData('chap_id')))
         {
 //            Afficher le chapitre
@@ -56,3 +53,4 @@ class ChaptersController extends BackController
     }
 
 }
+

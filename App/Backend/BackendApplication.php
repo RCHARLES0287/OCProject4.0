@@ -14,14 +14,8 @@ class BackendApplication extends Application
 
     public function run()
     {
-        //if ($this->user->isAuthenticated())
-        //{
+
         $controller = $this->getController();
-        /*}
-        else
-        {
-          $controller = new Modules\Connexion\ConnexionController($this, 'Connexion', 'index');
-        }*/
 
         $controller->execute();
 

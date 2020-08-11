@@ -1,13 +1,9 @@
 <?php
 namespace App\Backend\Modules\Comments\Controller;
 
-use Entity\ChapterEntity;
-use Entity\CommentEntity;
-use Model\ChaptersManager;
-use Exception;
+
 use Model\CommentsManager;
 use OCFram\BackController;
-use OCFram\Entity;
 use OCFram\HTTPRequest;
 
 
@@ -22,10 +18,7 @@ class CommentsController extends BackController
             $chapterId = $comment->chapter_id();
             $this->page->addVar('chapterId', $chapterId);
 
-
             $commentsManager->deleteOneComment($request->postData('comment_id'));
-
-
 
         }
     }

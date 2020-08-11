@@ -2,12 +2,10 @@
 namespace App\Backend\Modules\Chapters\Controller;
 
 use Entity\ChapterEntity;
-use Entity\CommentEntity;
 use Model\ChaptersManager;
 use Exception;
 use Model\CommentsManager;
 use OCFram\BackController;
-use OCFram\Entity;
 use OCFram\HTTPRequest;
 
 
@@ -56,7 +54,6 @@ class ChaptersController extends BackController
         {
             throw new Exception('Vous devez sélectionner un chapitre');
         }
-
 
     }
 

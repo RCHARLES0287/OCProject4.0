@@ -17,7 +17,3 @@
 </form>
 
 
-
-
-<!-- route : http://blogauteur.romaincharlesdemonstrator.ovh/admin/identification
- <route url="/admin/identification" module="Connexion" action="identification" ></route>-->

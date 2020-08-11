@@ -60,7 +60,6 @@ class ChaptersManager extends Managers
      */
     Public function saveOneChapter(ChapterEntity $newChapterEntity)
     {
-//        var_dump($newChapterEntity->title());
 
         $testChapExist = $this->checkChapterNumber($newChapterEntity->chapter_number());
 
@@ -85,13 +84,10 @@ class ChaptersManager extends Managers
     public function deleteOneChapter($chapterId)
     {
 
-//        throw new \Exception('ON EST BIEN DANS DELETEONECHAPTER DU MANAGER');
-
         $testChapExist = $this->checkChapterId($chapterId);
 
         if ($testChapExist === true)
         {
-//            throw new \Exception('ON EST BIEN DANS DELETEONECHAPTER DU MANAGER');
             $req = $this->db->prepare('DELETE FROM blog_auteur_chapters WHERE id=:chapterId');
             $req->bindValue('chapterId', $chapterId, PDO::PARAM_INT);
             $req->execute();
@@ -137,27 +133,4 @@ class ChaptersManager extends Managers
     }
 }
 
-
-/*
-try
-{
-    $this->checkChapterNumber($newChapterEntity->chapter_number());
-}
-catch()
-{
-
-}
-
-
-private function checkChapterNumber($chapterNumber)
-{
-    $dbNumber = $this->db->prepare('SELECT chapter_number FROM blog_auteur_chapters WHERE chapter_number=$chapterNumber');
-    $dbNumber->execute();
-
-    $numberTest= $dbNumber->fetch();
-    if($numberTest === $chapterNumber){
-        throw new \Exception('Le numéro de chapitre choisi existe déjà');
-    }
-
-}*/
 

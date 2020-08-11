@@ -2,7 +2,6 @@
 
 namespace App\Backend\Modules\Connexion\Controller;
 
-//use Model\AdminEntity;
 use Model\ConnexionManager;
 use OCFram\BackController;
 use OCFram\HTTPRequest;

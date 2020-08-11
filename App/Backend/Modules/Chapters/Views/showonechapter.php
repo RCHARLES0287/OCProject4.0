@@ -11,8 +11,6 @@
         <li>
             Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>.<br/>
             <?= $chapter->text() ?>
-            <!--        Titre du chapitre : --><?//= $chapter->title() ?><!--<br/>-->
-
 
 
             <div class="comments_with_warnings">
@@ -95,8 +93,6 @@
                     ?>
                 </ul>
             </div>
-
-
 
         </li>
 

@@ -31,7 +31,6 @@ class CommentsController extends BackController
             $commentsManager = new CommentsManager();
             $commentsManager->saveOneComment($newComment);
 
-
         }
 
         header('Location: /visitor/showonechapter?chap_id='.$request->postData('chap_id'));     //Ne jamais mettre l'URL absolue
