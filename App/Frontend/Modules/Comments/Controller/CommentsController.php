@@ -70,13 +70,6 @@ class CommentsController extends BackController
         header('Location: /visitor/showallchapters');     //Ne jamais mettre l'URL absolue
         exit;
 
-        /*
-                else
-                {
-                    header('Location: /visitor/showallchapters');     //Ne jamais mettre l'URL absolue
-                    exit;
-                }
-                */
     }
 
 }
