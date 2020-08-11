@@ -21,14 +21,12 @@
                 <ul>
 
                     <?php
-    //                                var_dump($comments_with_warnings);
                     /** @var \Entity\CommentEntity[] $comments_with_warnings */
                     foreach ($comments_with_warnings as $comment)
                     {
                         ?>
 
                         <li>
-
 
                             <?= $comment->visitor_pseudo() ?> : <?= $comment->content() ?>.<br/>
                             Date de publication : <?= $comment->release_date() ?> <br/>
@@ -59,14 +57,12 @@
                 <ul>
 
                     <?php
-                    //                                var_dump($comments_with_no_warnings);
                     /** @var \Entity\CommentEntity[] $comments_with_no_warnings */
                     foreach ($comments_with_no_warnings as $comment)
                     {
                         ?>
 
                         <li>
-
 
                             <?= $comment->visitor_pseudo() ?> : <?= $comment->content() ?>.<br/>
                             Date de publication : <?= $comment->release_date() ?> <br/>
@@ -81,18 +77,6 @@
                             }
                             ?>
 
-                            <!--
-                            Nombre de signalements : <?/*=
-                            if ($comment->number_of_warnings() !== -1)
-                            {
-                                return $comment->number_of_warnings();
-                            }
-                            else
-                            {
-                                return ('Commentaire validé')
-                            }
-                            */?>
-                            -->
 
                             <form method="get" action="/admin/validateonecomment">
                                 <input id="comment_id" type="hidden" name="comment_id" value='<?= $comment->id() ?>'/><br />
@@ -121,11 +105,6 @@
     ?>
 
 </ul>
-
-
-<!-- route : http://blogauteur.romaincharlesdemonstrator.ovh/admin/showonechapter
- <route url="/admin/showonechapter" module="Chapters" action="showonechapter"/>-->
-
 
 
 

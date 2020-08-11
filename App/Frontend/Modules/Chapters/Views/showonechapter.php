@@ -51,7 +51,6 @@
             <ul class="list_commentaires_showonechapter_visitor">
 
                 <?php
-//                var_dump($comments);
                 /** @var \Entity\CommentEntity $comment */
                 foreach ($comments as $comment)
                 {
@@ -68,10 +67,7 @@
 
 
                         <form method="post" action="/visitor/warningoncomment">
-<!--                            <input id="chapter_id_comment" type="hidden" name="chapter_id_comment" value='--><?//= $comment->chapter_id() ?><!--'/><br />-->
                             <input id="comment_id" type="hidden" name="comment_id" value='<?= $comment->id() ?>'/><br />
-<!--                            <input id="warn_comment_checkbox" type="checkbox" name="warn_comment_checkbox">-->
-<!--                            <label for="warn_comment_checkbox">Signaler le commentaire</label>-->
                             <input name="send_warning" type="submit" value="Signaler">
                         </form>
 
@@ -91,21 +87,3 @@
 </ul>
 
 
-<!--
-
-<label for="chapter_content">Texte du chapitre</label>
-        <textarea class="tiny_mce" id="chapter_content" name="chapter_content" > < ?= htmlspecialchars($chapter->text()) ? > </textarea><br /><br />
-
-
-<script>
-    tinymce.init({
-        selector: 'textarea',
-        // plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
-        toolbar_mode: 'floating',
-        tinycomments_mode: 'embedded',
-        tinycomments_author: 'Author name',
-    });
-</script>
-
--->

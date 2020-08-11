@@ -17,11 +17,8 @@ class ChaptersController extends BackController
     {
         $chaptersManager = new ChaptersManager();
 
-
-
         $allChaptersData = $chaptersManager->getAllChapters();
 
-//        var_dump($allChaptersData);
         $this->page->addVar('chapters', $allChaptersData);
         
     }
@@ -29,7 +26,6 @@ class ChaptersController extends BackController
     public function executeShowonechapter (HTTPRequest $request)
     {
 
-//        if ($request->postExists('show_chapter_button') && !empty($request->postData('chap_id')))
         /** @noinspection DuplicatedCode */
         if (!empty($request->postData('chap_id')))
         {
@@ -73,12 +69,9 @@ class ChaptersController extends BackController
         {
 
             $this->page->addVar('chapter', new ChapterEntity());
-//            throw new \Exception('TEST DU CONTROLLER CHAPITRES PARTIE EDITION');
             $chaptersManager = new ChaptersManager();
             $chapterEntity = $chaptersManager->getOneChapter($request->postData('chap_id_modify'));
             $this->page->addVar('chapter', $chapterEntity);
-//            var_dump($chapterEntity);
-//            throw new \Exception('TEST DU CONTROLLER CHAPITRES PARTIE EDITION');
         }
 
         else if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
@@ -90,13 +83,7 @@ class ChaptersController extends BackController
                 'release_date' => date('Y-m-d')
             ];
 
-//            var_dump('premier test', $newChapterContent);
-
-
             $newChapter = new ChapterEntity($newChapterContent);
-
-//            var_dump('deuxième test', $newChapter);
-
 
             $chaptersManager = new ChaptersManager();
             $chaptersManager->saveOneChapter($newChapter);
@@ -135,71 +122,6 @@ class ChaptersController extends BackController
             $chapterManager->deleteOneChapter($request->postData('chap_id'));
         }
     }
-
-/*
-    public function executeDeleteonecomment (HTTPRequest $request)
-    {
-        if ($request->postExists('delete_comment') && !empty($request->postData('comment_id')))
-        {
-
-            $commentsManager = new CommentsManager();
-            $commentsManager->deleteOneComment($request->postData('comment_id'));
-
-
-        }
-    }
-
-    */
-}
-
-/*
-public function executeEditonechapter (HTTPRequest $request)
-{
-    if($request->postExists('submit_button'))
-    {
-        $newChapterContent [] = [
-            $request->postData('chap_number'),
-            $request->postData('chapter_title'),
-            $request->postData('chapter_content'),
-            date('d M Y')
-        ];
-        $newChapter[] = new ChapterEntity($newChapterContent);
-        $chaptersManager = new ChaptersManager();
-        $chaptersManager->saveOneChapter($request->postData('chap_number'), $request->postData('chapter_title'), $request->postData('chapter_content'), 'date à compléter');
-
-    }
 }
 
 
-
-
-getAllChapters
-foreach ($dbChapters as $chapter)
-{
-    $chaptersFeatures[] = new ChapterEntity($chapter);
-}
-
-        return $chaptersFeatures;
-
-
-
-ChapterEntity::
-public function __construct(array $donnees = [])
-{
-    parent::__construct($donnees);
-}
-
-Entity::
-public function hydrate(array $donnees)
-{
-    foreach ($donnees as $attribut => $valeur)
-    {
-        $methode = 'set'.ucfirst($attribut);
-
-        if (is_callable([$this, $methode]))
-        {
-            $this->$methode($valeur);
-        }
-    }
-}
-*/

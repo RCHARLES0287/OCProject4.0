@@ -23,17 +23,6 @@ class CommentsController extends BackController
             $this->page->addVar('chapterId', $chapterId);
 
 
-            /*
-                        $commentEntity = new CommentEntity();
-                        $chapterId = $commentEntity->chapter_id();
-
-                        var_dump('bla bla', $chapterId);
-                        exit;
-
-                        $this->page->addVar('chapter', $chapterId);
-
-                        */
-
             $commentsManager->deleteOneComment($request->postData('comment_id'));
 
 
@@ -57,10 +46,6 @@ class CommentsController extends BackController
             $commentsManager->updateOneComment($selectedComment, $request->getData('comment_id'));
 
             $this->page->addVar('chapterId', $selectedComment->chapter_id());
-/*
-            var_dump($selectedComment);
-            exit;
-*/
 
         }
     }
