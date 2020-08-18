@@ -11,7 +11,9 @@
 
 <form method="post" action="/admin/editonechapter">
 
-    <label for="chap_number">Numéro de chapitre</label>
+    <input required id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>' />
+
+    <label for="chapter_number">Numéro de chapitre</label>
     <input required id="chapter_number" type="number" name="chap_number" value='<?= $chapter->chapter_number() ?>' /><br /><br />
 
     <label for="chapter_title">Titre du chapitre</label>

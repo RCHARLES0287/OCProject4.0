@@ -73,8 +73,9 @@ class ChaptersController extends BackController
 
         else if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
         {
-            
+
             $newChapterContent = [
+                'id' => $request->postData('chap_id'),
                 'chapter_number' => $request->postData('chap_number'),
                 'title' => $request->postData('chapter_title'),
                 'text' => $request->postData('chapter_content'),
