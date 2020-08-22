@@ -62,11 +62,10 @@ class ChaptersManager extends Managers
     {
 
         $testChapExist = $this->checkChapterNumber($newChapterEntity);
-
-//        var_dump('test du numéro de chapitre', $testChapExist);
         if ($testChapExist === true)
         {
-            if ($newChapterEntity->id() === null)
+
+            if ($newChapterEntity->id() == 0)
             {
                 $req = $this->db->prepare('INSERT INTO blog_auteur_chapters(title, chapter_number, text, release_date) VALUES(:title, :chapter_number, :text, :release_date)');
                 $req->execute(array(
