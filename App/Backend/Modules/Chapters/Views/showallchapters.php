@@ -8,6 +8,10 @@
 <h2 class="titres_vues">Accueil</h2>
 
 
+<form method="post" action="/admin/editonechapter">
+    <input name="newchap_submit_button" type="submit" value="Nouveau chapitre">
+</form>
+
 
 <ul class="liste_accueil_admin">
 
