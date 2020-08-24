@@ -23,14 +23,13 @@
         ?>
         <li>
             <div class="chap_title_accueil_admin">
-                Chapitre <?= $chapter->chapter_number() ?>: <?= htmlspecialchars($chapter->title()) ?>.<br/>
+                Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>.<br/>
             </div>
             <div class="chap_text_accueil_admin">
-                <?= htmlspecialchars($chapter->text()) ?>
+                <?= $chapter->text() ?>
             </div>
 
-
-            <?php echo $chapter->id() ?>
+            
             <div class="boutons_accueil_admin">
                 <form method="post" action="/admin/confirmdeleteonechapter">
                     <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />

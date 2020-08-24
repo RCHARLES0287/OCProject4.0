@@ -21,14 +21,12 @@
         ?>
         <li>
             <div class="chap_title_accueil_visitor">
-                Chapitre <?= $chapter->chapter_number() ?>: <?= htmlspecialchars($chapter->title()) ?>.<br/>
+                Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>.<br/>
             </div>
             <div class="chap_text_accueil_visitor">
-                <?= htmlspecialchars($chapter->text()) ?>
+                <?= $chapter->text() ?>
             </div>
-
-
-            <?php echo $chapter->id() ?>
+            
 
             <form method="get" action="/visitor/showonechapter">
                 <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
