@@ -164,6 +164,10 @@ li .boutons_accueil_admin
     border-radius: 3px;
 }
 
+.list_chap input:hover
+{
+    background-color: slateblue;
+}
 
 
 .chap_title_accueil_admin, .chap_title_accueil_visitor, .chap_title_showonechapter_visitor,
