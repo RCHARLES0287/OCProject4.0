@@ -26,7 +26,7 @@
             <div class="chap_text_accueil_visitor">
                 <?= $chapter->text() ?>
             </div>
-            
+
 
             <form method="get" action="/visitor/showonechapter">
                 <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />

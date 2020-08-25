@@ -7,10 +7,11 @@
 
 <h2 class="titres_vues">Accueil</h2>
 
-
-<form method="post" action="/admin/editonechapter">
-    <input name="newchap_submit_button" type="submit" value="Nouveau chapitre">
-</form>
+<div class="create_new_chapter">
+    <form method="post" action="/admin/editonechapter">
+        <input name="newchap_submit_button" type="submit" value="Nouveau chapitre">
+    </form>
+</div>
 
 
 <ul class="liste_accueil_admin">
@@ -21,7 +22,7 @@
     foreach ($chapters as $chapter)
     {
         ?>
-        <li>
+        <li class="list_chap">
             <div class="chap_title_accueil_admin">
                 Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>.<br/>
             </div>
