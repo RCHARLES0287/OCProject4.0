@@ -31,6 +31,7 @@ header
 
 #titre_accueil
 {
+
     width: 450px;
     margin-left: calc(50% - 225px);
 }
@@ -108,7 +109,7 @@ h1
 
 .create_new_chapter input:hover
 {
-    background-color: lawngreen;
+    background-color: limegreen;
 }
 
 
@@ -141,13 +142,29 @@ h1
     height: 20px;
 }
 
+/*
+.list_chap
+{
+    font-size: 60px;
+}
+*/
 
 
-.chap_text_accueil_admin, .chap_text_accueil_visitor
+.chap_text_accueil_admin:first-child
 {
     height: 35px;
-    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+
+
+/*
+.chap_text_accueil_admin:first-child, .chap_text_accueil_visitor:first-child
+{
+    height: 35px;
+    text-overflow: ellipsis;
+}
+*/
 
 
 /*
