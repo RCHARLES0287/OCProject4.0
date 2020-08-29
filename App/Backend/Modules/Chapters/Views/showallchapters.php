@@ -33,17 +33,17 @@
             
             <div class="boutons_accueil_admin">
                 <form method="post" action="/admin/confirmdeleteonechapter">
-                    <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
+                    <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/>
                     <input name="delete_chapter_button" type="submit" value="Supprimer">
                 </form>
 
                 <form method="post" action="/admin/showonechapter">
-                    <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
+                    <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/>
                     <input name="show_chapter_button" type="submit" value="Afficher">
                 </form>
 
                 <form method="post" action="/admin/editonechapter">
-                    <input id="chapter_id_modify" type="hidden" name="chap_id_modify" value='<?= $chapter->id() ?>'/><br />
+                    <input id="chapter_id_modify" type="hidden" name="chap_id_modify" value='<?= $chapter->id() ?>'/>
                     <input name="modify_chapter_button" type="submit" value="Modifier">
                 </form>
             </div>
