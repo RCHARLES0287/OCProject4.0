@@ -31,7 +31,9 @@ header
 
 #titre_accueil
 {
-
+    font: bold;
+    font-size: 30px;
+    text-align: center;
     width: 450px;
     margin-left: calc(50% - 225px);
 }
@@ -44,7 +46,6 @@ header
     justify-content: space-between;
     list-style-type: none;
 }
-
 
 
 h1
@@ -113,9 +114,9 @@ h1
 }
 
 
-.corps_de_page ul
+.corps_de_page .liste_accueil_admin, .chap_view
 {
-    width: 50%;
+    width: 80%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -124,7 +125,7 @@ h1
 }
 
 
-.corps_de_page li
+.corps_de_page .list_chap, .chapter_bloc
 {
     height: 110px;
     list-style-type: none;
@@ -135,7 +136,12 @@ h1
 }
 
 
-
+.chap_title
+{
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+}
 
 .chap_title_accueil_admin, .chap_title_accueil_visitor
 {
@@ -152,7 +158,7 @@ h1
 
 .chap_text_accueil_admin:first-child
 {
-    height: 35px;
+    height: 20px;
     text-overflow: ellipsis;
 }
 

@@ -11,7 +11,7 @@
 
 
 
-<ul>
+<div class="liste_accueil_admin">
 
     <?php
 
@@ -19,7 +19,7 @@
     foreach ($chapters as $chapter)
     {
         ?>
-        <li>
+        <div class="list_chap">
             <div class="chap_title_accueil_visitor">
                 Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>
             </div>
@@ -33,13 +33,13 @@
                 <input name="show_chapter_button" type="submit" value="Afficher">
             </form>
 
-        </li>
+        </div>
 
         <?php
     }
     ?>
 
-</ul>
+</div>
 
 
 

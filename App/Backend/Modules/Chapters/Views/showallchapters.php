@@ -14,7 +14,7 @@
 </div>
 
 
-<ul class="liste_accueil_admin">
+<div class="liste_accueil_admin">
 
     <?php
 
@@ -22,7 +22,7 @@
     foreach ($chapters as $chapter)
     {
         ?>
-        <li class="list_chap">
+        <div class="list_chap">
             <div class="chap_title_accueil_admin">
                 Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>.<br/>
             </div>
@@ -47,11 +47,11 @@
                     <input name="modify_chapter_button" type="submit" value="Modifier">
                 </form>
             </div>
-        </li>
+        </div>
 
         <?php
     }
     ?>
 
-</ul>
+</div>
 

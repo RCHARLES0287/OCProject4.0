@@ -14,7 +14,7 @@
       <script src="/burgermenu.js"></script>
 
       <header>
-          <h1 id="titre_accueil">Le blog de Jean Forteroche</h1>
+          <div id="titre_accueil">Le blog de Jean Forteroche</div>
           <div class="menu_entete">
               <ul class="list_menu_entete" id="liste_menu_entete_backend">
                   <li class="bouton_menu_backend"><i class="fas fa-book-open"></i></li>

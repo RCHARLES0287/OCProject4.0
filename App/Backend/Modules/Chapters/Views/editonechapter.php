@@ -20,7 +20,7 @@
     <input required id="chapter_title" type="text" name="chapter_title" value='<?= htmlspecialchars($chapter->title()) ?>' /> <br /><br />
 
     <label for="chapter_content">Texte du chapitre</label>
-    <textarea class="tiny_mce" id="chapter_content" name="chapter_content" > <?= htmlspecialchars($chapter->text()) ?> </textarea><br /><br />
+    <textarea required class="tiny_mce" id="chapter_content" name="chapter_content" > <?= htmlspecialchars($chapter->text()) ?> </textarea><br /><br />
 
     <input name="submit_button" type="submit" value="Enregistrer" />
 

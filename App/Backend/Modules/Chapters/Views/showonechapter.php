@@ -1,15 +1,19 @@
 
 
 
-<ul>
+<div class="chap_view">
 
     <?php
 
     /** @var \Entity\ChapterEntity $chapter */
     {
         ?>
-        <li>
-            Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>.<br/>
+        <h1 class="chap_title">
+            Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>
+        </h1>
+
+        <div class="chapter_bloc">
+
             <?= $chapter->text() ?>
 
 
@@ -94,13 +98,13 @@
                 </ul>
             </div>
 
-        </li>
+        </div>
 
         <?php
     }
     ?>
 
-</ul>
+</div>
 
 
 

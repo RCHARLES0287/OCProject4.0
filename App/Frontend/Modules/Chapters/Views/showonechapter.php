@@ -3,17 +3,19 @@
 
 
 
-<ul>
+<div class="chap_view">
 
     <?php
 
     /** @var \Entity\ChapterEntity $chapter */
     {
         ?>
-        <li>
-            <div class="chap_title_showonechapter_visitor">
-                Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>.<br/>
-            </div>
+        <h1 class="chap_title">
+            Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>
+        </h1>
+
+        <div class="chapter_bloc">
+
             <div class="chap_text_showonechapter_visitor">
                 <?= $chapter->text() ?>
             </div>
@@ -78,12 +80,12 @@
                 ?>
             </ul>
 
-        </li>
+        </div>
 
         <?php
     }
     ?>
 
-</ul>
+</div>
 
 
