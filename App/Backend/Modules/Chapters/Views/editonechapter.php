@@ -9,7 +9,7 @@
 /** @var \Entity\ChapterEntity $chapter */
 ?>
 
-<form method="post" action="/admin/editonechapter">
+<form method="post" class="new_chap_form" action="/admin/editonechapter">
 
     <input required id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>' />
 

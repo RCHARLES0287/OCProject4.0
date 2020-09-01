@@ -14,9 +14,9 @@
             Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>
         </h1>
 
-        <div class="chapter_bloc">
+<!--        <div class="chapter_bloc">-->
 
-            <div class="chap_text_showonechapter_visitor">
+            <div class="chapter_bloc">
                 <?= $chapter->text() ?>
             </div>
 
@@ -80,7 +80,7 @@
                 ?>
             </ul>
 
-        </div>
+<!--        </div>-->
 
         <?php
     }
