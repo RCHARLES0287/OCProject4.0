@@ -128,7 +128,7 @@ class ChaptersManager extends Managers
 
 
 
-    private function checkChapterNumber(ChapterEntity $chapterEntity)
+    public function checkChapterNumber(ChapterEntity $chapterEntity)
     {
         $dbNumber = $this->db->prepare("SELECT chapter_number FROM blog_auteur_chapters WHERE chapter_number=:chapterNumber AND id!=:chapterId");
 

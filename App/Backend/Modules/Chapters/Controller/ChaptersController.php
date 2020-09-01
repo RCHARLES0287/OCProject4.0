@@ -74,6 +74,40 @@ class ChaptersController extends BackController
         else if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
         {
 
+            $chaptersManager = new ChaptersManager();
+            $chapterEntity = $chaptersManager->getOneChapter($request->postData('chap_number'));
+
+
+            $testChapExist = $chaptersManager->checkChapterNumber($chapterEntity);
+
+            if ($testChapExist === false)
+            {
+                var_dump($chapterEntity);
+                exit;
+                throw new Exception('Ce chapitre existe déjà');
+            }
+            else
+            {
+
+                $newChapterContent = [
+                    'id' => $request->postData('chap_id'),
+                    'chapter_number' => $request->postData('chap_number'),
+                    'title' => $request->postData('chapter_title'),
+                    'text' => $request->postData('chapter_content'),
+                    'release_date' => date('Y-m-d')
+                ];
+
+                $newChapter = new ChapterEntity($newChapterContent);
+
+                $chaptersManager = new ChaptersManager();
+                $chaptersManager->saveOneChapter($newChapter);
+
+                header('Location: /admin/showallchapters');     //Ne jamais mettre l'URL absolue
+                exit;
+            }
+
+
+            /*
             $newChapterContent = [
                 'id' => $request->postData('chap_id'),
                 'chapter_number' => $request->postData('chap_number'),
@@ -89,7 +123,7 @@ class ChaptersController extends BackController
 
             header('Location: /admin/showallchapters');     //Ne jamais mettre l'URL absolue
             exit;
-
+            */
         }
 
         else if ($request->postExists('submit_button'))
