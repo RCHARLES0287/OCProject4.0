@@ -24,7 +24,7 @@
                 Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>
             </div>
             <div class="chap_text_accueil_visitor">
-                <?= $chapter->text() ?>
+                <?= mb_substr(strip_tags($chapter->text()), 0, 300) . ' [...]' ?>
             </div>
 
 

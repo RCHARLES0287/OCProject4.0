@@ -27,7 +27,7 @@
                 Chapitre <?= $chapter->chapter_number() ?>: <?= $chapter->title() ?>.<br/>
             </div>
             <div class="chap_text_accueil_admin">
-                <?= $chapter->text() ?>
+                <?= mb_substr(strip_tags($chapter->text()), 0, 300) . ' [...]'  ?>
             </div>
 
             
