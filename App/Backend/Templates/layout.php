@@ -28,6 +28,20 @@
 
       <section class="corps_de_page">
 
+          <?php
+//          var_dump($errorMessage);
+
+/*
+          if (!empty($request->postData('errorMessage')))
+          {*/
+              ?>
+              <!--<div class="affichage_exception">
+                <?/*= $errorMessage */?>
+                </div>-->
+              <?php
+//          }
+          ?>
+
 
 
           <?= $content ?>
