@@ -43,6 +43,7 @@
           ?>
 
 
+          <?= $errorMessage ?>
 
           <?= $content ?>
 
