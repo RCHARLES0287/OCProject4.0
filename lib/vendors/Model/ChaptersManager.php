@@ -17,7 +17,7 @@ class ChaptersManager extends Managers
 
     public function getAllChapters()
     {
-        $answerChaptersData = $this->db->prepare('SELECT id, title, chapter_number, text, release_date, released FROM blog_auteur_chapters ORDER BY chapter_number');
+        $answerChaptersData = $this->db->prepare('SELECT id, title, chapter_number, text, release_date, released FROM blog_auteur_chapters ORDER BY chapter_number DESC');
         $answerChaptersData->execute();
 
         $chaptersFeatures = [];
