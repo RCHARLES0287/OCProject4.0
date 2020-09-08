@@ -61,7 +61,10 @@
                     <li>
 
                         <div class="comment_showonechapter_visitor">
-                            <?= $comment->visitor_pseudo() ?> : <?= $comment->content() ?>.<br/>
+                            <?= $comment->visitor_pseudo() ?> :
+                        </div>
+                        <div class="comment_showonechapter_content">
+                            <?= $comment->content() ?>
                         </div>
                         <div class="date_publication_showonechapter_visitor">
                             Date de publication : <?= $comment->release_date() ?>

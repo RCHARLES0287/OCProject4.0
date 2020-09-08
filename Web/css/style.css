@@ -247,6 +247,24 @@ li .boutons_accueil_admin
     width: 100%;
 }
 
+.list_commentaires_showonechapter_visitor li
+{
+    list-style-type: none;
+    border: 2px #006699 solid;
+    background-color: lavender;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.comment_showonechapter_visitor
+{
+    background-color: lavender;
+}
+
+.comment_showonechapter_content
+{
+    background-color: lightskyblue;
+}
 
 footer
 {
@@ -263,6 +281,17 @@ footer
 .copyright
 {
     padding: 5px;
+}
+
+
+/*Affichage des erreurs*/
+
+.affichage_exception
+{
+    background-color: coral;
+    padding: 5px;
+    border: red solid 5px;
+    border-radius: 5px;
 }
 
 
