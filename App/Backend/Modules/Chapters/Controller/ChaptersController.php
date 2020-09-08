@@ -65,6 +65,7 @@ class ChaptersController extends BackController
         if ($request->postExists('modify_chapter_button') && !empty($request->postData('chap_id_modify')))
         {
 
+
             $this->page->addVar('chapter', new ChapterEntity());
             $chaptersManager = new ChaptersManager();
             $chapterEntity = $chaptersManager->getOneChapter($request->postData('chap_id_modify'));
@@ -73,22 +74,17 @@ class ChaptersController extends BackController
 
         else if($request->postExists('submit_button') && !empty($request->postData('chap_number')) && !empty($request->postData('chapter_title')) && !empty($request->postData('chapter_content')))
         {
+            /*
+            var_dump($request->postData('chap_number'));
+            exit;
+            */
 
-            $chaptersManager = new ChaptersManager();
-            $chapterEntity = $chaptersManager->getOneChapter($request->postData('chap_number'));
-
-
-            $testChapExist = $chaptersManager->checkChapterNumber($chapterEntity);
-
-            if ($testChapExist === false)
+            if ($request->postData('chap_number') < 1)
             {
-                var_dump($chapterEntity);
-                exit;
-                throw new Exception('Ce chapitre existe déjà');
+                throw new Exception('Le numéro de chapitre doit être supérieur ou égal à 1');
             }
             else
             {
-
                 $newChapterContent = [
                     'id' => $request->postData('chap_id'),
                     'chapter_number' => $request->postData('chap_number'),
@@ -128,6 +124,7 @@ class ChaptersController extends BackController
 
         else if ($request->postExists('submit_button'))
         {
+
             throw new Exception('Vous devez remplir chacun des champs avant de valider');
         }
 
