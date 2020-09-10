@@ -17,7 +17,7 @@ class Managers
 
     public function getManagerOf($module)
     {
-        if (!is_string($module) || empty($module))
+        if (!is_string($module) || \OCFram\Utilitaires::emptyMinusZero($module))
         {
             throw new InvalidArgumentException('Le module spécifié est invalide');
         }

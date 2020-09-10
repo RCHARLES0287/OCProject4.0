@@ -30,7 +30,7 @@
 
             <?php
 /*
-            if (!empty($request->postData('errorMessage')))
+            if (!\OCFram\Utilitaires::emptyMinusZero($request->postData('errorMessage')))
             {*/
             ?>
                 <!--<div class="affichage_exception">

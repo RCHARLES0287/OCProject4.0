@@ -29,7 +29,7 @@ class ConnexionManager extends Managers
 
     public function compareVisitorWithDb ($visitorLogin, $visitorPwd)
     {
-        if(!empty($visitorLogin) && !empty($visitorPwd))
+        if(!\OCFram\Utilitaires::emptyMinusZero($visitorLogin) && !\OCFram\Utilitaires::emptyMinusZero($visitorPwd))
         {
             $answerAdminsData = $this->db->prepare('SELECT id, login, password, status, creation_date FROM blog_auteur_admins WHERE login= :loginVisiteur');
             $answerAdminsData->execute(array('loginVisiteur' => $visitorLogin));

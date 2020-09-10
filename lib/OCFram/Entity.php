@@ -8,7 +8,7 @@ abstract class Entity implements \ArrayAccess
 
   public function __construct(array $donnees = [])
   {
-    if (!empty($donnees))
+    if (!\OCFram\Utilitaires::emptyMinusZero($donnees))
     {
       $this->hydrate($donnees);
     }
@@ -16,7 +16,7 @@ abstract class Entity implements \ArrayAccess
 
   public function isNew()
   {
-    return empty($this->id);
+    return \OCFram\Utilitaires::emptyMinusZero($this->id);
   }
 
   public function erreurs()

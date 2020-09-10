@@ -19,7 +19,7 @@ class Route
 
   public function hasVars()
   {
-    return !empty($this->varsNames);
+    return !\OCFram\Utilitaires::emptyMinusZero($this->varsNames);
   }
 
   public function match($url)

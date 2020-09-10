@@ -11,7 +11,7 @@ class CommentsController extends BackController
 {
     public function executeDeleteonecomment (HTTPRequest $request)
     {
-        if ($request->postExists('delete_comment') && !empty($request->postData('comment_id')))
+        if ($request->postExists('delete_comment') && !\OCFram\Utilitaires::emptyMinusZero($request->postData('comment_id')))
         {
             $commentsManager = new CommentsManager();
             $comment = $commentsManager->getOneComment($request->postData('comment_id'));
@@ -25,7 +25,7 @@ class CommentsController extends BackController
 
     public function executeValidateonecomment (HTTPRequest $request)
     {
-        if (!empty($request->getData('comment_id')))
+        if (!\OCFram\Utilitaires::emptyMinusZero($request->getData('comment_id')))
         {
             $commentsManager = new CommentsManager();
 

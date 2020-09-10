@@ -28,7 +28,7 @@ class ChaptersController extends BackController
         $this->page->addVar('comments', []);
         $this->page->addVar('chapter', new ChapterEntity());
 
-        if (!empty($request->getData('chap_id')))
+        if (!\OCFram\Utilitaires::emptyMinusZero($request->getData('chap_id')))
         {
 //            Afficher le chapitre
             $chapterManager = new ChaptersManager();

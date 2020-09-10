@@ -35,7 +35,7 @@ class CommentEntity extends Entity
 
     public function setContent($text)
     {
-        if(empty($text))
+        if(\OCFram\Utilitaires::emptyMinusZero($text))
         {
             throw new \Exception('Le contenu du commentaire doit contenir du texte uniquement');
         }

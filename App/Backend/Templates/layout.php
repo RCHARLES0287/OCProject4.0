@@ -29,21 +29,18 @@
       <section class="corps_de_page">
 
           <?php
-//          var_dump($errorMessage);
 
-/*
-          if (!empty($request->postData('errorMessage')))
-          {*/
+
+          if (!\OCFram\Utilitaires::emptyMinusZero($errorMessage))
+          {
               ?>
-              <!--<div class="affichage_exception">
-                <?/*= $errorMessage */?>
-                </div>-->
+              <div class="affichage_exception">
+                <?= $errorMessage ?>
+                </div>
               <?php
-//          }
+          }
           ?>
 
-
-          <?= $errorMessage ?>
 
           <?= $content ?>
 
