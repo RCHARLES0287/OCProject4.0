@@ -7,6 +7,7 @@ use Model\CommentsManager;
 use Exception;
 use OCFram\BackController;
 use OCFram\HTTPRequest;
+use OCFram\Utilitaires;
 
 
 class ChaptersController extends BackController
@@ -28,7 +29,7 @@ class ChaptersController extends BackController
         $this->page->addVar('comments', []);
         $this->page->addVar('chapter', new ChapterEntity());
 
-        if (!\OCFram\Utilitaires::emptyMinusZero($request->getData('chap_id')))
+        if (!Utilitaires::emptyMinusZero($request->getData('chap_id')))
         {
 //            Afficher le chapitre
             $chapterManager = new ChaptersManager();

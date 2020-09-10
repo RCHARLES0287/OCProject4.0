@@ -9,6 +9,7 @@ use Exception;
 use OCFram\BackController;
 use OCFram\Entity;
 use OCFram\HTTPRequest;
+use OCFram\Utilitaires;
 
 
 class CommentsController extends BackController
@@ -16,7 +17,7 @@ class CommentsController extends BackController
     public function executeCommentonechapter (HTTPRequest $request)
     {
 
-        if ($request->postExists('comment_chapter_button') && !\OCFram\Utilitaires::emptyMinusZero($request->postData('visitor_pseudo')) && !\OCFram\Utilitaires::emptyMinusZero($request->postData('comment_content')) && !\OCFram\Utilitaires::emptyMinusZero($request->postData('chap_id')))
+        if ($request->postExists('comment_chapter_button') && !Utilitaires::emptyMinusZero($request->postData('visitor_pseudo')) && !Utilitaires::emptyMinusZero($request->postData('comment_content')) && !Utilitaires::emptyMinusZero($request->postData('chap_id')))
         {
             $newCommentContent = [
                 'chapter_id' => $request->postData('chap_id'),
@@ -42,7 +43,7 @@ class CommentsController extends BackController
 
     public function executeWarningoncomment (HTTPRequest $request)
     {
-        if ($request->postExists('send_warning') && !\OCFram\Utilitaires::emptyMinusZero($request->postData('comment_id')))
+        if ($request->postExists('send_warning') && !Utilitaires::emptyMinusZero($request->postData('comment_id')))
         {
             $commentsManager = new CommentsManager();
 

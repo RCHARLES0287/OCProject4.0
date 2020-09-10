@@ -14,7 +14,7 @@ class Page extends ApplicationComponent
      */
   public function addVar($var, $value)
   {
-    if (!is_string($var) || is_numeric($var) || \OCFram\Utilitaires::emptyMinusZero($var))
+    if (!is_string($var) || is_numeric($var) || Utilitaires::emptyMinusZero($var))
     {
       throw new \InvalidArgumentException('Le nom de la variable doit être une chaine de caractères non nulle');
     }
@@ -43,7 +43,7 @@ class Page extends ApplicationComponent
 
   public function setContentFile($contentFile)
   {
-    if (!is_string($contentFile) || \OCFram\Utilitaires::emptyMinusZero($contentFile))
+    if (!is_string($contentFile) || Utilitaires::emptyMinusZero($contentFile))
     {
       throw new \InvalidArgumentException('La vue spécifiée est invalide');
     }

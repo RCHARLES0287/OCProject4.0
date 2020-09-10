@@ -7,6 +7,7 @@ use Model\ChaptersManager;
 use Model\CommentsManager;
 use OCFram\BackController;
 use OCFram\HTTPRequest;
+use OCFram\Utilitaires;
 
 
 class ChaptersController extends BackController
@@ -25,7 +26,7 @@ class ChaptersController extends BackController
     {
 
         /** @noinspection DuplicatedCode */
-        if (!\OCFram\Utilitaires::emptyMinusZero($request->postData('chap_id')))
+        if (!Utilitaires::emptyMinusZero($request->postData('chap_id')))
         {
 //            Afficher le chapitre
             $chapterManager = new ChaptersManager();
@@ -62,7 +63,7 @@ class ChaptersController extends BackController
 
         $this->page->addVar('chapter', new ChapterEntity());
 
-        if ($request->postExists('modify_chapter_button') && !\OCFram\Utilitaires::emptyMinusZero($request->postData('chap_id_modify')))
+        if ($request->postExists('modify_chapter_button') && !Utilitaires::emptyMinusZero($request->postData('chap_id_modify')))
         {
 
 
@@ -72,7 +73,7 @@ class ChaptersController extends BackController
             $this->page->addVar('chapter', $chapterEntity);
         }
 
-        else if($request->postExists('submit_button') && !\OCFram\Utilitaires::emptyMinusZero($request->postData('chap_number')) && !\OCFram\Utilitaires::emptyMinusZero($request->postData('chapter_title')) && !\OCFram\Utilitaires::emptyMinusZero($request->postData('chapter_content')))
+        else if($request->postExists('submit_button') && !Utilitaires::emptyMinusZero($request->postData('chap_number')) && !Utilitaires::emptyMinusZero($request->postData('chapter_title')) && !Utilitaires::emptyMinusZero($request->postData('chapter_content')))
         {
             /*
             var_dump($request->postData('chap_number'));
@@ -132,7 +133,7 @@ class ChaptersController extends BackController
 
     public function executeConfirmdeleteonechapter (HTTPRequest $request)
     {
-        if (\OCFram\Utilitaires::emptyMinusZero($request->postData('chap_id')))
+        if (Utilitaires::emptyMinusZero($request->postData('chap_id')))
         {
             throw new \Exception('Impossible de supprimer ce chapitre : id du chapitre manquant');
         }
@@ -146,7 +147,7 @@ class ChaptersController extends BackController
 
     public function executeDeleteonechapter (HTTPRequest $request)
     {
-        if($request->postExists('delete_chapter_button') && !\OCFram\Utilitaires::emptyMinusZero($request->postData('chap_id')))
+        if($request->postExists('delete_chapter_button') && !Utilitaires::emptyMinusZero($request->postData('chap_id')))
         {
             $chapterManager = new ChaptersManager();
             $chapterManager->deleteOneChapter($request->postData('chap_id'));

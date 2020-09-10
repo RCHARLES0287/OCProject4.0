@@ -48,7 +48,7 @@ abstract class BackController extends ApplicationComponent
 
     public function setModule($module)
     {
-        if (!is_string($module) || \OCFram\Utilitaires::emptyMinusZero($module))
+        if (!is_string($module) || Utilitaires::emptyMinusZero($module))
         {
             throw new \InvalidArgumentException('Le module doit être une chaine de caractères valide');
         }
@@ -58,7 +58,7 @@ abstract class BackController extends ApplicationComponent
 
     public function setAction($action)
     {
-        if (!is_string($action) || \OCFram\Utilitaires::emptyMinusZero($action))
+        if (!is_string($action) || Utilitaires::emptyMinusZero($action))
         {
             throw new \InvalidArgumentException('L\'action doit être une chaine de caractères valide');
         }
@@ -68,7 +68,7 @@ abstract class BackController extends ApplicationComponent
 
     public function setView($view)
     {
-        if (!is_string($view) || \OCFram\Utilitaires::emptyMinusZero($view))
+        if (!is_string($view) || Utilitaires::emptyMinusZero($view))
         {
             throw new \InvalidArgumentException('La vue doit être une chaine de caractères valide');
         }

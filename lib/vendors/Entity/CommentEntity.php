@@ -5,6 +5,7 @@ namespace Entity;
 
 
 use OCFram\Entity;
+use OCFram\Utilitaires;
 
 class CommentEntity extends Entity
 {
@@ -35,7 +36,7 @@ class CommentEntity extends Entity
 
     public function setContent($text)
     {
-        if(\OCFram\Utilitaires::emptyMinusZero($text))
+        if(Utilitaires::emptyMinusZero($text))
         {
             throw new \Exception('Le contenu du commentaire doit contenir du texte uniquement');
         }

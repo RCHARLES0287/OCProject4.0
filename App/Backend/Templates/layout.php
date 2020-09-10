@@ -31,7 +31,9 @@
           <?php
 
 
-          if (!\OCFram\Utilitaires::emptyMinusZero($errorMessage))
+          use OCFram\Utilitaires;
+
+          if (!Utilitaires::emptyMinusZero($errorMessage))
           {
               ?>
               <div class="affichage_exception">

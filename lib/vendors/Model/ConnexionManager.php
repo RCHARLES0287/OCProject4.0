@@ -3,6 +3,7 @@ namespace Model;
 
 use OCFram\Managers;
 use Entity\AdminEntity;
+use OCFram\Utilitaires;
 
 class ConnexionManager extends Managers
 {
@@ -29,7 +30,7 @@ class ConnexionManager extends Managers
 
     public function compareVisitorWithDb ($visitorLogin, $visitorPwd)
     {
-        if(!\OCFram\Utilitaires::emptyMinusZero($visitorLogin) && !\OCFram\Utilitaires::emptyMinusZero($visitorPwd))
+        if(!Utilitaires::emptyMinusZero($visitorLogin) && !Utilitaires::emptyMinusZero($visitorPwd))
         {
             $answerAdminsData = $this->db->prepare('SELECT id, login, password, status, creation_date FROM blog_auteur_admins WHERE login= :loginVisiteur');
             $answerAdminsData->execute(array('loginVisiteur' => $visitorLogin));
