@@ -12,7 +12,7 @@ abstract class Utilitaires
         {
             return true;
         }
-        else if (trim($value) === '')       //Contrôle les chaînes d'espaces blancs
+        else if (is_string($value) && trim($value) === '')       //Contrôle les chaînes d'espaces blancs
         {
             return true;
         }
