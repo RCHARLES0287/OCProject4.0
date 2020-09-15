@@ -29,19 +29,20 @@
         <section class="corps_de_page">
 
             <?php
-/*
-            if (!\OCFram\Utilitaires::emptyMinusZero($request->postData('errorMessage')))
-            {*/
-            ?>
-                <!--<div class="affichage_exception">
-                <?/*= $errorMessage */?>
-                </div>-->
-            <?php
-            /*}*/
-            ?>
 
 
-            <?= $errorMessage ?>
+            use OCFram\Utilitaires;
+
+            if (!Utilitaires::emptyMinusZero($errorMessage))
+            {
+                ?>
+                <div class="affichage_exception">
+                    <?= $errorMessage ?>
+                </div>
+                <?php
+            }
+            ?>
+            
 
             <?= $content ?>
 
