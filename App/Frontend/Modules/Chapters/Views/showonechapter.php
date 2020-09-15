@@ -28,16 +28,6 @@
             <input name="comment_chapter_button" type="submit" value="Commenter">
         </form>
 
-        <script>
-            tinymce.init({
-                selector: 'textarea',
-                // plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-                toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
-                toolbar_mode: 'floating',
-                tinycomments_mode: 'embedded',
-                tinycomments_author: 'Author name',
-            });
-        </script>
 
         <div class="comments_with_warnings">
 
@@ -97,4 +87,14 @@
 
 </div>
 
+<script type="application/javascript">
+    tinymce.init({
+        selector: 'textarea',
+        // plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
+        toolbar_mode: 'floating',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+    });
+</script>
 

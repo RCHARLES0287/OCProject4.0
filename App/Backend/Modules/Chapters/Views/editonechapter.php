@@ -28,7 +28,7 @@
 </form>
 
 
-<script>
+<script type="application/javascript">
     tinymce.init({
         selector: 'textarea',
         // plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
