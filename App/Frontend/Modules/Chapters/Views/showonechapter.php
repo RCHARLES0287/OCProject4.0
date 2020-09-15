@@ -1,8 +1,3 @@
-
-
-
-
-
 <div class="chap_view">
 
     <?php
@@ -19,17 +14,16 @@
         </div>
 
 
-
         <h3>Ajouter un commentaire</h3>
 
         <form method="post" action="/visitor/commentonechapter">
-            <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br />
+            <input id="chapter_id" type="hidden" name="chap_id" value='<?= $chapter->id() ?>'/><br/>
 
             <label for="visitor_pseudo">Votre pseudo</label>
-            <input required id="visitor_pseudo" type="text" name="visitor_pseudo" /> <br /><br />
+            <input required id="visitor_pseudo" type="text" name="visitor_pseudo"/> <br/><br/>
 
             <label for="comment_content">Votre commentaire</label>
-            <textarea class="tiny_mce" id="comment_content" name="comment_content" >  </textarea><br /><br />
+            <textarea class="tiny_mce" id="comment_content" name="comment_content">  </textarea><br/><br/>
 
             <input name="comment_chapter_button" type="submit" value="Commenter">
         </form>
@@ -45,58 +39,59 @@
             });
         </script>
 
-
-    <?php
-    if (empty($comments))
-    {
-    ?>
         <div class="comments_with_warnings">
-            <h3>Soyez le premier à laisser un commentaire</h3>
-        </div>
-        <?php
-    }
-    else
-    {
-        ?>
-        <h3>Commentaires</h3>
-
-        <ul class="list_commentaires_showonechapter_visitor">
 
             <?php
-            /** @var \Entity\CommentEntity $comment */
-            foreach ($comments as $comment)
+            if (count($comments) === 0)
             {
                 ?>
+                <h3>Soyez le premier à laisser un commentaire</h3>
+                <?php
+            }
+            else
+            {
+                ?>
+                <h3>Commentaires</h3>
 
-                <li>
+                <ul class="list_commentaires_showonechapter_visitor">
 
-                    <div class="comment_showonechapter_visitor">
-                        <?= $comment->visitor_pseudo() ?> :
-                    </div>
-                    <div class="comment_showonechapter_content">
-                        <?= $comment->content() ?>
-                    </div>
-                    <div class="date_publication_showonechapter_visitor">
-                        Date de publication : <?= $comment->release_date() ?>
-                    </div>
+                    <?php
+                    /** @var \Entity\CommentEntity $comment */
+                    foreach ($comments as $comment)
+                    {
+                        ?>
+
+                        <li>
+
+                            <div class="comment_showonechapter_visitor">
+                                <?= $comment->visitor_pseudo() ?> :
+                            </div>
+                            <div class="comment_showonechapter_content">
+                                <?= $comment->content() ?>
+                            </div>
+                            <div class="date_publication_showonechapter_visitor">
+                                Date de publication : <?= $comment->release_date() ?>
+                            </div>
 
 
-                    <form method="post" action="/visitor/warningoncomment">
-                        <input id="comment_id" type="hidden" name="comment_id" value='<?= $comment->id() ?>'/><br />
-                        <input name="send_warning" type="submit" value="Signaler">
-                    </form>
+                            <form method="post" action="/visitor/warningoncomment">
+                                <input id="comment_id" type="hidden" name="comment_id"
+                                       value='<?= $comment->id() ?>'/><br/>
+                                <input name="send_warning" type="submit" value="Signaler">
+                            </form>
 
-                </li>
+                        </li>
 
+                        <?php
+                    }
+                    ?>
+                </ul>
                 <?php
             }
             ?>
-        </ul>
-    <?php
-    }
-    ?>
+        </div>
 
-    <?php
+        <?php
     }
     ?>
 
