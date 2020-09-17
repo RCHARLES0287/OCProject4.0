@@ -116,7 +116,7 @@ h1
 
 
 
-.create_new_chapter input
+.create_new_chapter input[name="newchap_submit_button"]
 {
     font-size: 40px;
     color: mintcream;
@@ -125,7 +125,7 @@ h1
     border-radius: 5px;
 }
 
-.create_new_chapter input:hover
+.create_new_chapter input[name="newchap_submit_button"]:hover
 {
     background-color: limegreen;
 }
@@ -144,7 +144,7 @@ h1
 
 .corps_de_page .list_chap, .chapter_bloc
 {
-    height: 110px;
+    height: auto;
     list-style-type: none;
     border: 2px #006699 solid;
     background-color: lavender;
@@ -152,6 +152,12 @@ h1
     border-radius: 5px;
 }
 
+.list_chap
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
 .chapter_bloc
 {
@@ -167,48 +173,34 @@ h1
     font-size: 50px;
 }
 
-.chap_title_accueil_admin, .chap_title_accueil_visitor
+.chap_title_accueil_admin, .chap_title_accueil_visitor, .chap_text_accueil_admin, .chap_text_accueil_visitor
 {
-    height: 20px;
+    height: auto;
+    padding: 5px;
 }
-
-.liste_accueil_admin .list_chap .boutons_accueil_admin
-{
-    margin-bottom: 5px;
-}
-
-
-.chap_text_accueil_admin
-{
-    /*height: 150px;*/
-}
-
 
 .chap_text_accueil_admin:first-child
 {
     height: 20px;
     white-space: nowrap;
 }
-
-
-
 /*
-.chap_text_accueil_admin:first-child, .chap_text_accueil_visitor:first-child
-{
-    height: 35px;
-    text-overflow: ellipsis;
-}
-*/
-
-
 
 .list_chap input
 {
     background-color: gold;
     border-radius: 3px;
 }
+*/
 
-.list_chap input:hover
+input[type="submit"]
+{
+    background-color: gold;
+    border-radius: 3px;
+}
+
+
+input[type="submit"]:hover
 {
     background-color: slateblue;
 }
@@ -222,7 +214,6 @@ h1
 
 .boutons_accueil_admin
 {
-    height: 0px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
