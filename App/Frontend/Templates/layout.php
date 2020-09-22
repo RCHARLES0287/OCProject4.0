@@ -50,6 +50,8 @@
         </section>
 
         <footer>
+            <a></a>
+            <a href="/admin/identification">Espace administrateur</a>
             <div class="copyright"><i class="far fa-copyright"></i>Jean Forteroche</div>
         </footer>
     </body>

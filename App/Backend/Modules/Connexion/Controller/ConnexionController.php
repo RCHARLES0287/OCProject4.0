@@ -16,7 +16,12 @@ class ConnexionController extends BackController
 
     public function executeIdentification(HTTPRequest $request)
     {
-        if($request->postExists('submit_button'))
+        /*
+        var_dump('ON EST BIEN DANS LA PARTIE IDENTIFICATION');
+        exit;
+        */
+
+//        if($request->postExists('submit_button'))
         {
             $connexionManager = new ConnexionManager();
             $adminEntity = $connexionManager->compareVisitorWithDb($request->postData('login'), $request->postData('password'));
