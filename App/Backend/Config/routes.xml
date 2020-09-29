@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <routes>
+    <route url="/admin/loggingin" module="Connexion" action="loggingin"/>
     <route url="/admin/identification" module="Connexion" action="identification"/>
     <route url="/admin/showallchapters" module="Chapters" action="showallchapters"/>
     <route url="/admin/showonechapter" module="Chapters" action="showonechapter"/>

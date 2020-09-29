@@ -1,19 +1,27 @@
 
 
+<div class="confirmation_authentification">
+    <?php
+    if ($_SESSION['connexion_status']==='connected')
+    {
+        ?>
+        <p class="acces_valide">
+            Accès authorisé <br/>
+            Bienvenue dans l'espace administrateur <?php echo $_SESSION['login'] ?>
+        </p>
 
+        <a href="/admin/showallchapters">Accueil administrateur</a>
+        <?php
+    }
+    else
+    {
+        ?>
+        <p class="acces_refuse">
+            Accès refusé
+        </p>
 
-
-<h2 class="titres_vues">Connexion</h2>
-
-
-<form method="post" action="/admin/identification">
-    <label for="login">Pseudo</label>
-    <input required id="login" type="text" name="login" value="<?= $prevLogin ?>"/><br />
-
-    <label for="password">Mot de passe</label>
-    <input required id="password" type="password" name="password" /><br /><br />
-
-    <input name="submit_button" type="submit" value="Connexion" />
-</form>
-
-
+        <a href="/visitor/showallchapters">Accueil visiteur</a>
+        <?php
+    }
+    ?>
+</div>

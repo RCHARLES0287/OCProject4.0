@@ -2,6 +2,8 @@
 
 namespace App\Backend\Modules\Connexion\Controller;
 
+session_start();
+
 use Model\ConnexionManager;
 use OCFram\BackController;
 use OCFram\HTTPRequest;
@@ -14,6 +16,11 @@ class ConnexionController extends BackController
     private $_visitorPassword = null;
 
 
+    public function executeLoggingin(HTTPRequest  $request)
+    {
+
+    }
+
     public function executeIdentification(HTTPRequest $request)
     {
         /*
@@ -23,23 +30,36 @@ class ConnexionController extends BackController
 
 //        if($request->postExists('submit_button'))
         {
+            /*
+            var_dump('on y est');
+            exit;
+            */
             $connexionManager = new ConnexionManager();
             $adminEntity = $connexionManager->compareVisitorWithDb($request->postData('login'), $request->postData('password'));
 
+            /*
+            var_dump($adminEntity);
+            exit;
+            */
 
             if($adminEntity !== false)
             {
-                var_dump('Le visiteur est bien authentifié');
+//                var_dump('Le visiteur est bien authentifié');
+                $_SESSION['connexion_status']='connected';
+                $_SESSION['login']=$adminEntity->login();
             }
+            /*
             else
             {
                 var_dump('Le visiteur n\'a pas pu être authentifié');
-            }
+            }*/
 
         }
 
+        /*
         header('Location: /admin/showallchapters');     //Ne jamais mettre l'URL absolue
         exit;
+        */
     }
 
 
