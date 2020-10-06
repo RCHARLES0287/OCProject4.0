@@ -1,9 +1,4 @@
-
-
-
-
 <h2 class="titres_vues">Commentaires</h2>
-
 
 
 <ul>

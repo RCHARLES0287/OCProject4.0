@@ -15,6 +15,22 @@ class ConnexionController extends BackController
     private $_visitorPseudo = null;
     private $_visitorPassword = null;
 
+    static public function isConnected ()
+    {
+        if ($_SESSION['connexion_status'] === 'connected')
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function executeErrorauthentification(HTTPRequest  $request)
+    {
+
+    }
 
     public function executeLoggingin(HTTPRequest  $request)
     {
@@ -63,6 +79,7 @@ class ConnexionController extends BackController
     }
 
 
+/*
     public function executeIndex(HTTPRequest $request)
     {
         $this->page->addVar('title', 'Connexion');
@@ -83,7 +100,11 @@ class ConnexionController extends BackController
             }
         }
     }
+    */
 
+
+
+    /*
     public function indentificationRedirection()
     {
         session_start();
@@ -94,25 +115,30 @@ class ConnexionController extends BackController
         else{
             header('Location: '); // Indiquer l'URL vers lequel on doit rediriger le visiteur qui n'aura pas été identifié
         }
-    }
+    }*/
 
 
+    /*
     public function setVisitorPseudo()
     {
         if(isset($_POST['login']) AND is_string($_POST['login']))
         {
             $this->_visitorPseudo = $_POST['login'];
         }
-    }
+    }*/
 
+
+    /*
     public function setVisitorPassword()
     {
         if(isset($_POST['password']) AND is_string($_POST['password']))
         {
             $this->_visitorPassword = $_POST['password'];
         }
-    }
+    }*/
 
+
+    /*
     public function testAdmin()
     {
         $dbInfo [] = getAdminsData();
@@ -132,7 +158,8 @@ class ConnexionController extends BackController
                 // renvoyer vers la page d'accueil du site
             }
         }
-    }
+    }*/
+
 
 }
 

@@ -3,6 +3,7 @@
 <routes>
     <route url="/admin/loggingin" module="Connexion" action="loggingin"/>
     <route url="/admin/loggingoff" module="Connexion" action="loggingoff"/>
+    <route url="/admin/errorauthentification" module="Connexion" action="errorauthentification"/>
     <route url="/admin/identification" module="Connexion" action="identification"/>
     <route url="/admin/showallchapters" module="Chapters" action="showallchapters"/>
     <route url="/admin/showonechapter" module="Chapters" action="showonechapter"/>

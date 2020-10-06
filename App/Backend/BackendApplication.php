@@ -1,7 +1,9 @@
 <?php
 namespace App\Backend;
 
+use App\Backend\Modules\Connexion\Controller\ConnexionController;
 use \OCFram\Application;
+use OCFram\BackController;
 
 class BackendApplication extends Application
 {
@@ -15,7 +17,14 @@ class BackendApplication extends Application
     public function run()
     {
 
+        /** @var BackController $controller */
         $controller = $this->getController();
+
+        if ($controller->getModule() !== 'Connexion' && ConnexionController::isConnected() === false)
+        {
+            header('Location: /admin/errorauthentification');
+            exit;
+        }
 
         $controller->execute();
 
