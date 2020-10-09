@@ -20,14 +20,8 @@ session_start();
       <header>
           <div id="titre_accueil">Le blog de Jean Forteroche</div>
           <div class="menu_entete">
-              <ul class="list_menu_entete" id="liste_menu_entete_backend">
-                  <li class="bouton_menu_backend"><i class="fas fa-book-open"></i></li>
-                  <li class="bouton_menu_backend"><a href="/admin/showallchapters">Sommaire</a></li>
-                  <li class="bouton_menu_backend">Déconnexion</li>
-              </ul>
+              <a class="bouton_menu_backend" href="/admin/showallchapters">Sommaire</a>
           </div>
-          <div class="icone_burgermenu"><i class="fas fa-bars"></i></div>
-
       </header>
 
       <section class="corps_de_page">

@@ -36,8 +36,11 @@ header
     text-align: center;
     width: 450px;
     margin-left: calc(50% - 225px);
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
+/*
 
 .list_menu_entete
 {
@@ -46,6 +49,7 @@ header
     justify-content: space-between;
     list-style-type: none;
 }
+*/
 
 
 h1
