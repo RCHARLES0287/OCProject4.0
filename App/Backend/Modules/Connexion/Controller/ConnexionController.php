@@ -78,6 +78,13 @@ class ConnexionController extends BackController
         */
     }
 
+    public function executeLoggingoff(HTTPRequest  $request)
+    {
+//        On vide la session afin de mettre fin à l'indentification de l'administrateur
+        $_SESSION = array();
+//        header('Location: /visitor/showallchapters');
+    }
+
 
 /*
     public function executeIndex(HTTPRequest $request)
