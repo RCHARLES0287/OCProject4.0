@@ -4,67 +4,74 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="fr_FR">
-  <head>
-      <meta charset="utf-8" />
-        <!--      Fontawesome   -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-      <link rel="stylesheet" href="/css/style.css"/>
-        <!--      Script du CDN TinyMCE-->
-      <script src="https://cdn.tiny.cloud/1/hgsrcotr84d8b32tbwy0opsqe12o7cimt1j2ne74vioz1qhi/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-      <title>Mon blog d'auteur</title>
-  </head>
-  
-  <body>
-      <script src="/burgermenu.js"></script>
+<head>
+    <meta charset="utf-8"/>
+    <!--      Fontawesome   -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+          integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <!--      Script du CDN TinyMCE-->
+    <script src="https://cdn.tiny.cloud/1/hgsrcotr84d8b32tbwy0opsqe12o7cimt1j2ne74vioz1qhi/tinymce/5/tinymce.min.js"
+            referrerpolicy="origin"></script>
+    <title>Mon blog d'auteur</title>
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+            crossorigin="anonymous"></script>
+</head>
 
-      <header>
-          <div id="titre_accueil">Le blog de Jean Forteroche</div>
-          <div class="menu_entete">
-              <a class="bouton_menu_backend" href="/admin/showallchapters">Sommaire</a>
-          </div>
-      </header>
+<body>
+<script src="/AutoRedirection.js"></script>
+<script src="/projectFile.js"></script>
 
-      <section class="corps_de_page">
+<header>
+    <div id="titre_accueil">Le blog de Jean Forteroche</div>
+    <div class="menu_entete">
+        <a class="bouton_menu_backend" href="/admin/showallchapters">Sommaire</a>
+    </div>
+</header>
 
-          <?php
+<section class="corps_de_page">
 
-
-          use OCFram\Utilitaires;
-
-          if (!Utilitaires::emptyMinusZero($errorMessage))
-          {
-              ?>
-              <div class="affichage_exception">
-                <?= $errorMessage ?>
-                </div>
-              <?php
-          }
-          ?>
+    <?php
 
 
-          <?= $content ?>
+    use OCFram\Utilitaires;
+
+    if (!Utilitaires::emptyMinusZero($errorMessage))
+    {
+        ?>
+        <div class="affichage_exception">
+            <?= $errorMessage ?>
+        </div>
+        <?php
+    }
+    ?>
 
 
-      </section>
+    <?= $content ?>
 
-      <footer>
-          <?php
-          if ($_SESSION['connexion_status']='connected')
-          {
-          ?>
-              <a href="/admin/loggingoff">Déconnexion</a>
-          <?php
-          }
-          else
-          {
-          ?>
-              <a href="/admin/loggingin">Espace administrateur</a>
-          <?php
-          }
-          ?>
-<!--          <a href="/admin/loggingoff">Déconnexion</a>-->
-          <div class="copyright"><i class="far fa-copyright"></i>Jean Forteroche</div>
-      </footer>
-  </body>
+
+</section>
+
+<footer>
+    <?php
+    if ($_SESSION['connexion_status'] = 'connected')
+    {
+        ?>
+        <a href="/admin/loggingoff">Déconnexion</a>
+        <?php
+    }
+    else
+    {
+        ?>
+        <a href="/admin/loggingin">Espace administrateur</a>
+        <?php
+    }
+    ?>
+    <!--          <a href="/admin/loggingoff">Déconnexion</a>-->
+    <div class="copyright"><i class="far fa-copyright"></i>Jean Forteroche</div>
+</footer>
+</body>
 </html>
 
