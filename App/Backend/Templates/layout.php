@@ -48,7 +48,21 @@ session_start();
       </section>
 
       <footer>
-          <a href="/admin/loggingoff">Déconnexion</a>
+          <?php
+          if ($_SESSION['connexion_status']='connected')
+          {
+          ?>
+              <a href="/admin/loggingoff">Déconnexion</a>
+          <?php
+          }
+          else
+          {
+          ?>
+              <a href="/admin/loggingin">Espace administrateur</a>
+          <?php
+          }
+          ?>
+<!--          <a href="/admin/loggingoff">Déconnexion</a>-->
           <div class="copyright"><i class="far fa-copyright"></i>Jean Forteroche</div>
       </footer>
   </body>
