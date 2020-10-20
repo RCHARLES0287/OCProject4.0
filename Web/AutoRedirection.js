@@ -1,13 +1,14 @@
 class AutoRedirection {
 
-    let delay;
+    // let link
 
-    function timer(path, timing) {
-        this.delay = document.setTimeout(this.redirection(path), timing);
+    constructor(link, duration) {
+        this.link = link;
+        window.setTimeout(this.redirection.bind(this), duration);
     }
 
-    function redirection(link) {
+    redirection() {
         // Faire la redirection ici
-        document.location.href='.link.';
+        document.location.href=this.link;
     }
 }
