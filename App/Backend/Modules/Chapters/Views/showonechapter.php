@@ -42,7 +42,8 @@
 
                     <li>
 
-                        <?= $comment->visitor_pseudo() ?> : <?= $comment->content() ?>.<br/>
+                        <?= $comment->visitor_pseudo() ?> :
+                        <div class="comment_showonechapter_content"><?= $comment->content() ?></div><br/>
                         Date de publication : <?= $comment->release_date() ?> <br/>
                         Nombre de signalements : <?= $comment->number_of_warnings() ?>
 
@@ -93,7 +94,8 @@
 
                     <li>
 
-                        <?= $comment->visitor_pseudo() ?> : <?= $comment->content() ?>.<br/>
+                        <?= $comment->visitor_pseudo() ?> :
+                        <div class="comment_showonechapter_content"><?= $comment->content() ?></div><br/>
                         Date de publication : <?= $comment->release_date() ?> <br/>
                         <?php
                         if ($comment->number_of_warnings() !== -1)

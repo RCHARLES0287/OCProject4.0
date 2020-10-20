@@ -21,8 +21,6 @@ session_start();
 </head>
 
 <body>
-<script src="/AutoRedirection.js"></script>
-<script src="/projectFile.js"></script>
 
 <header>
     <div id="titre_accueil">Le blog de Jean Forteroche</div>

@@ -21,8 +21,6 @@ session_start();
 </head>
 
 <body>
-<script src="/AutoRedirection.js"></script>
-<script src="/projectFile.js"></script>
 
 <header>
     <div id="titre_accueil">Le blog de Jean Forteroche</div>
@@ -36,6 +34,7 @@ session_start();
     <?php
 
 
+    use App\Backend\Modules\Connexion\Controller\ConnexionController;
     use OCFram\Utilitaires;
 
     if (!Utilitaires::emptyMinusZero($errorMessage))
@@ -56,7 +55,7 @@ session_start();
 
 <footer>
     <?php
-    if ($_SESSION['connexion_status'] = 'connected')
+    if (ConnexionController::isConnected())
     {
         ?>
         <a href="/admin/loggingoff">Déconnexion</a>
@@ -69,7 +68,6 @@ session_start();
         <?php
     }
     ?>
-    <!--          <a href="/admin/loggingoff">Déconnexion</a>-->
     <div class="copyright"><i class="far fa-copyright"></i>Jean Forteroche</div>
 </footer>
 </body>

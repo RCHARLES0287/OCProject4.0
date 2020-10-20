@@ -24,6 +24,16 @@ header
     position: fixed;
 }
 
+*:visited
+{
+    color: black;
+}
+
+a
+{
+    text-decoration: none;
+}
+
 .icone_burgermenu
 {
     display: none;
@@ -40,18 +50,6 @@ header
     margin-bottom: 15px;
 }
 
-/*
-
-.list_menu_entete
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    list-style-type: none;
-}
-*/
-
-
 h1
 {
     color: black;
@@ -65,7 +63,6 @@ h1
 .bouton_menu_backend, .bouton_menu_frontend
 {
     width: auto;
-    /*height: auto;*/
     padding: 5px;
     text-align: center;
     background-color: mistyrose;
@@ -85,11 +82,11 @@ h1
 }
 
 
-
 .corps_de_page
 {
     width: 100%;
     margin-top: 100px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -188,14 +185,6 @@ h1
     height: 20px;
     white-space: nowrap;
 }
-/*
-
-.list_chap input
-{
-    background-color: gold;
-    border-radius: 3px;
-}
-*/
 
 input[type="submit"]
 {
@@ -233,13 +222,14 @@ input[type="submit"]:hover
     width: 100%;
 }
 
-.list_commentaires_showonechapter_visitor li
+.list_commentaires_showonechapter_visitor li, .comments_with_warnings li, .comments_with_no_warnings li
 {
     list-style-type: none;
     border: 2px #006699 solid;
     background-color: lavender;
     margin-bottom: 30px;
     border-radius: 5px;
+    padding: 5px;
 }
 
 .comment_showonechapter_visitor
@@ -255,6 +245,7 @@ input[type="submit"]:hover
 footer
 {
     width: 100%;
+    padding-top: 5px;
     background-color: lavender;
     display: flex;
     flex-direction: column;
@@ -262,6 +253,11 @@ footer
     align-items: center;
     position: fixed;
     bottom: 0;
+}
+
+footer a
+{
+    text-decoration: underline;
 }
 
 .copyright
@@ -286,21 +282,34 @@ footer
 
 @media all and (max-width: 980px)
 {
-    .menu_entete
+    #titre_accueil
     {
-        display: none;
+        font-size: 60px;
     }
 
-    .icone_burgermenu
+    header a, .corps_de_page a, .corps_de_page p, input[type="submit"], .acces_valide, .acces_refuse
     {
-        display: block;
-        width: auto;
-        /*height: auto;*/
-        margin-right: 10px;
-        padding: 5px;
-        text-align: center;
-        background-color: darkturquoise;
-        border: 2px black solid;
-        border-radius: 5px;
+        font-size: 30px;
+    }
+
+    label
+    {
+        font-size: 30px;
+    }
+
+    input
+    {
+        font-size: 25px;
+    }
+
+    .corps_de_page
+    {
+        margin-top: 200px;
+        margin-bottom: 100px;
+    }
+
+    footer
+    {
+        font-size: 30px;
     }
 }
