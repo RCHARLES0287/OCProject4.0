@@ -9,11 +9,14 @@ session_start();
     <!--      Fontawesome   -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
           integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous"/>
+    <!--    Feuille de style-->
     <link rel="stylesheet" href="/css/style.css"/>
     <!--      Script du CDN TinyMCE-->
     <script src="https://cdn.tiny.cloud/1/hgsrcotr84d8b32tbwy0opsqe12o7cimt1j2ne74vioz1qhi/tinymce/5/tinymce.min.js"
             referrerpolicy="origin"></script>
-    <title>Mon blog d'auteur</title>
+    <!--    Titre dans le navigateur-->
+    <title>Jean Forteroche - Le blog</title>
+    <!--    Script JQuery-->
     <script
             src="https://code.jquery.com/jquery-3.5.1.min.js"
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
