@@ -22,6 +22,7 @@ header
     align-items: center;
     background-color: lavender;
     position: fixed;
+    z-index: 10;
 }
 
 *:visited
