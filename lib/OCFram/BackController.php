@@ -1,4 +1,5 @@
 <?php
+
 namespace OCFram;
 
 abstract class BackController extends ApplicationComponent
@@ -21,24 +22,21 @@ abstract class BackController extends ApplicationComponent
 
     public function execute()   // Lance la méthode du controller.
     {
-        $method = 'execute'.ucfirst($this->action);
+        $method = 'execute' . ucfirst($this->action);
 
         if (!is_callable([$this, $method]))   // Ici, $this est AccueilController.
         {
-            throw new \RuntimeException('L\'action "'.$this->action.'" n\'est pas définie sur ce module');
+            throw new \RuntimeException('L\'action "' . $this->action . '" n\'est pas définie sur ce module');
         }
 
-        try {
-            $this->$method($this->app->httpRequest());
-        }
-        catch(\Throwable $e)
+        try
         {
-//            var_dump($e);
+            $this->$method($this->app->httpRequest());
+        } catch (\Throwable $e)
+        {
             $this->page->addVar('errorMessage', $e->getMessage());
             $this->page->addVar('errorStack', $e->getTrace());
-//            $this->page->addVar('errorStack', $e);
         }
-
     }
 
     public function page()
@@ -75,7 +73,7 @@ abstract class BackController extends ApplicationComponent
 
         $this->view = $view;
 
-        $this->page->setContentFile(__DIR__.'/../../App/'.$this->app->name().'/Modules/'.$this->module.'/Views/'.$this->view.'.php');
+        $this->page->setContentFile(__DIR__ . '/../../App/' . $this->app->name() . '/Modules/' . $this->module . '/Views/' . $this->view . '.php');
     }
 
     public function getModule(): string

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Backend;
 
 use App\Backend\Modules\Connexion\Controller\ConnexionController;

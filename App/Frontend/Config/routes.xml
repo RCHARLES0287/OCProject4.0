@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <routes>
-    <!--    Route d'accès à l'accueil depuis l'url de base du site-->
+    <!--    Route d'accès à l'accueil depuis l'url de base du site : http://blogauteur.romaincharlesdemonstrator.ovh/-->
     <route url="/" module="Chapters" action="showallchapters"/>
 
     <route url="/visitor/showallchapters" module="Chapters" action="showallchapters"/>

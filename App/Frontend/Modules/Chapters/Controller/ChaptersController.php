@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Frontend\Modules\Chapters\Controller;
 
 use Entity\ChapterEntity;
@@ -12,7 +13,7 @@ use OCFram\Utilitaires;
 
 class ChaptersController extends BackController
 {
-    public function executeShowallchapters (HTTPRequest $request)
+    public function executeShowallchapters(HTTPRequest $request)
     {
         $chaptersManager = new ChaptersManager();
 
@@ -23,7 +24,7 @@ class ChaptersController extends BackController
     }
 
 
-    public function executeShowonechapter (HTTPRequest $request)
+    public function executeShowonechapter(HTTPRequest $request)
     {
 
         $this->page->addVar('comments', []);

@@ -20,10 +20,9 @@ class AdminEntity extends Entity
     }
 
 
-
     public function setLogin($login)
     {
-        $this->login = (string) $login;
+        $this->login = (string)$login;
     }
 
     public function login()
@@ -32,10 +31,9 @@ class AdminEntity extends Entity
     }
 
 
-
     public function setPassword($password)
     {
-        $this->password = (string) $password;
+        $this->password = (string)$password;
     }
 
     public function password()
@@ -44,17 +42,15 @@ class AdminEntity extends Entity
     }
 
 
-
     public function setStatus($status)
     {
-        $this->status = (string) $status;
+        $this->status = (string)$status;
     }
 
     public function status()
     {
         return $this->status;
     }
-
 
 
     public function setCreationDate($creationDate)

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Backend\Modules\Comments\Controller;
 
 
@@ -10,7 +11,7 @@ use OCFram\Utilitaires;
 
 class CommentsController extends BackController
 {
-    public function executeDeleteonecomment (HTTPRequest $request)
+    public function executeDeleteonecomment(HTTPRequest $request)
     {
         if ($request->postExists('delete_comment') && !Utilitaires::emptyMinusZero($request->postData('comment_id')))
         {
@@ -24,7 +25,7 @@ class CommentsController extends BackController
         }
     }
 
-    public function executeValidateonecomment (HTTPRequest $request)
+    public function executeValidateonecomment(HTTPRequest $request)
     {
         if (!Utilitaires::emptyMinusZero($request->getData('comment_id')))
         {

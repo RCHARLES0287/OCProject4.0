@@ -1,14 +1,4 @@
-
-
-
-
-
-
-
 <h2 class="titres_vues">Accueil</h2>
-
-
-
 
 
 <div class="liste_accueil_admin">

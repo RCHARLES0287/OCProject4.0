@@ -24,7 +24,7 @@ class ChapterEntity extends Entity
 
     public function setTitle($title)
     {
-        if(Utilitaires::emptyMinusZero($title))
+        if (Utilitaires::emptyMinusZero($title))
         {
             throw new \Exception('Le titre doit être du texte non vide');
         }
@@ -54,7 +54,7 @@ class ChapterEntity extends Entity
 
     public function setText($text)
     {
-        if(Utilitaires::emptyMinusZero($text))
+        if (Utilitaires::emptyMinusZero($text))
         {
             throw new \Exception('Le contenu du chapitre doit contenir du texte uniquement');
         }

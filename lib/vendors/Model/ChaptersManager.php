@@ -45,7 +45,7 @@ class ChaptersManager extends Managers
 
         if ($dbChapter === false)
         {
-            throw new \Exception('Le chapitre dont l\'id est ' .$chapId. ' n\'existe pas');
+            throw new \Exception('Le chapitre dont l\'id est ' . $chapId . ' n\'existe pas');
         }
         else
         {
@@ -58,7 +58,7 @@ class ChaptersManager extends Managers
      * @param ChapterEntity $newChapterEntity L'entité chapitre
      * @throws \Exception
      */
-    Public function saveOneChapter(ChapterEntity $newChapterEntity)
+    public function saveOneChapter(ChapterEntity $newChapterEntity)
     {
 
         $testChapExist = $this->checkChapterNumber($newChapterEntity);
@@ -117,15 +117,15 @@ class ChaptersManager extends Managers
         $dbId->execute();
 
         $idTest = $dbId->fetch(PDO::FETCH_COLUMN);
-        if($idTest == $chapterId)
+        if ($idTest == $chapterId)
         {
             return true;
         }
-        else{
+        else
+        {
             return false;
         }
     }
-
 
 
     public function checkChapterNumber(ChapterEntity $chapterEntity)
@@ -138,11 +138,12 @@ class ChaptersManager extends Managers
 
         $numberTest = $dbNumber->fetch(PDO::FETCH_COLUMN);
 //        Le test se fait avec un "triple =" pour vérifier à la fois la valeur ET le type afin de ne pas matcher avec la valeur 0
-        if($numberTest === false)
+        if ($numberTest === false)
         {
             return true;
         }
-        else{
+        else
+        {
             return false;
         }
     }

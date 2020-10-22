@@ -4,8 +4,6 @@
 
     /** @var \Entity\ChapterEntity $chapter */
 
-    //            use OCFram\Utilitaires;
-
 
     ?>
     <h1 class="chap_title">
@@ -43,7 +41,8 @@
                     <li>
 
                         <?= $comment->visitor_pseudo() ?> :
-                        <div class="comment_showonechapter_content"><?= $comment->content() ?></div><br/>
+                        <div class="comment_showonechapter_content"><?= $comment->content() ?></div>
+                        <br/>
                         Date de publication : <?= $comment->release_date() ?> <br/>
                         Nombre de signalements : <?= $comment->number_of_warnings() ?>
 
@@ -95,7 +94,8 @@
                     <li>
 
                         <?= $comment->visitor_pseudo() ?> :
-                        <div class="comment_showonechapter_content"><?= $comment->content() ?></div><br/>
+                        <div class="comment_showonechapter_content"><?= $comment->content() ?></div>
+                        <br/>
                         Date de publication : <?= $comment->release_date() ?> <br/>
                         <?php
                         if ($comment->number_of_warnings() !== -1)
@@ -107,7 +107,6 @@
                             echo('Commentaire validé');
                         }
                         ?>
-
 
                         <form method="get" action="/admin/validateonecomment">
                             <input id="comment_id" type="hidden" name="comment_id"

@@ -1,5 +1,3 @@
-
-
 <div class="confirmation_authentification">
     <?php
 
@@ -8,7 +6,7 @@
     if (ConnexionController::isConnected())
     {
         ?>
-        <p  class="acces_valide">
+        <p class="acces_valide">
             Accès authorisé <br/>
             Bienvenue dans l'espace administrateur <?php echo $_SESSION['login'] ?>
         </p>
@@ -22,11 +20,11 @@
             });
         </script>
 
-        <?php
+    <?php
     }
     else
     {
-        ?>
+    ?>
         <p class="acces_refuse">
             Accès refusé
         </p>

@@ -36,7 +36,7 @@ class CommentEntity extends Entity
 
     public function setContent($text)
     {
-        if(Utilitaires::emptyMinusZero($text))
+        if (Utilitaires::emptyMinusZero($text))
         {
             throw new \Exception('Le contenu du commentaire doit contenir du texte uniquement');
         }
@@ -51,7 +51,7 @@ class CommentEntity extends Entity
         return $this->content;
     }
 
-    public function setNumber_of_warnings ($number_of_warnings)
+    public function setNumber_of_warnings($number_of_warnings)
     {
         $this->number_of_warnings = (int)$number_of_warnings;
     }
@@ -61,7 +61,7 @@ class CommentEntity extends Entity
         return $this->number_of_warnings;
     }
 
-    public function SetVisitor_pseudo ($visitor_pseudo)
+    public function SetVisitor_pseudo($visitor_pseudo)
     {
         $this->visitor_pseudo = (string)$visitor_pseudo;
     }

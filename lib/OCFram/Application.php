@@ -1,4 +1,5 @@
 <?php
+
 namespace OCFram;
 
 abstract class Application
@@ -20,7 +21,7 @@ abstract class Application
         $router = new Router;
 
         $xml = new \DOMDocument;    // Classe de PHP pour manipuler le DOM, manipuler des fichiers xml (lire, générer), et des dérivés (html, etc).
-        $xml->load(__DIR__.'/../../App/'.$this->name.'/Config/routes.xml');   // Lit le fichier xml des routes.
+        $xml->load(__DIR__ . '/../../App/' . $this->name . '/Config/routes.xml');   // Lit le fichier xml des routes.
 
         $routes = $xml->getElementsByTagName('route');
 
@@ -43,8 +44,7 @@ abstract class Application
         {
             // On récupère la route correspondante à l'URL.
             $matchedRoute = $router->getRoute($this->httpRequest->requestURI());
-        }
-        catch (\RuntimeException $e)
+        } catch (\RuntimeException $e)
         {
             if ($e->getCode() == Router::NO_ROUTE)
             {
@@ -57,7 +57,7 @@ abstract class Application
         $_GET = array_merge($_GET, $matchedRoute->vars());
 
         // On instancie le contrôleur.
-        $controllerClass = 'App\\'.$this->name.'\\Modules\\'.$matchedRoute->module().'\\Controller\\'.$matchedRoute->module().'Controller';
+        $controllerClass = 'App\\' . $this->name . '\\Modules\\' . $matchedRoute->module() . '\\Controller\\' . $matchedRoute->module() . 'Controller';
         return new $controllerClass($this, $matchedRoute->module(), $matchedRoute->action());   // Ici this fait référence à FrontendApplication.
     }
 

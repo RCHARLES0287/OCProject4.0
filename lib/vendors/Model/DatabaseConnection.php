@@ -1,4 +1,5 @@
 <?php
+
 namespace Model;
 
 use Exception;
@@ -11,10 +12,9 @@ class DatabaseConnection
         try
         {
             $db = new PDO('mysql:host=romainchgcdemost.mysql.db;dbname=romainchgcdemost;charset=utf8', 'romainchgcdemost', 'aP0lLoI3H0A1P', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-        }
-        catch(Exception $e)
+        } catch (Exception $e)
         {
-            die('Erreur : '.$e->getMessage());
+            die('Erreur : ' . $e->getMessage());
         }
 
         return $db;
