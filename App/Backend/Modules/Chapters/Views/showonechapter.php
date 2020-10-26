@@ -46,7 +46,7 @@
                         Date de publication : <?= $comment->release_date() ?> <br/>
                         Nombre de signalements : <?= $comment->number_of_warnings() ?>
 
-                        <form method="post" action="/admin/validateonecomment">
+                        <form method="get" action="/admin/validateonecomment">
                             <input id="comment_id" type="hidden" name="comment_id"
                                    value='<?= $comment->id() ?>'/><br/>
                             <input name="validate_comment" type="submit" value="Valider">
